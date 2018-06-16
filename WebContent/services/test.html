@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="../js/vendor/jquery-2.2.4.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                 $("#users").change(function(){
+                	 alert("test");
+                     var value = $(this).val();
+                     alert(value);
+                     $.get("data.jsp",{q:value},function(data){
+                      $("#javaquery").html(data);
+                     });
+                 });
+             });
+            
+            $(document).ready(function(){
+                $("#SearchTasks").click(function(){
+               	 alert('button clicked');
+                   // var value = "test";
+                  //  $.get("userTasksResults.jsp",{q:value},function(data){
+                  //   $("#datatables").html(data);
+                  //  });
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <select id = "users">
+           <option value="">Select Account ID</option>
+           <option value="0">0</option>
+           <option value="1">1</option>
+        </select>
+        <br />
+        <input type="button" id="SearchTasks" name="SearchTasks" value="search">
+        <div id="javaquery"><b>Name will be displayed here</b></div>
+    </body>
+</html>
