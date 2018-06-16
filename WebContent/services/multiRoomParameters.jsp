@@ -125,16 +125,7 @@
 	
 	<!--meta http-equiv="refresh" content="300;url=multiRoomView.jsp?realTime=false&selRange=<%= iSelRange %>&cntrlType=<%= sCntrlType %>"-->
 	
-	<style>
-	#scrollDiv 
-	{
-		margin: 2px 2px; 
-		width: <%= winWidth * 0.95 %>px; 
-		height: <%= winHeight * 0.8 %>px; 
-		overflow: hidden; 
-		font-size: 0.85em;
-	}
-	</style>
+
 	
 	<script language="javascript">
 		function refreshDetails()
