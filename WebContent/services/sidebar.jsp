@@ -294,7 +294,7 @@
 									if(bViewReports)
 									{
 %>
-										<li><a href="Reports.jsp"><%= resourceBundle.getProperty("DataManager.DisplayText.Reports") %></a></li>
+										<li><a href="viewReportsView.jsp"><%= resourceBundle.getProperty("DataManager.DisplayText.Reports") %></a></li>
 <%
 									}
 									if(bViewTimesheets)

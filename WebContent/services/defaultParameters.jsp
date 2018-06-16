@@ -45,19 +45,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head>
 	<title></title>
-
-	<link type="text/css" href="../styles/superTables.css" rel="stylesheet" />
-    <script type="text/javascript" src="../scripts/superTables.js"></script>
-	<style>
-	#scrollDiv 
-	{	
-		margin: 2px 2px; 
-		width: <%= winWidth * 0.95 %>px; 
-		height: <%= winHeight * 0.80 %>px; 
-		overflow: hidden; 
-		font-size: 0.85em;
-	}
-	</style>
 	
 	<script language="javascript">
 		if (!String.prototype.trim) 
@@ -252,7 +239,7 @@
 	<table border="0" cellpadding="0" cellspacing="0" width="95%">
 		<tr>
 			<td style="font-family:Arial; font-size:0.8em; font-weight:bold; border:#ffffff; text-align:left">
-				<%= resourceBundle.getProperty("DataManager.DisplayText.Select_Room") %>:&nbsp;
+			 <label class="col-md-3 control-label" for="controller"><%= resourceBundle.getProperty("DataManager.DisplayText.Select_Room") %>>:&nbsp;</label>
 				<select id="controller" name="controller" onChange="javascript:changeController(this)">
 <%
 				if(RDMServicesConstants.ROLE_ADMIN.equals(u.getRole()) || RDMServicesConstants.ROLE_MANAGER.equals(u.getRole()))
@@ -297,7 +284,7 @@
 %>
 				</select>
 				&nbsp;&nbsp;
-				<%= resourceBundle.getProperty("DataManager.DisplayText.Product") %>:&nbsp;
+				<label class="col-md-3 control-label" for="defParamType"><%= resourceBundle.getProperty("DataManager.DisplayText.Product") %>>:&nbsp;</label>
 				<select id="defParamType" name="defParamType" onChange="javascript:changeDefaultValues(this)">
 					<option value="<%= sDefaultProduct %>" <%= (sDefParamType.equals(sDefaultProduct) ? "selected" : "") %>><%= resourceBundle.getProperty("DataManager.DisplayText.Default_Product") %></option>
 <%
@@ -338,11 +325,11 @@
 			</td>
 
 			<td style="font-family:Arial; font-size:0.8em; font-weight:bold; color:#0000FF; text-align:right">
-				<input type="button" id="copy" name="copy" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Copy_Values") %>" onClick="javascript:copyValues()">
-				<input type="button" id="Save" name="Save" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Save_Changes") %>" onClick="javascript:saveChanges()">
-				<input type="button" id="Print" name="Print" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Print") %>" onClick="javascript:printView()">
+				<input type="button" id="copy" name="copy" class="btn btn-primary" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Copy_Values") %>" onClick="javascript:copyValues()">
+				<input type="button" id="Save" name="Save" class="btn btn-primary" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Save_Changes") %>" onClick="javascript:saveChanges()">
+				<input type="button" id="Print" name="Print" class="btn btn-primary"value="<%= resourceBundle.getProperty("DataManager.DisplayText.Print") %>" onClick="javascript:printView()">
 			</td>
-		</tr>
+		</tr> 
 	</table>
 	
 	<form name="frm1" method="post" action="setDefaultParameters.jsp" target="hiddenFrame">
@@ -350,7 +337,7 @@
 	<input type="hidden" id="defParamType" name="defParamType" value="<%= sDefParamType %>">
 	<input type="hidden" id="mode" name="mode" value="">
 	<div id="scrollDiv">
-		<table id="freezeHeaders" border="1" cellpadding="2" cellspacing="0">
+		 <table id="grower-datatable" class="table table-responsive table-hover table table-striped table-bordered table-vcenter">
 			<tr>
 				<th style="border-right:0px"><%= resourceBundle.getProperty("DataManager.DisplayText.Parameter_Unit") %></th>
 				<th style="border-left:0px">&nbsp;</th>

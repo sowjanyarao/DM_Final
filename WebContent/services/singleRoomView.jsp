@@ -14,10 +14,9 @@
 	StringList slAllControllers = RDMSession.getControllers(u);	
 %>
 <!DOCTYPE html>
-<!--[if IE 9]>         <html class="no-js lt-ie10" lang="en"> <![endif]-->
-<!--[if gt IE 9]><!-->
+
 <html class="no-js" lang="en">
-<!--<![endif]-->
+
 <%
 if("".equals(sController))
 {
@@ -68,7 +67,7 @@ if("".equals(sController))
 	<!-- END Stylesheets -->
 	
 	<!-- Modernizr (browser feature detection library) -->
-	<script src="../../js/vendor/modernizr-3.3.1.min.js"></script>
+	<script src="../js/vendor/modernizr-3.3.1.min.js"></script>
 </head>
 
 <body>

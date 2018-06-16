@@ -246,7 +246,7 @@ if(showContent == null || "".equals(showContent))
 	mHomePage.put(RDMServicesConstants.VIEWS_COMMENTS, "***userCommentsView.jsp");
 	mHomePage.put(RDMServicesConstants.VIEWS_TASKS, "tasks.jsp");
 	mHomePage.put(RDMServicesConstants.VIEWS_YIELDS, "yields.jsp");
-	mHomePage.put(RDMServicesConstants.VIEWS_REPORTS, "Reports.jsp");
+	mHomePage.put(RDMServicesConstants.VIEWS_REPORTS, "viewReportsView.jsp");
 	mHomePage.put(RDMServicesConstants.VIEWS_TIMESHEETS, "timesheets.jsp");
 	mHomePage.put(RDMServicesConstants.VIEWS_PRODUCTIVITY, "***userProductivity.jsp");
 
