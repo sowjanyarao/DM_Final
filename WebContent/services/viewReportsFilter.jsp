@@ -45,10 +45,12 @@
     <!-- The themes stylesheet of this template (for using specific theme color in individual elements - must included last) -->
     <link rel="stylesheet" href="../css/themes.css">
     <!-- END Stylesheets -->
-
+    <link type="text/css" href="../styles/calendar.css" rel="stylesheet" />
+    
     <!-- Modernizr (browser feature detection library) -->
     <script src="../js/vendor/modernizr-3.3.1.min.js"></script>
-    
+  
+	<script language="javaScript" type="text/javascript" src="../scripts/calendar.js"></script>
     <script language="javascript">	
 		function submitAction()
 		{
@@ -341,6 +343,48 @@
     </div>
     <!-- END Page Wrapper -->
 </form>
+<table id="calenderTable">
+		<tbody id="calenderTableHead">
+			<tr>
+				<td colspan="4" align="center">
+					<select onChange="showCalenderBody(createCalender(document.getElementById('selectYear').value, this.selectedIndex, false));" id="selectMonth">
+						<option value="0"><%= resourceBundle.getProperty("DataManager.DisplayText.January") %></option>
+						<option value="1"><%= resourceBundle.getProperty("DataManager.DisplayText.February") %></option>
+						<option value="2"><%= resourceBundle.getProperty("DataManager.DisplayText.March") %></option>
+						<option value="3"><%= resourceBundle.getProperty("DataManager.DisplayText.April") %></option>
+						<option value="4"><%= resourceBundle.getProperty("DataManager.DisplayText.May") %></option>
+						<option value="5"><%= resourceBundle.getProperty("DataManager.DisplayText.June") %></option>
+						<option value="6"><%= resourceBundle.getProperty("DataManager.DisplayText.July") %></option>
+						<option value="7"><%= resourceBundle.getProperty("DataManager.DisplayText.August") %></option>
+						<option value="8"><%= resourceBundle.getProperty("DataManager.DisplayText.September") %></option>
+						<option value="9"><%= resourceBundle.getProperty("DataManager.DisplayText.October") %></option>
+						<option value="10"><%= resourceBundle.getProperty("DataManager.DisplayText.November") %></option>
+						<option value="11"><%= resourceBundle.getProperty("DataManager.DisplayText.December") %></option>
+
+					</select>
+				</td>
+				<td colspan="2" align="center">
+					<select onChange="showCalenderBody(createCalender(this.value, document.getElementById('selectMonth').selectedIndex, false));" id="selectYear">
+					</select>
+				</td>
+				<td align="center">
+					<a href="#" onClick="closeCalender();"><font color="#003333" size="2">X</font></a>
+				</td>
+			</tr>
+		</tbody>
+		<tbody id="calenderTableDays">
+			<tr style="">
+				<td><%= resourceBundle.getProperty("DataManager.DisplayText.Sunday") %></td>
+				<td><%= resourceBundle.getProperty("DataManager.DisplayText.Monday") %></td>
+				<td><%= resourceBundle.getProperty("DataManager.DisplayText.Tuesday") %></td>
+				<td><%= resourceBundle.getProperty("DataManager.DisplayText.Wednesday") %></td>
+				<td><%= resourceBundle.getProperty("DataManager.DisplayText.Thursday") %></td>
+				<td><%= resourceBundle.getProperty("DataManager.DisplayText.Friday") %></td>
+				<td><%= resourceBundle.getProperty("DataManager.DisplayText.Saturday") %></td>
+			</tr>
+		</tbody>
+		<tbody id="calender"></tbody>
+	</table>
     <!-- jQuery, Bootstrap, jQuery plugins and Custom JS code -->
     <script src="../js/vendor/jquery-2.2.4.min.js"></script>
     <script src="../js/vendor/bootstrap.min.js"></script>

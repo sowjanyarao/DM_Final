@@ -13,15 +13,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head>
 	<title></title>
-	<link type="text/css" href="../styles/dygraph.css" rel="stylesheet" />
 	<link type="text/css" href="../styles/calendar.css" rel="stylesheet" />
-	<link type="text/css" href="../styles/bootstrap.min.css" rel="stylesheet" />
-	<link type="text/css" href="../styles/select2.min.css" rel="stylesheet" />
 	
 	<script language="javaScript" type="text/javascript" src="../scripts/calendar.js"></script>
-	<script language="javaScript" type="text/javascript" src="../scripts/jquery.min.js"></script>
-	<script language="javaScript" type="text/javascript" src="../scripts/select2.full.js"></script>
-	<script language="javaScript" type="text/javascript" src="../scripts/bootstrap.min.js"></script>
+	
 	
 	<style type="text/css">		
 		th.txtLabel
