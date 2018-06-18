@@ -82,13 +82,10 @@ Map<String, String> mUsers = RDMServicesUtils.getUserNames();
 
     <!-- The themes stylesheet of this template (for using specific theme color in individual elements - must included last) -->
     <link rel="stylesheet" href="../css/themes.css"/>
-    <!-- END Stylesheets -->
-    <link type="text/css" href="../styles/calendar.css" rel="stylesheet" />
     
     <!-- Modernizr (browser feature detection library) -->
     <script src="../js/vendor/modernizr-3.3.1.min.js"/>
   
-	<script language="javaScript" type="text/javascript" src="../scripts/calendar.js"></script>
 	<script src="../js/vendor/jquery-2.2.4.min.js"></script>
     <script src="../js/vendor/bootstrap.min.js"></script>
     <script src="../js/plugins.js"></script>
