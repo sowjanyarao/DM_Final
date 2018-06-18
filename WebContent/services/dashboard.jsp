@@ -241,7 +241,7 @@ if(showContent == null || "".equals(showContent))
 	mHomePage.put(RDMServicesConstants.VIEWS_GRAPH_ATTRDATA, "attribute-data.jsp");
 	mHomePage.put(RDMServicesConstants.VIEWS_GRAPH_PRODUCTIVITY, "productivity.jsp");
 	mHomePage.put(RDMServicesConstants.VIEWS_GRAPH_BATCHLOAD, "***batchPhaseLoadsView.jsp");
-	mHomePage.put(RDMServicesConstants.VIEWS_ALARMS, "alarmView.jsp");
+	mHomePage.put(RDMServicesConstants.VIEWS_ALARMS, "alarms.jsp");
 	mHomePage.put(RDMServicesConstants.VIEWS_LOGS, "logView.jsp");
 	mHomePage.put(RDMServicesConstants.VIEWS_COMMENTS, "comments.jsp");
 	mHomePage.put(RDMServicesConstants.VIEWS_TASKS, "tasks.jsp");
