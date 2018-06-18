@@ -191,7 +191,7 @@
 	
 	MapList mlTasks = RDMServicesUtils.getCommentTasks(slUserDept);
 %>
-<body>
+<body onLoad="setToDate()">
     <div id="page-wrapper" class="page-loading">
         <div class="preloader">
             <div class="inner">

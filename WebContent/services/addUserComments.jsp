@@ -33,8 +33,43 @@
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head>
     <title></title>
+<meta name="description" content="Datamanager"/>
+    <meta name="author" content="Inventaa"/>
+    <meta name="robots" content="noindex, nofollow"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0"/>
 
-    <link type="text/css" href="../styles/dygraph.css" rel="stylesheet" />
+    <!-- Icons -->
+    <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
+    <link rel="shortcut icon" href="../img/fav-icon.jpg"/>
+    <!-- END Icons -->
+
+    <!-- Stylesheets -->
+    <!-- Bootstrap is included in its original form, unaltered -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+
+    <!-- Related styles of various icon packs and plugins -->
+    <link rel="stylesheet" href="../css/plugins.css"/>
+
+    <!-- The main stylesheet of this template. All Bootstrap overwrites are defined in here -->
+    <link rel="stylesheet" href="../css/main.css"/>
+
+    <!-- Include a specific file here from ../css/themes/ folder to alter the default theme of the template -->
+
+    <!-- The themes stylesheet of this template (for using specific theme color in individual elements - must included last) -->
+    <link rel="stylesheet" href="../css/themes.css"/>
+    <!-- END Stylesheets -->
+    <link type="text/css" href="../styles/calendar.css" rel="stylesheet" />
+    
+    <!-- Modernizr (browser feature detection library) -->
+    <script src="../js/vendor/modernizr-3.3.1.min.js"/>
+  
+	<script language="javaScript" type="text/javascript" src="../scripts/calendar.js"></script>
+	<script src="../js/vendor/jquery-2.2.4.min.js"></script>
+    <script src="../js/vendor/bootstrap.min.js"></script>
+    <script src="../js/plugins.js"></script>
+    <script src="../js/app.js"></script>
+    <!-- Load and execute javascript code used only in this page -->
+    <script src="../js/pages/readyDashboard.js"></script>
     <script language="javascript">
         if (!String.prototype.trim) 
         {
@@ -87,7 +122,9 @@
 		<input type="hidden" id="folder" name="folder" value="<%= sCommentId %>">
 		<input type="hidden" id="replace" name="replace" value="no">
 		<input type="hidden" id="processPage" name="processPage" value="manageCommentsProcess.jsp">
-        <table border="0" cellpadding="1" cellspacing="1" width="100%">
+       <div class="table table-responsive table-hover">
+		
+        <table id="datatable" class="table table-striped table-bordered table-vcenter">
             <tr>
                 <td colspan="2" align="center"><b><%= resourceBundle.getProperty("DataManager.DisplayText.Add_Comments") %></b></td>
             </tr>
@@ -96,8 +133,8 @@
         {
 %>
             <tr>
-                <td class="label" width="30%"><b><%= resourceBundle.getProperty("DataManager.DisplayText.Room") %></b></td>
-                <td class="input" width="70%">
+                <td  width="30%"><b><%= resourceBundle.getProperty("DataManager.DisplayText.Room") %></b></td>
+                <td  width="70%">
                     <select id="controller" name="controller">
                         <option value=""><%= resourceBundle.getProperty("DataManager.DisplayText.Please_choose_one") %></option>
 <%
@@ -124,15 +161,15 @@
         }
 %>
             <tr>
-                <td class="label" width="30%"><b><%= resourceBundle.getProperty("DataManager.DisplayText.Add_Alert") %></b></td>
-                <td class="input" width="70%">
+                <td  width="30%"><b><%= resourceBundle.getProperty("DataManager.DisplayText.Add_Alert") %></b></td>
+                <td  width="70%">
                     <input type="checkbox" id="global" name="global" value="N" onClick="javascript:setGlobal()">Yes
                 </td>
             </tr>
             
             <tr>
-                <td class="label" width="30%"><b><%= resourceBundle.getProperty("DataManager.DisplayText.Text_Short_Desc") %></b></td>
-                <td class="input" width="70%">
+                <td  width="30%"><b><%= resourceBundle.getProperty("DataManager.DisplayText.Text_Short_Desc") %></b></td>
+                <td  width="70%">
                     <select id="abbr" name="abbr">
                         <option value=""><%= resourceBundle.getProperty("DataManager.DisplayText.Please_choose_one") %></option>
 <%
@@ -153,8 +190,8 @@
                 </td>
             </tr>
 			<tr>
-				<td class="label" width="30%"><b><%= resourceBundle.getProperty("DataManager.DisplayText.Departments") %></b></td>
-				<td class="input" width="70%">
+				<td  width="30%"><b><%= resourceBundle.getProperty("DataManager.DisplayText.Departments") %></b></td>
+				<td  width="70%">
 					<select id="dept" name="dept" multiple size="5">
 <%
 						String sDeptName = null;
@@ -182,14 +219,14 @@
 				</td>
 			</tr>
             <tr>
-                <td class="label" width="30%"><b><%= resourceBundle.getProperty("DataManager.DisplayText.Comments") %></b></td>
-                <td class="input" width="70%">
+                <td  width="30%"><b><%= resourceBundle.getProperty("DataManager.DisplayText.Comments") %></b></td>
+                <td  width="70%">
                     <textarea id="comments" name="comments" rows="5" cols="35"></textarea>
                 </td>
             </tr>
 			<tr>
-				<td class="label" width="30%"><b><%= resourceBundle.getProperty("DataManager.DisplayText.Attachments") %></b></td>
-				<td class="input" width="70%">
+				<td  width="30%"><b><%= resourceBundle.getProperty("DataManager.DisplayText.Attachments") %></b></td>
+				<td  width="70%">
 					<input type="file" id="attachment" name="attachment">
 				</td>
 			</tr>
@@ -198,11 +235,12 @@
             </tr>
             <tr>
                 <td colspan="2" align="right">
-                    <input type="button" name="Save" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Save") %>" onClick="submitForm()">&nbsp;&nbsp;&nbsp;
-                    <input type="button" name="Cancel" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Cancel") %>" onClick="javascript:top.window.close()">
+                    <input type="button" name="Save" class="btn btn-primary" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Save") %>" onClick="submitForm()">&nbsp;&nbsp;&nbsp;
+                    <input type="button" name="Cancel" class="btn btn-primary" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Cancel") %>" onClick="javascript:top.window.close()">
                 </td>
             </tr>
         </table>
+        </div>
     </form>
 </body>
 </html>
