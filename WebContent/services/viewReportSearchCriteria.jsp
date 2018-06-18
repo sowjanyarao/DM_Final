@@ -12,11 +12,53 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head>
-	<title></title>
-	<link type="text/css" href="../styles/calendar.css" rel="stylesheet" />
-	
+	<meta charset="utf-8"/>
+
+    <title>Inventaa</title>
+
+    <meta name="description" content="Datamanager"/>
+    <meta name="author" content="Inventaa"/>
+    <meta name="robots" content="noindex, nofollow"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0"/>
+
+    <!-- Icons -->
+    <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
+    <link rel="shortcut icon" href="../img/fav-icon.jpg"/>
+    <!-- END Icons -->
+
+    <!-- Stylesheets -->
+    <!-- Bootstrap is included in its original form, unaltered -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+
+    <!-- Related styles of various icon packs and plugins -->
+    <link rel="stylesheet" href="../css/plugins.css"/>
+
+    <!-- The main stylesheet of this template. All Bootstrap overwrites are defined in here -->
+    <link rel="stylesheet" href="../css/main.css"/>
+
+    <!-- Include a specific file here from ../css/themes/ folder to alter the default theme of the template -->
+
+    <!-- The themes stylesheet of this template (for using specific theme color in individual elements - must included last) -->
+    <link rel="stylesheet" href="../css/themes.css"/>
+    <!-- END Stylesheets -->
+    <link type="text/css" href="../styles/calendar.css" rel="stylesheet" />
+    
+    <!-- Modernizr (browser feature detection library) -->
+    <script src="../js/vendor/modernizr-3.3.1.min.js"></script>
+  
 	<script language="javaScript" type="text/javascript" src="../scripts/calendar.js"></script>
-	
+	<script src="../js/vendor/jquery-2.2.4.min.js"></script>
+    <script src="../js/vendor/bootstrap.min.js"></script>
+    <script src="../js/plugins.js"></script>
+    <script src="../js/app.js"></script>
+    <!-- Load and execute javascript code used only in this page -->
+    <script src="../js/pages/readyDashboard.js"></script>
+    <script>
+        $(function() {
+            ReadyDashboard.init();
+        });
+
+    </script>
 	
 	<style type="text/css">		
 		th.txtLabel
@@ -137,11 +179,24 @@
 
 <body>
 	<form name="frm" method="post" target="content">
-		<input type="hidden" id="report" name="report" value="<%= sReport %>">
-		<input type="hidden" id="template" name="template" value="<%= sTemplate %>">		
-		<input type="hidden" id="action" name="action" value="<%= sAction %>">
-		<input type="hidden" id="mode" name="mode" value="search">
-		<table align="center" border="0" cellpadding="2" cellspacing="2" width="100%">
+		<input type="hidden" id="report" name="report" value="<%= sReport %>"/>
+		<input type="hidden" id="template" name="template" value="<%= sTemplate %>"/>		
+		<input type="hidden" id="action" name="action" value="<%= sAction %>"/>
+		<input type="hidden" id="mode" name="mode" value="search"/>
+		<div id="page-container" class="header-fixed-top sidebar-visible-lg-full">
+            <!-- Main Container -->
+            <div id="main-container">
+              
+                <div id="page-content">
+                    <div class="block">
+                        <!-- General Elements Title -->
+                        <div class="block-title">
+
+                            <h2>Reports</h2>
+                        </div>
+                        <!-- END General Elements Title -->
+		
+		<table align="center" border="0" cellpadding="2" cellspacing="2" >
 <%
 		if(!slColumns.contains("Column1"))
 		{
@@ -179,13 +234,13 @@
 					if(sRanges[0].equals("#DATETIME"))
 					{
 %>
-						From:&nbsp;<input type="text" size="10" id="<%= sColumn %>_From" name="<%= sColumn %>_From" value="" readonly>
-						<a href="#" onClick="setYears(2000, 2025);showCalender('<%= sColumn %>_pos', '<%= sColumn %>_From');"><img src="../images/calender.png"></a>
-						<a href="#" onClick="javascript:document.getElementById('<%= sColumn %>_From').value=''"><img src="../images/clear.png"></a>
+						From:&nbsp;<input type="text" size="10" id="<%= sColumn %>_From" name="<%= sColumn %>_From" value="" readonly/>
+						<a href="#" onclick="setYears(2000, 2025);showCalender('<%= sColumn %>_pos', '<%= sColumn %>_From');"><img src="../images/calender.png"></a>
+						<a href="#" onclick="javascript:document.getElementById('<%= sColumn %>_From').value=''"><img src="../images/clear.png"></a>
 						<br>
 						To:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="10" id="<%= sColumn %>_To" name="<%= sColumn %>_To" value="" readonly>
-						<a href="#" onClick="setYears(2000, 2025);showCalender('<%= sColumn %>_pos', '<%= sColumn %>_To');"><img src="../images/calender.png"></a>
-						<a href="#" onClick="javascript:document.getElementById('<%= sColumn %>_To').value=''"><img src="../images/clear.png"></a>
+						<a href="#" onclick="setYears(2000, 2025);showCalender('<%= sColumn %>_pos', '<%= sColumn %>_To');"><img src="../images/calender.png"></a>
+						<a href="#" onclick="javascript:document.getElementById('<%= sColumn %>_To').value=''"><img src="../images/clear.png"></a>
 <%
 					}
 					else if(sRanges[0].equals("#LOGGEDUSER") || sRanges[0].equals("#SYSTEMUSERS"))
@@ -193,7 +248,7 @@
 						if(sRanges[0].equals("#SYSTEMUSERS"))
 						{
 %>
-							<select id="<%= sColumn %>" name="<%= sColumn %>" onChange="javascript:toggleRanges('<%= sColumn %>_Manual', 'text')" style="width:250px" class="js-example-basic-multiple">
+							<select id="<%= sColumn %>" name="<%= sColumn %>" onchange="javascript:toggleRanges('<%= sColumn %>_Manual', 'text')" style="width:250px" class="js-example-basic-multiple">
 								<option value=""><%= resourceBundle.getProperty("DataManager.DisplayText.Please_Select") %></option>
 <%
 						}
@@ -218,7 +273,7 @@
 						if(sRanges[0].equals("#SYSTEMUSERS"))
 						{
 %>
-							<br><input type="text" id="<%= sColumn %>_Manual" name="<%= sColumn %>_Manual" value="" onKeyPress="javascript:toggleRanges('<%= sColumn %>', 'select')">
+							<br><input type="text" id="<%= sColumn %>_Manual" name="<%= sColumn %>_Manual" value="" onkeypress="javascript:toggleRanges('<%= sColumn %>', 'select')"/>
 <%
 						}
 					}
@@ -243,13 +298,13 @@
 					else if(sRanges[0].equals("#AUTONAME"))
 					{
 %>
-						<input type="text" id="<%= sColumn %>" name="<%= sColumn %>" value="">
+						<input type="text" id="<%= sColumn %>" name="<%= sColumn %>" value=""/>
 <%
 					}
 					else
 					{
 %>
-						<select id="<%= sColumn %>" name="<%= sColumn %>" onChange="javascript:toggleRanges('<%= sColumn %>_Manual', 'text')">
+						<select id="<%= sColumn %>" name="<%= sColumn %>" onchange="javascript:toggleRanges('<%= sColumn %>_Manual', 'text')">
 							<option value=""><%= resourceBundle.getProperty("DataManager.DisplayText.Please_Select") %></option>
 <%
 						boolean bManual = false;
@@ -272,7 +327,7 @@
 						if(bManual)
 						{
 %>
-							<input type="text" id="<%= sColumn %>_Manual" name="<%= sColumn %>_Manual" value="" onKeyPress="javascript:toggleRanges('<%= sColumn %>', 'select')">
+							<input type="text" id="<%= sColumn %>_Manual" name="<%= sColumn %>_Manual" value="" onkeypress="javascript:toggleRanges('<%= sColumn %>', 'select')" />
 <%
 						}
 					}
@@ -280,7 +335,7 @@
 				else
 				{
 %>
-					<input type="text" id="<%= sColumn %>" name="<%= sColumn %>" value="">
+					<input type="text" id="<%= sColumn %>" name="<%= sColumn %>" value=""/>
 <%
 				}
 %>
@@ -290,27 +345,39 @@
 		}
 %>
 			<tr>
-				<td colspan="2" class="input"><b>You can specify '=' (equals), '!' (not equals), '>' (greater than), '<' (lesser than), '~' (in between e.g., 2~5) in the search criteria.</b></td>
+				<td colspan="2" class="input"><b>You can specify '=' (equals), '!' (not equals), '>' (greater than), </b></td>
+			</tr>
+			<tr>
+				<td colspan="2" class="input"><b>'<' (lesser than), '~' (in between e.g., 2~5) in the search criteria.</b></td>
 			</tr>
 
 			<tr>
 				<td colspan="2" align="left">
-					<input type="button" name="btn" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Search") %>" onClick="javascript:submitAction()">
+					<input type="button" class="btn btn-primary" name="btn" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Search") %>" onclick="javascript:submitAction()"/>
 				</td>
 			</tr>
 		</table>
+			<!-- END General Elements Content -->
+                    </div>
+                </div>
+
+                <!-- END Page Content -->
+            </div>
+            <!-- END Main Container -->
+        </div>
+      
 	</form>
 	<table id="calenderTable">
 		<tbody id="calenderTableHead">
 			<tr>
 				<td colspan="4" align="center">
-					<select onChange="showCalenderBody(createCalender(document.getElementById('selectYear').value, this.selectedIndex, false));" id="selectMonth">
+					<select class="form-control" onchange="showCalenderBody(createCalender(document.getElementById('selectYear').value, this.selectedIndex, false));" id="selectMonth">
 						<option value="0"><%= resourceBundle.getProperty("DataManager.DisplayText.January") %></option>
 						<option value="1"><%= resourceBundle.getProperty("DataManager.DisplayText.February") %></option>
 						<option value="2"><%= resourceBundle.getProperty("DataManager.DisplayText.March") %></option>
 						<option value="3"><%= resourceBundle.getProperty("DataManager.DisplayText.April") %></option>
 						<option value="4"><%= resourceBundle.getProperty("DataManager.DisplayText.May") %></option>
-						<option value="5"><%= resourceBundle.getProperty("DataManager.DisplayText.June") %></option>
+						<option value="5"><%= resourceBundle.getProperty("DataManager.DisplayText.June") %></option> 
 						<option value="6"><%= resourceBundle.getProperty("DataManager.DisplayText.July") %></option>
 						<option value="7"><%= resourceBundle.getProperty("DataManager.DisplayText.August") %></option>
 						<option value="8"><%= resourceBundle.getProperty("DataManager.DisplayText.September") %></option>
@@ -321,11 +388,11 @@
 					</select>
 				</td>
 				<td colspan="2" align="center">
-					<select onChange="showCalenderBody(createCalender(this.value, document.getElementById('selectMonth').selectedIndex, false));" id="selectYear">
+					<select class="form-control" onchange="showCalenderBody(createCalender(this.value, document.getElementById('selectMonth').selectedIndex, false));" id="selectYear">
 					</select>
 				</td>
 				<td align="center">
-					<a href="#" onClick="closeCalender();"><font color="#003333" size="2">X</font></a>
+					<a href="#" onclick="closeCalender();"><font color="#003333" size="2">X</font></a>
 				</td>
 			</tr>
 		</tbody>

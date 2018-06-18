@@ -130,7 +130,7 @@
 						return;
 					}					
 				}
-				
+			
 				parent.frames['search'].document.location.href = "viewReportSearchCriteria.jsp?report="+reportTemplate[0]+"&template="+reportTemplate[1]+"&action="+selAction;			
 			}
 		}
@@ -205,11 +205,6 @@
 
             <!-- Main Container -->
             <div id="main-container">
-              <jsp:include page="header.jsp" />
-			  <jsp:include page="header-sidebar.jsp">
-				<jsp:param name="u" value="${u}" />
-			  </jsp:include>
-			  <jsp:include page="sidebar.jsp" />
               
                 <div id="page-content">
                     <div class="block">
@@ -303,7 +298,7 @@
 %>
 								<tr>
 									<td align="left" colspan="2"><input type="button"
-										name="btn"
+										name="btn" class="btn btn-primary"
 										value="<%= resourceBundle.getProperty("DataManager.DisplayText.Submit") %>"
 										onClick="javascript:submitAction()"></td>
 								</tr>

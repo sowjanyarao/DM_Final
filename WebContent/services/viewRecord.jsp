@@ -13,8 +13,53 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head>
-	<title></title>
-	<link type="text/css" href="../styles/dygraph.css" rel="stylesheet" />
+    <meta charset="utf-8"/>
+
+    <title>Inventaa</title>
+
+    <meta name="description" content="Datamanager"/>
+    <meta name="author" content="Inventaa"/>
+    <meta name="robots" content="noindex, nofollow"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0"/>
+
+    <!-- Icons -->
+    <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
+    <link rel="shortcut icon" href="../img/fav-icon.jpg"/>
+    <!-- END Icons -->
+
+    <!-- Stylesheets -->
+    <!-- Bootstrap is included in its original form, unaltered -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+
+    <!-- Related styles of various icon packs and plugins -->
+    <link rel="stylesheet" href="../css/plugins.css"/>
+
+    <!-- The main stylesheet of this template. All Bootstrap overwrites are defined in here -->
+    <link rel="stylesheet" href="../css/main.css"/>
+
+    <!-- Include a specific file here from ../css/themes/ folder to alter the default theme of the template -->
+
+    <!-- The themes stylesheet of this template (for using specific theme color in individual elements - must included last) -->
+    <link rel="stylesheet" href="../css/themes.css"/>
+    <!-- END Stylesheets -->
+    <link type="text/css" href="../styles/calendar.css" rel="stylesheet" />
+    
+    <!-- Modernizr (browser feature detection library) -->
+    <script src="../js/vendor/modernizr-3.3.1.min.js"></script>
+  
+	<script language="javaScript" type="text/javascript" src="../scripts/calendar.js"></script>
+	<script src="../js/vendor/jquery-2.2.4.min.js"></script>
+    <script src="../js/vendor/bootstrap.min.js"></script>
+    <script src="../js/plugins.js"></script>
+    <script src="../js/app.js"></script>
+    <!-- Load and execute javascript code used only in this page -->
+    <script src="../js/pages/readyDashboard.js"></script>
+    <script>
+        $(function() {
+            ReadyDashboard.init();
+        });
+
+    </script>
 	<script language="javascript">
 		function loadValues()
 		{
@@ -190,7 +235,10 @@
 		<input type="hidden" id="report" name="report" value="<%= sReport %>">
 		<input type="hidden" id="action" name="action" value="<%= sAction %>">
 		<input type="hidden" id="date" name="date" value="<%= sDate %>">
-		<table align="center" border="0" cellpadding="1" cellspacing="1" width="90%">
+		<%--<table align="center" border="0" cellpadding="1" cellspacing="1" width="90%"> --%>
+		                  <div class="block full"> 
+                        
+                            <table id="example-datatable" class="table table-responsive table-hover table table-striped table-bordered table-vcenter">
 			<tr>
 				<th class="label" width="30%">
 					<%= resourceBundle.getProperty("DataManager.DisplayText.Record_Timestamps") %>
@@ -307,6 +355,7 @@
 		}
 %>
 		</table>
+		</div>
 	</form>
 </body>
 </html>
