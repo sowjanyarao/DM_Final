@@ -429,14 +429,7 @@ if(showContent == null || "".equals(showContent))
 		<!-- END Page Container -->
 	</div>
 	<!-- END Page Wrapper -->
-	<form name="frm1" method="post" action="../LogoutServlet" target="_top">
-		<input type="hidden" id="ip" name="ip" value=""> <input
-			type="hidden" id="hostname" name="hostname" value=""> <input
-			type="hidden" id="city" name="city" value=""> <input
-			type="hidden" id="region" name="region" value=""> <input
-			type="hidden" id="country" name="country" value="">
-
-	</form>
+	
 	<frame name="hiddenFrame" src="" />
 
 	<!-- jQuery, Bootstrap, jQuery plugins and Custom JS code -->

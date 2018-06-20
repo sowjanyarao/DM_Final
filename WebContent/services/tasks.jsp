@@ -316,7 +316,7 @@
                         </div>
                         <div class="col-sm-4 col-md-2">
                             <!-- Input States Block -->
-                            <div class="block">
+                            <div class="block task_pdbtm">
                                 <!-- Input States Title -->
                                 <div class="block-title">
 
@@ -341,9 +341,9 @@
 												<%=resourceBundle.getProperty("DataManager.DisplayText.Search_CoOwners")%>
 											</label>
 										</div>
-										<div class="form-control">
-											<label for="limit"> <input type="text" id="limit"
-												name="limit" size="5" value="500">
+										<div class="form-control nobdr">
+											<label for="limit" class="fw"> <input type="text" id="limit"
+												name="limit" size="5" value="500"> </br>
 												<%=resourceBundle.getProperty("DataManager.DisplayText.Limit_Results")%>
 											</label>
 										</div>

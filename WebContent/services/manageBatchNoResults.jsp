@@ -100,7 +100,6 @@
 				mlBatchNos = RDMServicesUtils.getBatchNos(sCntrlType, sDefParamType);
 			}
 			for (int i = 0; i < mlBatchNos.size(); i++) {
-			
 				mBatchNo = mlBatchNos.get(i);
 				roomId = mBatchNo.get(RDMServicesConstants.ROOM_ID);
 				if (RDMServicesUtils.isGeneralController(roomId)) {
@@ -119,18 +118,27 @@
 							</tbody>
 						</table>
 					</div>
-
+				</div>
+			</div>
+		</div>
 		<%
 			}
 		%>
-		<div>
+		<div class="panel-group" id="accordion" role="tablist"
+			aria-multiselectable="true">
+			<div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="headingOne">
 					<h4 class="panel-title">
-						
+						<a role="button" data-toggle="collapse" data-parent="#accordion"
+							href="#collapseOne<%=i%>" aria-expanded="true"
+							aria-controls="collapseOne0"> <i class="fa fa-plus plus"></i>
 							<%=resourceBundle.getProperty("DataManager.DisplayText." + sHeader)%>
-						
+						</a>
 					</h4>
 				</div>
-				<div>
+				<div id="collapseOne<%=i%>" class="panel-collapse collapse"
+					role="tabpanel" aria-labelledby="headingOne">
+					<div class="panel-body">
 						<table id="example-datatable"
 							class="table table-striped table-bordered table-vcenter  ">
 							<thead>
@@ -199,8 +207,9 @@
 							</tbody>
 						</table>
 					</div>
-				
-
+				</div>
+			</div>
+		</div>
 		<% } 
 			}
 		%>
