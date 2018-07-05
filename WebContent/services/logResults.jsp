@@ -48,7 +48,43 @@ Map<String, String> mUsers = RDMServicesUtils.getUserNames();
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head>
 	<title></title>
-	<link type="text/css" href="../styles/dygraph.css" rel="stylesheet" />
+	<meta name="description" content="Datamanager"/>
+    <meta name="author" content="Inventaa"/>
+    <meta name="robots" content="noindex, nofollow"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0"/>
+
+    <!-- Icons -->
+    <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
+    <link rel="shortcut icon" href="../img/fav-icon.jpg"/>
+    <!-- END Icons -->
+
+    <!-- Stylesheets -->
+    <!-- Bootstrap is included in its original form, unaltered -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+
+    <!-- Related styles of various icon packs and plugins -->
+    <link rel="stylesheet" href="../css/plugins.css"/>
+
+    <!-- The main stylesheet of this template. All Bootstrap overwrites are defined in here -->
+    <link rel="stylesheet" href="../css/main.css"/>
+
+    <!-- Include a specific file here from ../css/themes/ folder to alter the default theme of the template -->
+
+    <!-- The themes stylesheet of this template (for using specific theme color in individual elements - must included last) -->
+    <link rel="stylesheet" href="../css/themes.css"/>
+    <!-- END Stylesheets -->
+    <link type="text/css" href="../styles/calendar.css" rel="stylesheet" />
+    
+    <!-- Modernizr (browser feature detection library) -->
+    <script src="../js/vendor/modernizr-3.3.1.min.js"/>
+  
+	<script language="javaScript" type="text/javascript" src="../scripts/calendar.js"></script>
+	<script src="../js/vendor/jquery-2.2.4.min.js"></script>
+    <script src="../js/vendor/bootstrap.min.js"></script>
+    <script src="../js/plugins.js"></script>
+    <script src="../js/app.js"></script>
+    <!-- Load and execute javascript code used only in this page -->
+    <script src="../js/pages/readyDashboard.js"></script>
 	<script language="javascript">
 	function exportLogs()
 	{
@@ -81,28 +117,30 @@ Map<String, String> mUsers = RDMServicesUtils.getUserNames();
 
 <body>
 	<form name="frm">
-		<table border="0" cellpadding="0" cellspacing="0" width="<%= winWidth * 0.65 %>">
+		<div class="table table-responsive table-hover">
+		
+        <table id="datatable" class="table table-striped table-bordered table-vcenter">
 <%
 			if(mlLogs != null && mlLogs.size() > 0)
 			{
 %>
 				<tr>
 					<td colspan="9" align="right">
-						<input type="button" id="expLogs" name="expLogs" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Export_to_File") %>" onClick="exportLogs()">
+						<input type="button" class="btn btn-effect-ripple btn-primary" id="expLogs" name="expLogs"  value="<%= resourceBundle.getProperty("DataManager.DisplayText.Export_to_File") %>" onClick="exportLogs()"/>
 					</td>
 				</tr>
 <%
 			}
-%>
+%><thead>
 			<tr>
-				<th class="label" width="10%"><%= resourceBundle.getProperty("DataManager.DisplayText.Room") %></th>
-				<th class="label" width="5%"><%= resourceBundle.getProperty("DataManager.DisplayText.Stage") %></th>
-				<th class="label" width="5%"><%= resourceBundle.getProperty("DataManager.DisplayText.Batch_No") %></th>
-				<th class="label" width="15%"><%= resourceBundle.getProperty("DataManager.DisplayText.Logged_By") %></th>
-				<th class="label" width="15%"><%= resourceBundle.getProperty("DataManager.DisplayText.Logged_On") %></th>
-				<th class="label" width="20%"><%= resourceBundle.getProperty("DataManager.DisplayText.Parameter") %></th>
-				<th class="label" width="30%"><%= resourceBundle.getProperty("DataManager.DisplayText.Text") %></th>
-			</tr>
+				<th width="10%"><%= resourceBundle.getProperty("DataManager.DisplayText.Room") %></th>
+				<th width="5%"><%= resourceBundle.getProperty("DataManager.DisplayText.Stage") %></th>
+				<th width="5%"><%= resourceBundle.getProperty("DataManager.DisplayText.Batch_No") %></th>
+				<th width="15%"><%= resourceBundle.getProperty("DataManager.DisplayText.Logged_By") %></th>
+				<th width="15%"><%= resourceBundle.getProperty("DataManager.DisplayText.Logged_On") %></th>
+				<th width="20%"><%= resourceBundle.getProperty("DataManager.DisplayText.Parameter") %></th>
+				<th width="30%"><%= resourceBundle.getProperty("DataManager.DisplayText.Text") %></th>
+			</tr></thead>
 <%
 			if(mode != null)
 			{	
@@ -132,22 +170,22 @@ Map<String, String> mUsers = RDMServicesUtils.getUserNames();
 							if(slInactiveCntrl.contains(sRoomId))
 							{
 %>
-								<td class="input"><%= sRoomId %></td>
+								<td><%= sRoomId %></td>
 <%
 							}
 							else
 							{
 %>
-								<td class="input"><a href="javascript:openController('<%= sRoomId %>')"><%= sRoomId %></a></td>
+								<td><a href="javascript:openController('<%= sRoomId %>')"><%= sRoomId %></a></td>
 <%
 							}
 %>
-							<td class="input"><%= mLog.get(RDMServicesConstants.STAGE_NUMBER) %></td>
-							<td class="input"><%= sBatchNo %></td>
-							<td class="input"><%= sLoggedBy %></td>
-							<td class="input"><%= mLog.get(RDMServicesConstants.LOGGED_ON) %></td>
-							<td class="input"><%= mLog.get(RDMServicesConstants.PARAM_NAME) %></td>
-							<td class="input"><%= mLog.get(RDMServicesConstants.LOG_TEXT) %></td>
+							<td><%= mLog.get(RDMServicesConstants.STAGE_NUMBER) %></td>
+							<td><%= sBatchNo %></td>
+							<td><%= sLoggedBy %></td>
+							<td><%= mLog.get(RDMServicesConstants.LOGGED_ON) %></td>
+							<td><%= mLog.get(RDMServicesConstants.PARAM_NAME) %></td>
+							<td><%= mLog.get(RDMServicesConstants.LOG_TEXT) %></td>
 						</tr>
 <%
 					}
@@ -156,7 +194,7 @@ Map<String, String> mUsers = RDMServicesUtils.getUserNames();
 				{
 %>					
 					<tr>
-						<td class="input" style="text-align:center" colspan="7">
+						<td style="text-align:center" colspan="7">
 							<%= resourceBundle.getProperty("DataManager.DisplayText.No_Logs") %>
 						</td>
 					</tr>
@@ -167,7 +205,7 @@ Map<String, String> mUsers = RDMServicesUtils.getUserNames();
 			{
 %>
 				<tr>
-						<td class="input" style="text-align:center" colspan="7">
+						<td style="text-align:center" colspan="7">
 							<%= resourceBundle.getProperty("DataManager.DisplayText.Logs_Search_Msg") %>
 						</td>
 				</tr>
@@ -175,6 +213,7 @@ Map<String, String> mUsers = RDMServicesUtils.getUserNames();
 			}
 %>
 		</table>
+		</div>
 	</form>
 </body>
 </html>

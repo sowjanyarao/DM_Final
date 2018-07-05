@@ -155,14 +155,6 @@
                 <h3 class="text-primary visible-lt-ie10"><strong>Loading..</strong></h3>
             </div>
         </div>
-        <!-- END Preloader -->
-        <div id="page-container" class="header-fixed-top sidebar-visible-lg-full">
-           <jsp:include page="header.jsp" />
-			<jsp:include page="header-sidebar.jsp">
-			  <jsp:param name="u" value="${u}" />
-			</jsp:include>
-			<jsp:include page="sidebar.jsp" />
-           
             <!-- Main Container -->
             <div id="main-container">
                 
@@ -316,7 +308,7 @@
                         </div>
                         <div class="col-sm-4 col-md-2">
                             <!-- Input States Block -->
-                            <div class="block task_pdbtm">
+                            <div class="block">
                                 <!-- Input States Title -->
                                 <div class="block-title">
 
@@ -341,9 +333,9 @@
 												<%=resourceBundle.getProperty("DataManager.DisplayText.Search_CoOwners")%>
 											</label>
 										</div>
-										<div class="form-control nobdr">
-											<label for="limit" class="fw"> <input type="text" id="limit"
-												name="limit" size="5" value="500"> </br>
+										<div class="form-control">
+											<label for="limit"> <input type="text" id="limit"
+												name="limit" size="5" value="500">
 												<%=resourceBundle.getProperty("DataManager.DisplayText.Limit_Results")%>
 											</label>
 										</div>
@@ -538,12 +530,6 @@
 
             <!-- END Main Container -->
         </div>
-
-
-        <!-- END Page Container -->
-    </div>
-
-    <!-- END Page Wrapper -->
 
    </form>
  

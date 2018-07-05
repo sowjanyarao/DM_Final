@@ -129,22 +129,22 @@
 				}
 			}
 			
-			document.frm.target = "results";
-			document.frm.submit();
+			document.frm1.target = "results";
+			document.frm1.submit();
 		}
 		
 		function setSelected()
 		{
-			if(document.frm.sysLogs.checked)
+			if(document.frm1.sysLogs.checked)
 			{
-				document.frm.sysLogs.value = "Yes";
-				document.frm.params.value = "";
-				document.frm.params.disabled = true;
+				document.frm1.sysLogs.value = "Yes";
+				document.frm1.params.value = "";
+				document.frm1.params.disabled = true;
 			}
 			else
 			{
-				document.frm.sysLogs.value = "No";
-				document.frm.params.disabled = false;
+				document.frm1.sysLogs.value = "No";
+				document.frm1.params.disabled = false;
 			}			
 		}
 	</script>
@@ -165,13 +165,7 @@
                 <h3 class="text-primary visible-lt-ie10"><strong>Loading..</strong></h3>
             </div>
         </div>
-        <div id="page-container" class="header-fixed-top sidebar-visible-lg-full">
-           <jsp:include page="header.jsp" />
-				  <jsp:include page="header-sidebar.jsp">
-					<jsp:param name="u" value="${u}" />
-				  </jsp:include>
-			 <jsp:include page="sidebar.jsp" />
-
+      
             <!-- Main Container -->
             <div id="main-container">
 
@@ -186,7 +180,7 @@
                         <!-- END General Elements Title -->
 
                         <!-- General Elements Content -->
-                        <form action="logResults.jsp" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered" onsubmit="return false;">
+                        <form name="frm1" action="logResults.jsp" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered" onsubmit="return false;">
 
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="lstController"><%= resourceBundle.getProperty("DataManager.DisplayText.Room") %></label>
@@ -307,9 +301,7 @@
             <!-- END Main Container -->
         </div>
         <!-- END Page Container -->
-    </div>
-    <!-- END Page Wrapper -->
-
+ 
 </body>
 
 </html>

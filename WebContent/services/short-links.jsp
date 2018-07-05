@@ -44,161 +44,32 @@
     <!-- Modernizr (browser feature detection library) -->
     <script src="../js/vendor/modernizr-3.3.1.min.js"></script>
     <script language="javascript">
-		function loadContent(url)
+    function loadContent(url)
+	{
+		document.location.href = url;
+	}
+	
+	function popupContent(url, h, w)
+	{
+		var retval = window.open(url, '', 'left=200,top=100,resizable=no,scrollbars=no,status=no,toolbar=no,height='+h+',width='+w);			
+	}
+	
+	function updateHomePage()
+	{
+		var name = "";
+		var ele = document.getElementsByName('shortLink');
+		for(var i=0; i<ele.length; i++)
 		{
-			document.location.href = url;
+			if(ele[i].checked)
+			{
+				name = ele[i].value;
+			}
 		}
 		
-				
-		function updateHomePage()
-		{
-			var name = "";
-			var ele = document.getElementsByName('shortLink');
-			for(var i=0; i<ele.length; i++)
-			{
-				if(ele[i].checked)
-				{
-					name = ele[i].value;
-				}
-			}
-			
-			document.frm1.submit(); 
-		}
+		document.frmuser.submit(); 
+	}
 	</script>
 	
-	<script language="javascript">
-		window.onresize = function() {
-			var winW = 630, winH = 460;
-			if(top.document.body && top.document.body.offsetWidth) 
-			{
-				winW = top.document.body.offsetWidth;
-				winH = top.document.body.offsetHeight;
-			}
-			if(top.document.compatMode == "CSS1Compat" && top.document.documentElement && top.document.documentElement.offsetWidth)
-			{
-				winW = top.document.documentElement.offsetWidth;
-				winH = top.document.documentElement.offsetHeight;
-			}
-			if(top.window.innerWidth && top.window.innerHeight) 
-			{
-				winW = top.window.innerWidth;
-				winH = top.window.innerHeight;
-			}
-		};
-	</script>
-	
-	<script type="text/javascript">
-		function setLogData()
-		{
-			var script = document.createElement("script");
-			script.type = "text/javascript";
-			script.src = "http://ipinfo.io/?callback=apiResponse";
-			document.getElementsByTagName("head")[0].appendChild(script);
-		}
-
-		function apiResponse(response) 
-		{
-			document.getElementById("ip").value = response.ip;
-			document.getElementById("hostname").value = response.hostname;
-			document.getElementById("city").value = response.city;
-			document.getElementById("region").value = response.region;
-			document.getElementById("country").value = response.country;
-		}
-	</script>
-
-	<script language="javascript">
-		
-		
-		function reloadHeader(url)
-		{
-			document.location.href = "dashboard.jsp?showContent="+url;
-		}
-		
-		function popupContent(url, h, w)
-		{
-			var retval = window.open(url, '', 'left=200,top=100,resizable=no,scrollbars=no,status=no,toolbar=no,height='+h+',width='+w);			
-		}
-
-		function logout()
-		{
-			document.frm2.submit();
-		}
-		
-		function resetContext(userId)
-		{
-			top.window.document.location.href = "../LoginServlet?U="+userId+"&resetContext=yes";
-		}
-	</script>
-	<script language="javascript">
-		if (!String.prototype.trim) 
-		{
-			String.prototype.trim = function() {
-				return this.replace(/^\s+|\s+$/g,'');
-			}
-		}
-	
-		function chngPwd()
-		{
-			if(!checkPassword())
-			{
-				return false;
-			}
-			
-			document.frm.submit();
-		}
-		
-		function checkPassword()
-		{
-			var password = document.getElementById("password");
-			password.value = password.value.trim();
-
-			if(password.value.length < 6)
-			{
-				alert("<%= resourceBundle.getProperty("DataManager.DisplayText.Password_length_Mismatch") %>");
-				password.focus();
-				return false;
-			}
-			
-			var CPassword = document.getElementById("CPassword");
-			CPassword.value = CPassword.value.trim();
-			
-			if(password.value != CPassword.value)
-			{
-				alert("<%= resourceBundle.getProperty("DataManager.DisplayText.Password_Mismatch") %>");
-				password.focus();
-				return false;
-			}
-			
-			return true;
-		}
-
-		function passwordChanged()
-		{
-			var strongRegex = new RegExp("^(?=.{10,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).*$", "g");
-			var mediumRegex = new RegExp("^(?=.{8,})(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$", "g");
-			var weakRegex = new RegExp("(?=.{6,}).*", "g");
-			
-			var strength = document.getElementById("strength");
-			var pwd = document.getElementById("password");
-			pwd.value = pwd.value.trim();
-			if (pwd.value.length == 0) 
-			{
-				strength.innerHTML = "";
-			} 
-			else if (strongRegex.test(pwd.value)) 
-			{
-				strength.innerHTML = '<span style="color:green"><b>Strong</b></span>';
-			} 
-			else if (mediumRegex.test(pwd.value))
-			{
-				strength.innerHTML = '<span style="color:blue"><b>Medium</b></span>';
-			} 
-			else if (weakRegex.test(pwd.value))
-			{
-				strength.innerHTML = '<span style="color:red"><b>Weak</b></span>';
-			}
-		}
-	</script>
 </head>
 <%
 	String sHomePage = u.getHomePage();
@@ -221,23 +92,11 @@
             </div>
         </div>
         
-        
-		<div id="page-container"
-			class="header-fixed-top sidebar-visible-lg-full">
-
-			<jsp:include page="header.jsp" />			
-			<!-- Alternative Sidebar -->
-			<jsp:include page="header-sidebar.jsp">
-				<jsp:param name="u" value="${u}" />
-			</jsp:include>
-			<!-- Main Sidebar -->
-			<jsp:include page="sidebar.jsp" />
-
             <!-- Main Container -->
             <div id="main-container">
                 <!-- Page content -->
 				<div id="page-content">
-					<form name="frm1" method="post" action="manageUserProcess.jsp">
+					<form name="frmuser" method="post" action="manageUserProcess.jsp">
 						<input type="hidden" id="mode" name="mode" value="setHomePage">
 						<table align="left" border="0" cellpadding="1" cellspacing="0"
 							width="20%">
@@ -667,9 +526,6 @@
  
  		</div>
 		<!-- END Page Container -->
- 	</div>
-    <!-- END Page Wrapper -->
-    
     
     <form name="frm2" method="post" action="../LogoutServlet" target="_top">
 		<input type="hidden" id="ip" name="ip" value="">

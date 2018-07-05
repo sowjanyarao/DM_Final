@@ -84,6 +84,42 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head>
+ <meta name="description" content="Datamanager"/>
+    <meta name="author" content="Inventaa"/>
+    <meta name="robots" content="noindex, nofollow"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0"/>
+
+   <!-- Icons -->
+    <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
+    <link rel="shortcut icon" href="../img/fav-icon.jpg"/>
+    <!-- END Icons -->
+
+    <!-- Stylesheets -->
+    <!-- Bootstrap is included in its original form, unaltered -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+
+    <!-- Related styles of various icon packs and plugins -->
+    <link rel="stylesheet" href="../css/plugins.css"/>
+
+    <!-- The main stylesheet of this template. All Bootstrap overwrites are defined in here -->
+    <link rel="stylesheet" href="../css/main.css"/>
+
+    <!-- Include a specific file here from ../css/themes/ folder to alter the default theme of the template -->
+
+    <!-- The themes stylesheet of this template (for using specific theme color in individual elements - must included last) -->
+    <link rel="stylesheet" href="../css/themes.css"/>
+    <!-- END Stylesheets -->
+    <link type="text/css" href="../styles/calendar.css" rel="stylesheet" />
+    
+    <!-- Modernizr (browser feature detection library) -->
+    <script src="../js/vendor/modernizr-3.3.1.min.js"></script>
+  
+	<script src="../js/vendor/jquery-2.2.4.min.js"></script>
+    <script src="../js/vendor/bootstrap.min.js"></script>
+    <script src="../js/plugins.js"></script>
+    <script src="../js/app.js"></script>
+    <!-- Load and execute javascript code used only in this page -->
+    <script src="../js/pages/readyDashboard.js"></script>
 	<style type="text/css">
 	.unit
 	{
@@ -112,6 +148,26 @@
 </head>
 
 <body onLoad="javascript:window.print()">
+ 
+  <div id="page-wrapper" class="page-loading">
+        <div class="preloader">
+            <div class="inner">
+                <!-- Animation spinner for all modern browsers -->
+                <div class="preloader-spinner themed-background hidden-lt-ie10"></div>
+
+                <!-- Text for IE9 -->
+                <h3 class="text-primary visible-lt-ie10"><strong>Loading..</strong></h3>
+            </div>
+        </div>
+        <!-- END Preloader -->
+ `<div id="page-container"
+			class="header-fixed-top sidebar-visible-lg-full">
+			
+			<!-- Main Container -->
+			<div id="main-container">
+
+				<div id="page-content">
+				<form name="frm"  enctype="multipart/form-data" class="form-horizontal form-bordered">
 	<table border="0" cellpadding="0" cellspacing="0" width="95%">
 		<tr>
 			<td style="font-family:Arial; font-size:0.8em; font-weight:bold; border:#ffffff; text-align:left">
@@ -126,21 +182,23 @@
 		</tr>
 	</table>
 
-	<table border="1px" cellpadding="1" cellspacing="0">
+	 <div class="table table-responsive table-hover">
+		
+        <table id="datatable" class="table table-striped table-bordered table-vcenter">
 		<tr>
-			<th class="label"><%= resourceBundle.getProperty("DataManager.DisplayText.Rooms") %></th>
+			<th ><%= resourceBundle.getProperty("DataManager.DisplayText.Rooms") %></th>
 <%
 			for(int i=0; i<iSz; i++)
 			{
 				sController = slControllers.get(i);
 %>						
-				<th class="label"><%= sController %></th>
+				<th ><%= sController %></th>
 <%
 			}
 %>
 		</tr>
 		<tr>
-			<th class="label" style="text-align:left"><%= resourceBundle.getProperty("DataManager.DisplayText.Open_Alarms") %></th>
+			<th  style="text-align:left"><%= resourceBundle.getProperty("DataManager.DisplayText.Open_Alarms") %></th>
 <%
 			for(int i=0; i<iSz; i++)
 			{
@@ -163,7 +221,7 @@
 %>
 		</tr>
 		<tr>
-			<th class="label" style="text-align:left"><%= resourceBundle.getProperty("DataManager.DisplayText.Manual_Setting") %></th>
+			<th  style="text-align:left"><%= resourceBundle.getProperty("DataManager.DisplayText.Manual_Setting") %></th>
 <%
 			for(int i=0; i<iSz; i++)
 			{
@@ -192,7 +250,7 @@
 		{
 %>
 			<tr>
-				<th class="label" style="text-align:left">current phase</th>
+				<th  style="text-align:left">current phase</th>
 <%
 				for(int i=0; i<iSz; i++)
 				{
@@ -287,7 +345,7 @@
 						if(j == 0)
 						{
 %>
-							<th class="label" style="text-align:left"><%= sName %>
+							<th  style="text-align:left"><%= sName %>
 <%
 							if(!"".equals(sUnit))
 							{
@@ -331,7 +389,7 @@
 						if(j == 0)
 						{
 %>
-							<th class="label" style="text-align:left"><%= sName %></th>
+							<th  style="text-align:left"><%= sName %></th>
 <%
 						}
 					}
@@ -408,5 +466,12 @@
 		}
 %>
 	</table>
+	</div>
+	</form>
+	</div>
+	</div>
+	</div>
+	</div>
+	
 </body>
 </html>

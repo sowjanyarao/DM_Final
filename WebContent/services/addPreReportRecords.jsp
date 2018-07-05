@@ -127,6 +127,7 @@
 				<td class="text"><font color="red"><%= sErr %></font></td>
 			</tr>
 		</table>
+		<iframe name="results" src="showProductivityGraph.jsp" align="middle" frameBorder="0" width="100%" height="<%= winHeight * 0.8 %>px">
 <%
 	}
 	else

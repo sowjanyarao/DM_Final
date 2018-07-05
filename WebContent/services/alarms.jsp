@@ -136,19 +136,19 @@
 				}
 			}
 			
-			document.frm.target = "results";
-			document.frm.submit();
+			document.frm1.target = "results";
+			document.frm1.submit();
 		}
 		
 		function setSelected()
 		{
-			if(document.frm.openAlarms.checked)
+			if(document.frm1.openAlarms.checked)
 			{
-				document.frm.openAlarms.value = "Yes";
+				document.frm1.openAlarms.value = "Yes";
 			}
 			else
 			{
-				document.frm.openAlarms.value = "No";
+				document.frm1.openAlarms.value = "No";
 			}			
 		}
 	</script>
@@ -172,14 +172,9 @@
                 <h3 class="text-primary visible-lt-ie10"><strong>Loading..</strong></h3>
             </div>
         </div>
-        <div id="page-container" class="header-fixed-top sidebar-visible-lg-full">
-          
             <!-- Main Container -->
             <div id="main-container">
- 			<jsp:include page="header.jsp" />
-				  <jsp:include page="header-sidebar.jsp">
-					<jsp:param name="u" value="${u}" />
-				  </jsp:include>
+ 			
 			 <jsp:include page="sidebar.jsp" />
                 <!-- Page content -->
                 <div id="page-content">
@@ -192,7 +187,7 @@
                         <!-- END General Elements Title -->
 
                         <!-- General Elements Content -->
-                        <form method="post" enctype="multipart/form-data" class="form-horizontal form-bordered" target="results" action="alarmResults.jsp">
+                        <form method="post" name="frm1" enctype="multipart/form-data" class="form-horizontal form-bordered" target="results" action="alarmResults.jsp">
 
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="lstController"><%= resourceBundle.getProperty("DataManager.DisplayText.Room") %></label>
@@ -325,8 +320,7 @@
         <!-- END Main Container -->
 
         <!-- END Page Container -->
-    </div>
-    <!-- END Page Wrapper -->
+
 </body>
 
 </html>

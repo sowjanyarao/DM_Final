@@ -289,32 +289,17 @@ StringList slInactiveCntrl = RDMSession.getInactiveControllers();
 	
 	function toggleDisplay(divId)
 	{
-		var divs = document.getElementsByTagName("div");
-		for(var i = 0; i < divs.length; i++)
+		ele = document.getElementById(divId);
+		display = ele.style.display;
+		if(display == "block")
 		{
-			if(divs[i].id == "noTasks" || divs[i].id == "totalDeliverables" || divs[i].id == "NotDownloadDeliverables" || divs[i].id.startsWith("Room_"))
-			{
-				continue;
-			}
-			
-			if(divs[i].id == divId)
-			{
-				var display = divs[i].style.display;
-				if(display == "block")
-				{
-					display = "none";
-				}
-				else
-				{
-					display = "block";
-				}
-				divs[i].style.display = display;
-			}
-			else
-			{
-				divs[i].style.display = "none";
-			}
-		}		
+			display = "none";
+		}
+		else
+		{
+			display = "block";
+		}
+		ele.style.display = display;
 	}
 	
 	function showTaskInfo(id, notes, size)
@@ -591,8 +576,8 @@ StringList slInactiveCntrl = RDMSession.getInactiveControllers();
 %>
 							<tr class="task_rw_bg">
 							
-								<td class="input" width="8%" style="font-size:12px;font-weight:bold;text-align:center" colspan="2">
-									<a id="<%= sGroupName %>" class="noblink task_rw_head" href="javascript:toggleDisplay('div_<%= sGroupName %>')">
+								<td class="input" width="8%" style="font-size:12px;font-weight:bold;text-align:center;color:white" colspan="2">
+									<a id="<%= sGroupName %>" href="javascript:toggleDisplay('div_<%= sGroupName %>')" style="color:#ffffff;">
 										<%= mUserNames.containsKey(sGroupName) ? (mUserNames.get(sGroupName)+"&nbsp;("+sAssignee+")") : sGroupName %>
 									</a>
 								</td>

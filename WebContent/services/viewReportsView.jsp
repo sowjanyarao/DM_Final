@@ -83,17 +83,7 @@
                 <h3 class="text-primary visible-lt-ie10"><strong>Loading..</strong></h3>
             </div>
         </div>
-        <div id="page-container" class="header-fixed-top sidebar-visible-lg-full">
-
-            <!-- Main Container -->
-            <div id="main-container">
-		    	<jsp:include page="header.jsp" />
-				  <jsp:include page="header-sidebar.jsp">
-					<jsp:param name="u" value="${u}" />
-				  </jsp:include>
-				  <jsp:include page="sidebar.jsp" />
-			</div>
-		</div>
+       
 	</div>
 	
 	<div style="width:100%;" >

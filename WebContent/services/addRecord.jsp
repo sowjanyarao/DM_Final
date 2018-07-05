@@ -19,7 +19,6 @@
 	<link type="text/css" href="../styles/bootstrap.min.css" rel="stylesheet" />
 	<link type="text/css" href="../styles/select2.min.css" rel="stylesheet" />
 	
-	<script language="javaScript" type="text/javascript" src="../scripts/calendar.js"></script>
 	<script language="javaScript" type="text/javascript" src="../scripts/jquery.min.js"></script>
 	<script language="javaScript" type="text/javascript" src="../scripts/select2.full.js"></script>
 	<script language="javaScript" type="text/javascript" src="../scripts/bootstrap.min.js"></script>
@@ -196,10 +195,7 @@
 %>
 							<td id="<%= sColumn %>_pos" class="input">
 								<input type="checkbox" id="<%= sColumn %>" name="<%= sColumn %>" value="SystemDateTime" onChange="javascript:toggleDateTime(this, '<%= sColumn %>')">System Date & Time<br>
-								<input type="text" size="10" id="<%= sColumn %>_dt" name="<%= sColumn %>_dt" readonly>
-								<a href="#" onClick="setYears(2000, 2025);showCalender('<%= sColumn %>_pos', '<%= sColumn %>_dt');"><img src="../images/calender.png"></a>
-								<a href="#" onClick="javascript:document.getElementById('<%= sColumn %>_dt').value=''"><img src="../images/clear.png"></a>
-
+								<input type="text" id="<%= sColumn %>_dt" name="<%= sColumn %>_dt" class="form-control input-datepicker" data-date-format="mm/dd/yy" placeholder="mm/dd/yy">
 								&nbsp;HH:&nbsp;
 								<select id="<%= sColumn %>_hr" name="<%= sColumn %>_hr">
 <%					
@@ -371,48 +367,6 @@
 		</table>
 	</form>
 	
-	<table id="calenderTable">
-		<tbody id="calenderTableHead">
-			<tr>
-				<td colspan="4" align="center">
-					<select onChange="showCalenderBody(createCalender(document.getElementById('selectYear').value, this.selectedIndex, false));" id="selectMonth">
-						<option value="0"><%= resourceBundle.getProperty("DataManager.DisplayText.January") %></option>
-						<option value="1"><%= resourceBundle.getProperty("DataManager.DisplayText.February") %></option>
-						<option value="2"><%= resourceBundle.getProperty("DataManager.DisplayText.March") %></option>
-						<option value="3"><%= resourceBundle.getProperty("DataManager.DisplayText.April") %></option>
-						<option value="4"><%= resourceBundle.getProperty("DataManager.DisplayText.May") %></option>
-						<option value="5"><%= resourceBundle.getProperty("DataManager.DisplayText.June") %></option>
-						<option value="6"><%= resourceBundle.getProperty("DataManager.DisplayText.July") %></option>
-						<option value="7"><%= resourceBundle.getProperty("DataManager.DisplayText.August") %></option>
-						<option value="8"><%= resourceBundle.getProperty("DataManager.DisplayText.September") %></option>
-						<option value="9"><%= resourceBundle.getProperty("DataManager.DisplayText.October") %></option>
-						<option value="10"><%= resourceBundle.getProperty("DataManager.DisplayText.November") %></option>
-						<option value="11"><%= resourceBundle.getProperty("DataManager.DisplayText.December") %></option>
-
-					</select>
-				</td>
-				<td colspan="2" align="center">
-					<select onChange="showCalenderBody(createCalender(this.value, document.getElementById('selectMonth').selectedIndex, false));" id="selectYear">
-					</select>
-				</td>
-				<td align="center">
-					<a href="#" onClick="closeCalender();"><font color="#003333" size="2">X</font></a>
-				</td>
-			</tr>
-		</tbody>
-		<tbody id="calenderTableDays">
-			<tr style="">
-				<td><%= resourceBundle.getProperty("DataManager.DisplayText.Sunday") %></td>
-				<td><%= resourceBundle.getProperty("DataManager.DisplayText.Monday") %></td>
-				<td><%= resourceBundle.getProperty("DataManager.DisplayText.Tuesday") %></td>
-				<td><%= resourceBundle.getProperty("DataManager.DisplayText.Wednesday") %></td>
-				<td><%= resourceBundle.getProperty("DataManager.DisplayText.Thursday") %></td>
-				<td><%= resourceBundle.getProperty("DataManager.DisplayText.Friday") %></td>
-				<td><%= resourceBundle.getProperty("DataManager.DisplayText.Saturday") %></td>
-			</tr>
-		</tbody>
-		<tbody id="calender"></tbody>
-	</table>
 	
 	<iframe name="hidden" src="" frameBorder="0" width="0px" height="0px">
 </body>

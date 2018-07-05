@@ -32,13 +32,13 @@
 							if(RDMServicesConstants.ROLE_TIMEKEEPER.equals(u.getRole()))
 							{
 %>
-					<li><a href="employeeInOutView.jsp" class=" active"><i
+					<li><a href="javascript:reloadHeader('employeeInOutView.jsp')" class=" active"><i
 							class="gi gi-compass sidebar-nav-icon"></i><span
 							class="sidebar-nav-mini-hide"><%= resourceBundle.getProperty("DataManager.DisplayText.Attendance") %></span></a></li>
 					<li class="sidebar-separator"><i class="fa fa-ellipsis-h"></i>
 					</li>
 
-					<li><a href="viewReportsView.jsp" class=" active"><i
+					<li><a href="javascript:reloadHeader('viewReportsView.jsp')" class=" active"><i
 							class="gi gi-compass sidebar-nav-icon"></i><span
 							class="sidebar-nav-mini-hide"><%= resourceBundle.getProperty("DataManager.DisplayText.Reports") %></span></a></li>
 					<li class="sidebar-separator"><i class="fa fa-ellipsis-h"></i>
@@ -49,13 +49,13 @@
 							else
 							{
 %>
-					<li><a href="dashboard.jsp" class=" active"><i
+					<li><a href="javascript:reloadHeader('showGlobalAlerts.jsp')" class=" active"><i
 							class="gi gi-compass sidebar-nav-icon"></i><span
 							class="sidebar-nav-mini-hide"><%= resourceBundle.getProperty("DataManager.DisplayText.Home") %></span></a></li>
 					<li class="sidebar-separator"><i class="fa fa-ellipsis-h"></i>
 					</li>
 
-					<li><a href="short-links.jsp"><i
+					<li><a href="javascript:reloadHeader('short-links.jsp')"><i
 							class="fa fa-link sidebar-nav-icon"></i><%= resourceBundle.getProperty("DataManager.DisplayText.Short_Links") %></a></li>
 
 					<%
@@ -83,7 +83,7 @@
 									if(bUpdateBNO)
 									{
 %>
-										<li><a href="manageBatchNosView.jsp"><%= resourceBundle.getProperty("DataManager.DisplayText.Update_Batch_Nos") %></a></li>
+										<li><a href="javascript:reloadHeader('manageBatchNosView.jsp')"><%= resourceBundle.getProperty("DataManager.DisplayText.Update_Batch_Nos") %></a></li>
 											
 <%
 									}
@@ -123,14 +123,14 @@
 											if(bViewGrwDB)
 											{
 %>
-												<li><a href="dashboardView.jsp?cntrlType=Grower"><%= resourceBundle.getProperty("DataManager.DisplayText.Grower") %></a></li>
+												<li><a href="javascript:reloadHeader('dashboardView.jsp?cntrlType=Grower')"><%= resourceBundle.getProperty("DataManager.DisplayText.Grower") %></a></li>
 																			
 <%
 											}
 											if(bViewBnkDB)
 											{
 %>
-												<li><a href="dashboardView.jsp?cntrlType=cntrlType=Bunker">
+												<li><a href="javascript:reloadHeader('dashboardView.jsp?cntrlType=cntrlType=Bunker')">
 													<%= resourceBundle.getProperty("DataManager.DisplayText.Bunker") %></a>
 												</li>
 <%
@@ -138,7 +138,7 @@
 											if(bViewTnlDB)
 											{
 %>
-												<li><a href="dashboardView.jsp?cntrlType=Tunnel">
+												<li><a href="javascript:reloadHeader('dashboardView.jsp?cntrlType=Tunnel')">
 													<%= resourceBundle.getProperty("DataManager.DisplayText.Tunnel") %></a>
 												</li>
 <%
@@ -151,7 +151,7 @@
 									if(bViewSingle)
 									{
 %>									
-										<li><a href="singleRoomView.jsp"><%= resourceBundle.getProperty("DataManager.DisplayText.Single_Room") %></a></li>
+										<li><a href="javascript:reloadHeader('singleRoomView.jsp')"><%= resourceBundle.getProperty("DataManager.DisplayText.Single_Room") %></a></li>
 										
 <%
 									}
@@ -169,7 +169,7 @@
 											if(bViewMultiGrw)
 											{
 %>
-												<li><a href="multiRoomView.jsp?cntrlType=Grower"><%= resourceBundle.getProperty("DataManager.DisplayText.Grower") %></a></li>
+												<li><a href="javascript:reloadHeader('multiRoomView.jsp?cntrlType=Grower')"><%= resourceBundle.getProperty("DataManager.DisplayText.Grower") %></a></li>
 												
 <%
 											}
@@ -239,21 +239,21 @@
 											if(bViewAttrGraph)
 											{
 %>
-											<li><a href="attribute-data.jsp"><%= resourceBundle.getProperty("DataManager.DisplayText.Attribute_Data") %></a></li>
+											<li><a href="javascript:reloadHeader('attribute-data.jsp')"><%= resourceBundle.getProperty("DataManager.DisplayText.Attribute_Data") %></a></li>
 
 											<%
 											}
 											if(bViewProdGraph)
 												{
 %>
-											<li><a href="productivity.jsp"><%= resourceBundle.getProperty("DataManager.DisplayText.Productivity") %></a></li>
+											<li><a href="javascript:reloadHeader('productivity.jsp')"><%= resourceBundle.getProperty("DataManager.DisplayText.Productivity") %></a></li>
 											
 <%
 											}
 											if(bViewBatchLoad)
 												{
 %>
-											<li><a href="batchload-duration.jsp"><%= resourceBundle.getProperty("DataManager.DisplayText.Batch_Phase_Loads") %></a></li>
+											<li><a href="javascript:reloadHeader('batchload-duration.jsp')"><%= resourceBundle.getProperty("DataManager.DisplayText.Batch_Phase_Loads") %></a></li>
 													
 											<%
 											}
@@ -264,50 +264,50 @@
 									if(bViewAlarms)
 									{
 %>
-									<li><a href="alarms.jsp"><%= resourceBundle.getProperty("DataManager.DisplayText.Alarms") %></a></li>
+									<li><a href="javascript:reloadHeader('alarms.jsp')"><%= resourceBundle.getProperty("DataManager.DisplayText.Alarms") %></a></li>
 									<%
 									}
 									if(bViewLogs)
 									{
 %>
-									<li><a href="logs.jsp"><%= resourceBundle.getProperty("DataManager.DisplayText.Logs") %></a></li>
+									<li><a href="javascript:reloadHeader('logs.jsp')"><%= resourceBundle.getProperty("DataManager.DisplayText.Logs") %></a></li>
 									<%
 									}
 									if(bViewComments)
 									{
 %>
-										<li><a href="comments.jsp"><%= resourceBundle.getProperty("DataManager.DisplayText.Comments") %></a></li>
+										<li><a href="javascript:reloadHeader('comments.jsp')"><%= resourceBundle.getProperty("DataManager.DisplayText.Comments") %></a></li>
 <%
 									}	
 									if(bViewTasks)
 									{
 %>	
-										<li><a href="tasks.jsp"><%= resourceBundle.getProperty("DataManager.DisplayText.Tasks") %></a></li>
+										<li><a href="javascript:reloadHeader('tasks.jsp')"><%= resourceBundle.getProperty("DataManager.DisplayText.Tasks") %></a></li>
 <%
 									}
 									if(bViewYields)
 									{
 %>
-										<li><a href="yields.jsp"><%= resourceBundle.getProperty("DataManager.DisplayText.Yields") %></a></li>
+										<li><a href="javascript:reloadHeader('yields.jsp')"><%= resourceBundle.getProperty("DataManager.DisplayText.Yields") %></a></li>
 <%
 									}
 									if(bViewReports)
 									{
 %>
-										<li><a href="viewReportsView.jsp"><%= resourceBundle.getProperty("DataManager.DisplayText.Reports") %></a></li>
+										<li><a href="javascript:reloadHeader('viewReportsView.jsp')"><%= resourceBundle.getProperty("DataManager.DisplayText.Reports") %></a></li>
 <%
 									}
 									if(bViewTimesheets)
 									{									
 %>
-										<li><a href="timesheets.jsp"><%= resourceBundle.getProperty("DataManager.DisplayText.Manage_Timesheets") %></a></li>
+										<li><a href="javascript:reloadHeader('timesheets.jsp')"><%= resourceBundle.getProperty("DataManager.DisplayText.Manage_Timesheets") %></a></li>
 <%
 									}
 									
 									if(bViewProductvity)
 									{									
 %>
-										<li><a href="productivity.jsp"><%= resourceBundle.getProperty("DataManager.DisplayText.Productivity") %></a></li>
+										<li><a href="javascript:reloadHeader('userProductivity.jsp')"><%= resourceBundle.getProperty("DataManager.DisplayText.Productivity") %></a></li>
 <%
 									}
 									
@@ -344,4 +344,15 @@
 	</div>
 	  <!-- END Main Sidebar -->
 </body>
+<script language="javascript">
+	
+		function reloadHeader(url) {
+			document.location.href = "dashboard.jsp?showContent="+ url;
+			//parent.frames['header'].location.href = "dashboard.jsp?showContent="+url;
+		}  
+
+		function popupContent(url, h, w) {
+			var retval = window.open(url, '','left=200,top=100,resizable=no,scrollbars=no,status=no,toolbar=no,height='	+ h + ',width=' + w);
+		}
+</script>
 </html>

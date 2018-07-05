@@ -45,8 +45,7 @@
     <!-- The themes stylesheet of this template (for using specific theme color in individual elements - must included last) -->
     <link rel="stylesheet" href="../css/themes.css">
     <!-- END Stylesheets -->
-    <link type="text/css" href="../styles/calendar.css" rel="stylesheet" />
-    
+       
     <!-- Modernizr (browser feature detection library) -->
     <script src="../js/vendor/modernizr-3.3.1.min.js"></script>
   
@@ -202,13 +201,7 @@
                 <h3 class="text-primary visible-lt-ie10"><strong>Loading..</strong></h3>
             </div>
         </div>
-        <div id="page-container" class="header-fixed-top sidebar-visible-lg-full">
-            <jsp:include page="header.jsp" />
-				  <jsp:include page="header-sidebar.jsp">
-					<jsp:param name="u" value="${u}" />
-				  </jsp:include>
-			 <jsp:include page="sidebar.jsp" />
-
+       
             <!-- Main Container -->
             <div id="main-container">
 
@@ -242,7 +235,7 @@
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="lstStage"><%= resourceBundle.getProperty("DataManager.DisplayText.Stage") %></label>
                                 <div class="col-md-6">
-                                  <select id="lstStage" name="lstStage">
+                                  <select id="lstStage" name="lstStage" class="form-control">
 						<option value=""><%= resourceBundle.getProperty("DataManager.DisplayText.Please_Select") %></option>
 <%
 						String sPhaseSeq = "";
@@ -282,7 +275,7 @@
 			Collections.sort(lDepartments, String.CASE_INSENSITIVE_ORDER);
 			String sDeptName = null;
 %>
-                                   <select id="dept" name="dept" style="width:125px">	
+                                   <select id="dept" name="dept" style="width:125px" class="form-control">	
 <%
 					if(slUserDept.size() != 1)
 					{
@@ -309,14 +302,14 @@
                                  <font color="blue">(<%= resourceBundle.getProperty("DataManager.DisplayText.Batch_No_New_line") %>)</font></label>
                                
                                 <div class="col-md-6">
-                                    <textarea id="BatchNo" name="BatchNo" rows="5" cols="15"></textarea>
+                                    <textarea id="BatchNo" name="BatchNo" rows="5" cols="15" class="form-control"  placeholder="Batch No"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="abbr"><%= resourceBundle.getProperty("DataManager.DisplayText.Text") %><br>
-					<font color="blue">(<%= resourceBundle.getProperty("DataManager.DisplayText.Short_Description") %>)</label>
+					<font color="blue">(<%= resourceBundle.getProperty("DataManager.DisplayText.Short_Description") %>)</font></label>
                                 <div class="col-md-6">
-                                   <select id="abbr" name="abbr" style="width:145px">
+                                   <select id="abbr" name="abbr" style="width:145px" class="form-control">
 						<option value=""><%= resourceBundle.getProperty("DataManager.DisplayText.Please_choose_one") %></option>
 <%
 					Map<String, String> mTask = null;
@@ -338,17 +331,13 @@
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="start_date"><%= resourceBundle.getProperty("DataManager.DisplayText.From_Date") %></label>
                                 <div class="col-md-5">
-                                 <input type="text" size="10" id="start_date" name="start_date" readonly>
-					<a href="#" onClick="setYears(2000, 2025);showCalender('a', 'start_date');"><img src="../images/calender.png"></a>
-					<a href="#" onClick="javascript:document.getElementById('start_date').value=''"><img src="../images/clear.png"></a>
+                                <input type="text" id="start_date" name="start_date" class="form-control input-datepicker" data-date-format="mm/dd/yy" placeholder="mm/dd/yy">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="end_date"><%= resourceBundle.getProperty("DataManager.DisplayText.To_Date") %></label>
                                 <div class="col-md-5">
-                                   <input type="text" size="10" id="end_date" name="end_date" readonly>
-					<a href="#" onClick="setYears(2000, 2025);showCalender('b', 'end_date');"><img src="../images/calender.png"></a>
-					<a href="#" onClick="javascript:document.getElementById('end_date').value=''"><img src="../images/clear.png"></a>
+                                   <input type="text" id="end_date" name="end_date" class="form-control input-datepicker" data-date-format="mm/dd/yy" placeholder="mm/dd/yy">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -387,7 +376,7 @@
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="limit"><%= resourceBundle.getProperty("DataManager.DisplayText.Limit_Results") %></label>
                                 <div class="col-md-6">
-                                    <input type="text" id="limit" name="limit" size="5" value="500">
+                                    <input type="text" id="limit" name="limit" size="5" value="500" placeholder="Limit">
                                 </div>
                             </div>
                             <div class="form-group form-actions">
@@ -414,9 +403,7 @@
             <!-- END Main Container -->
         </div>
         <!-- END Page Container -->
-    </div>
-    <!-- END Page Wrapper -->
-
+    
 </body>
 
 </html>

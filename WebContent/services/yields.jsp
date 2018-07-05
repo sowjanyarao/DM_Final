@@ -151,8 +151,8 @@
 				}				
 			}
 			
-			document.frm.target = "results";
-			document.frm.submit();
+			document.frm1.target = "results";
+			document.frm1.submit();
 		}
 	</script>
 </head>
@@ -173,16 +173,10 @@
                 <h3 class="text-primary visible-lt-ie10"><strong>Loading..</strong></h3>
             </div>
         </div>
-        <div id="page-container" class="header-fixed-top sidebar-visible-lg-full">
-          
+  
             <!-- Main Container -->
             <div id="main-container">
-                <jsp:include page="header.jsp" />
-				  <jsp:include page="header-sidebar.jsp">
-					<jsp:param name="u" value="${u}" />
-				  </jsp:include>
-			 	<jsp:include page="sidebar.jsp" />
-               
+              
 
                 <!-- Page content -->
                 <div id="page-content">
@@ -195,11 +189,11 @@
                         <!-- END General Elements Title -->
 
                         <!-- General Elements Content -->
-                        <form action="page_forms_components.html" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered" onsubmit="return false;">
+                        <form name="frm1" action="viewYieldsResult.jsp" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered" onsubmit="return false;">
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="lstController"><%= resourceBundle.getProperty("DataManager.DisplayText.Room") %></label>
                                 <div class="col-md-6">
-                                   <select id="lstController" name="lstController" multiple size="5">
+                                   <select id="lstController" name="lstController" multiple size="5" class="form-control">
 						<option value=""><%= resourceBundle.getProperty("DataManager.DisplayText.All_Rooms") %></option>
 						<optgroup label="<%= resourceBundle.getProperty("DataManager.DisplayText.Select_Rooms") %>">
 <%
@@ -222,13 +216,13 @@
                                 <label class="col-md-3 control-label" for="BatchNo"><%= resourceBundle.getProperty("DataManager.DisplayText.Batch_No") %><br>
 					<font color="blue">(<%= resourceBundle.getProperty("DataManager.DisplayText.Batch_No_New_line") %>).</font></label>
                                 <div class="col-md-6">
-                                    <textarea id="BatchNo" name="BatchNo" rows="5" cols="15"></textarea>
+                                    <textarea id="BatchNo" name="BatchNo" rows="5" cols="15" class="form-control" placeholder="Batch No"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="cond"><%= resourceBundle.getProperty("DataManager.DisplayText.Yield") %></label>
                                 <div class="col-md-6">
-                                    <select id="cond" name="cond">
+                                    <select id="cond" name="cond" class="form-control">
 						<option value="equals"></option>
 						<option value="morethan"><%= resourceBundle.getProperty("DataManager.DisplayText.More_Than") %></option>
 						<option value="lessthan"><%= resourceBundle.getProperty("DataManager.DisplayText.Less_Than") %></option>&nbsp;
@@ -239,17 +233,13 @@
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="start_date"><%= resourceBundle.getProperty("DataManager.DisplayText.From_Date") %></label>
                                 <div class="col-md-5">
-                                  <input type="text" size="10" id="start_date" name="start_date" readonly>
-					<a href="#" onClick="setYears(2000, 2025);showCalender('a', 'start_date');"><img src="../images/calender.png"></a>
-					<a href="#" onClick="javascript:document.getElementById('start_date').value=''"><img src="../images/clear.png"></a>
+                                 <input type="text" id="start_date" name="start_date" class="form-control input-datepicker" data-date-format="mm/dd/yy" placeholder="mm/dd/yy">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="end_date"><%= resourceBundle.getProperty("DataManager.DisplayText.To_Date") %></label>
                                 <div class="col-md-5">
-                                   <input type="text" size="10" id="end_date" name="end_date" readonly>
-					<a href="#" onClick="setYears(2000, 2025);showCalender('b', 'end_date');"><img src="../images/calender.png"></a>
-					<a href="#" onClick="javascript:document.getElementById('end_date').value=''"><img src="../images/clear.png"></a>
+                                    <input type="text" id="end_date" name="end_date" class="form-control input-datepicker" data-date-format="mm/dd/yy" placeholder="mm/dd/yy">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -284,9 +274,6 @@
             <!-- END Main Container -->
         </div>
         <!-- END Page Container -->
-    </div>
-    <!-- END Page Wrapper -->
-
     
 </body>
 

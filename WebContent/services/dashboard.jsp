@@ -93,8 +93,11 @@
 <script language="javascript">
 	
 		function loadContent(url) {
-			//frames['displayContent'].location.href = url;
-			document.getElementByTag("body").location.href = url;
+			document.frm1.action=url;
+			document.frm1.target = "displayContent";
+			
+			frames['displayContent'].location.href = url;
+			//document.getElementByTag("body").location.href = url;
 			//document.location.href = url;
 		}
 		
@@ -109,7 +112,7 @@
 		} */
 
 		function logout() {
-			document.frm1.submit();
+			document.frmlogout.submit();
 		}
 
 		function resetContext(userId) {
@@ -220,27 +223,27 @@
 </head>
 <%
 String showContent = request.getParameter("showContent");
-System.out.println("****showContent for dashboard : "+showContent);
 if(showContent == null || "".equals(showContent))
 {
 	String sHomePage = u.getHomePage();
+	System.out.println("****sHomePage : "+sHomePage);
 	sHomePage = (sHomePage == null || "".equals(sHomePage) ? RDMServicesConstants.HOME : sHomePage);
 	
 	Map<String, String> mHomePage = new HashMap<String, String>();
-	mHomePage.put(RDMServicesConstants.HOME, "dashboard.jsp");
+	mHomePage.put(RDMServicesConstants.HOME, "showGlobalAlerts.jsp");
 	mHomePage.put(RDMServicesConstants.SHORTLINKS, "short-links.jsp");
-	mHomePage.put(RDMServicesConstants.ACTIONS_CREATE_TASK, "***addUserTaskView.jsp");
+	mHomePage.put(RDMServicesConstants.ACTIONS_CREATE_TASK, "addUserTaskView.jsp");
 	mHomePage.put(RDMServicesConstants.ACTIONS_UPDATE_BNO, "manageBatchNosView.jsp");
 	mHomePage.put(RDMServicesConstants.ROOMS_VIEW_DASHBOARD_GROWER, "dashboardView.jsp?cntrlType=Grower");
 	mHomePage.put(RDMServicesConstants.ROOMS_VIEW_DASHBOARD_BUNKER, "dashboardView.jsp?cntrlType=Bunker");
 	mHomePage.put(RDMServicesConstants.ROOMS_VIEW_DASHBOARD_TUNNEL, "dashboardView.jsp?cntrlType=Tunnel");
 	mHomePage.put(RDMServicesConstants.ROOMS_VIEW_SINGLE_ROOM, "singleRoomView.jsp");
-	mHomePage.put(RDMServicesConstants.ROOMS_VIEW_MULTI_ROOM_GROWER, "***multiRoomView.jsp?cntrlType=Grower");
-	mHomePage.put(RDMServicesConstants.ROOMS_VIEW_MULTI_ROOM_BUNKER, "***multiRoomView.jsp?cntrlType=Bunker");
-	mHomePage.put(RDMServicesConstants.ROOMS_VIEW_MULTI_ROOM_TUNNEL, "***multiRoomView.jsp?cntrlType=Tunnel");
+	mHomePage.put(RDMServicesConstants.ROOMS_VIEW_MULTI_ROOM_GROWER, "multiRoomView.jsp?cntrlType=Grower");
+	mHomePage.put(RDMServicesConstants.ROOMS_VIEW_MULTI_ROOM_BUNKER, "multiRoomView.jsp?cntrlType=Bunker");
+	mHomePage.put(RDMServicesConstants.ROOMS_VIEW_MULTI_ROOM_TUNNEL, "multiRoomView.jsp?cntrlType=Tunnel");
 	mHomePage.put(RDMServicesConstants.VIEWS_GRAPH_ATTRDATA, "attribute-data.jsp");
 	mHomePage.put(RDMServicesConstants.VIEWS_GRAPH_PRODUCTIVITY, "productivity.jsp");
-	mHomePage.put(RDMServicesConstants.VIEWS_GRAPH_BATCHLOAD, "***batchPhaseLoadsView.jsp");
+	mHomePage.put(RDMServicesConstants.VIEWS_GRAPH_BATCHLOAD, "batchPhaseLoadsView.jsp");
 	mHomePage.put(RDMServicesConstants.VIEWS_ALARMS, "alarms.jsp");
 	mHomePage.put(RDMServicesConstants.VIEWS_LOGS, "logView.jsp");
 	mHomePage.put(RDMServicesConstants.VIEWS_COMMENTS, "comments.jsp");
@@ -248,7 +251,7 @@ if(showContent == null || "".equals(showContent))
 	mHomePage.put(RDMServicesConstants.VIEWS_YIELDS, "yields.jsp");
 	mHomePage.put(RDMServicesConstants.VIEWS_REPORTS, "viewReportsView.jsp");
 	mHomePage.put(RDMServicesConstants.VIEWS_TIMESHEETS, "timesheets.jsp");
-	mHomePage.put(RDMServicesConstants.VIEWS_PRODUCTIVITY, "***userProductivity.jsp");
+	mHomePage.put(RDMServicesConstants.VIEWS_PRODUCTIVITY, "userProductivity.jsp");
 
 	if(RDMServicesConstants.ROLE_TIMEKEEPER.equals(u.getRole()))
 	{
@@ -258,11 +261,11 @@ if(showContent == null || "".equals(showContent))
 	{
 		showContent = mHomePage.get(sHomePage);
 	}	
-	System.out.println("****2nd time showContent for dashboard : "+showContent);
 }
 %>
 
 <body onLoad="javascript:loadContent('<%= showContent %>'); setLogData()">
+<form name="frm1" method="post" target="displayContent" action="">
 	<div id="page-wrapper" class="page-loading">
 		<div class="preloader">
 			<div class="inner">
@@ -289,138 +292,8 @@ if(showContent == null || "".equals(showContent))
 
 				<!-- Page content -->
 				<div id="page-content">
-					<div class="block full">
-						<div class="block-title">
-							<h2>Dashboard</h2>
-						</div>
-						<div class="table-responsive">
-							<table id="example-datatable"
-								class="table table-striped table-bordered table-vcenter">
-								<thead>
-									<tr>
-										<th class="text-center" style="width: 15px;">ATT</th>
-										<th><%= resourceBundle.getProperty("DataManager.DisplayText.Room") %></th>
-										<th><%= resourceBundle.getProperty("DataManager.DisplayText.Stage") %></th>
-										<th><%= resourceBundle.getProperty("DataManager.DisplayText.Batch_No") %></th>
-										<th><%= resourceBundle.getProperty("DataManager.DisplayText.Logged_By") %></th>
-										<th><%= resourceBundle.getProperty("DataManager.DisplayText.Logged_On") %></th>
-										<th><%= resourceBundle.getProperty("DataManager.DisplayText.Text") %></th>
-										<th><%= resourceBundle.getProperty("DataManager.DisplayText.Comments") %></th>
-										<th><%= resourceBundle.getProperty("DataManager.DisplayText.Department") %></th>
-										<th style="width: 15px;">Status</th>
-									</tr>
-								</thead>
-								<tbody>
-								<%
-			Comments comments = new Comments();
-			StringList slUserDept = new StringList();
-			slUserDept.add(u.getDepartment());
-			slUserDept.addAll(u.getSecondaryDepartments());
-			
-			MapList mlComments = comments.getGlobalAlerts(slUserDept);
-			int iSz = mlComments.size();
-			if(iSz > 0)
-			{
-				StringList slInactiveCntrl = RDMSession.getInactiveControllers();
-
-				Map<String, String> mUsers = RDMServicesUtils.getUserNames();
-				Map<String, String> mComment = null;
-				String sCmtId = null;
-				String sRoomId = null;
-				String sBatchNo = null;
-				String sLoggedBy = null;
-				String sNoDays = null;
-				String sAttachments = null;
-				for(int i=0; i<iSz; i++)
-				{
-					mComment = mlComments.get(i);
-					sCmtId = mComment.get(RDMServicesConstants.COMMENT_ID);
-					sRoomId = mComment.get(RDMServicesConstants.ROOM_ID);
-					sBatchNo = mComment.get(RDMServicesConstants.BATCH_NO);
-					sBatchNo = (sBatchNo.startsWith("auto_") ? "" : sBatchNo);
-					sLoggedBy = mComment.get(RDMServicesConstants.LOGGED_BY);
-					if(mUsers.containsKey(sLoggedBy))
-					{
-						sLoggedBy = mUsers.get(sLoggedBy);
-					}
-					sNoDays = mComment.get(RDMServicesConstants.RUNNING_DAY);
-					sNoDays = ((sNoDays == null || "0".equals(sNoDays)) ? "" : " ("+sNoDays+")");
-					sAttachments = mComment.get(RDMServicesConstants.ATTACHMENTS);
-					sAttachments = ((sAttachments == null || "null".equals(sAttachments)) ? "" : sAttachments);
-%>
-
-								
-									<tr>
-
-										<td class="text-center">
-											<%
-							if(!"".equals(sAttachments))
-							{
-%> 
-								<a href="javascript:viewAttachments('<%= sCmtId %>')"><img src="../img/attachments.png"></img></a> 
-<%
-							}
-							else
-							{
-%> 
-								&nbsp;
-<%
-							}
-%>
-										</td>
-
-										<%
-						if(slInactiveCntrl.contains(sRoomId))
-						{
-%>
-										<td><strong><%= sRoomId %></strong></td>
-										<%
-						}
-						else
-						{
-%>
-										<td><strong><a
-												href="javascript:openController('<%= sRoomId %>')"><%= sRoomId %></a></strong></td>
-										<%
-						}
-%>
-										<td><%= mComment.get(RDMServicesConstants.STAGE_NUMBER) %><%= sNoDays %></td>
-										<td><%= sBatchNo %></td>
-										<td><%= sLoggedBy %></td>
-										<td><%= mComment.get(RDMServicesConstants.LOGGED_ON) %></td>
-										<td><%= mComment.get(RDMServicesConstants.CATEGORY) %>&nbsp;(<%= mComment.get(RDMServicesConstants.LOG_TEXT) %>)</td>
-										<td><%= mComment.get(RDMServicesConstants.REVIEW_COMMENTS) %></td>
-										<td><%= (mComment.get(RDMServicesConstants.DEPARTMENT_NAME)).replaceAll("\\|", "<br>") %></td>
-										<td class="text-center">
-											<a href="javascript:updateComments('<%= sCmtId %>', '<%= sBatchNo %>', 'true')"
-												data-toggle="tooltip" title="<%= resourceBundle.getProperty("DataManager.DisplayText.Update") %>"
-												class="btn btn-effect-ripple btn-xs btn-success"><i class="fa fa-pencil"></i></a> 
-											<a href="javascript:closeComments('<%= sCmtId %>')"
-												data-toggle="tooltip" title="<%= resourceBundle.getProperty("DataManager.DisplayText.Close") %>"
-												class="btn btn-effect-ripple btn-xs btn-danger"><i class="fa fa-times"></i></a>
-										</td>
-									</tr>
-
-									<%
-				}
-			}
-			else
-			{
-%>
-									<tr>
-										<td class="text-center" style="text-align: center"
-											colspan="10"><%= resourceBundle.getProperty("DataManager.DisplayText.No_Alerts") %></td>
-									</tr>
-
-									<%
-			}
-%>
-								</tbody>
-							</table>
-						</div>
-					</div>
-					<!-- END Datatables Block -->
 					
+					<iframe name="displayContent" src="" width="100%" height="<%= winHeight * 0.9 %>px"></iframe>
 				</div>
 				<!-- END Page Content -->
 			</div>
@@ -430,7 +303,16 @@ if(showContent == null || "".equals(showContent))
 	</div>
 	<!-- END Page Wrapper -->
 	
-	<frame name="hiddenFrame" src="" />
+	  </form>
+	<form name="frmlogout" method="post" action="../LogoutServlet" target="_top">
+		<input type="hidden" id="ip" name="ip" value=""> <input
+			type="hidden" id="hostname" name="hostname" value=""> <input
+			type="hidden" id="city" name="city" value=""> <input
+			type="hidden" id="region" name="region" value=""> <input
+			type="hidden" id="country" name="country" value="">
+
+	</form>
+	
 
 	<!-- jQuery, Bootstrap, jQuery plugins and Custom JS code -->
 	<script src="../js/vendor/jquery-2.2.4.min.js"></script>
@@ -446,6 +328,7 @@ if(showContent == null || "".equals(showContent))
         });
 
     </script>
+  
 </body>
 
 </html>

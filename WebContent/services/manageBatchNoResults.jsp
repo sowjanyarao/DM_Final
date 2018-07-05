@@ -21,29 +21,38 @@
 <meta name="viewport"
 	content="width=device-width,initial-scale=1.0,user-scalable=0">
 
-<!-- Icons -->
-<!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
-<link rel="shortcut icon" href="../img/fav-icon.jpg">
-<!-- END Icons -->
+ <!-- Icons -->
+    <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
+    <link rel="shortcut icon" href="../img/fav-icon.jpg">
+    <!-- END Icons -->
 
-<!-- Stylesheets -->
-<!-- Bootstrap is included in its original form, unaltered -->
-<link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!-- Stylesheets -->
+    <!-- Bootstrap is included in its original form, unaltered -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
 
-<!-- Related styles of various icon packs and plugins -->
-<link rel="stylesheet" href="../css/plugins.css">
+    <!-- Related styles of various icon packs and plugins -->
+    <link rel="stylesheet" href="../css/plugins.css">
 
-<!-- The main stylesheet of this template. All Bootstrap overwrites are defined in here -->
-<link rel="stylesheet" href="../css/main.css">
+    <!-- The main stylesheet of this template. All Bootstrap overwrites are defined in here -->
+    <link rel="stylesheet" href="../css/main.css">
 
-<!-- Include a specific file here from css/themes/ folder to alter the default theme of the template -->
+    <!-- Include a specific file here from ../css/themes/ folder to alter the default theme of the template -->
 
-<!-- The themes stylesheet of this template (for using specific theme color in individual elements - must included last) -->
-<link rel="stylesheet" href="../css/themes.css">
-<!-- END Stylesheets -->
-
-<!-- Modernizr (browser feature detection library) -->
-<script src="../js/vendor/modernizr-3.3.1.min.js"></script>
+    <!-- The themes stylesheet of this template (for using specific theme color in individual elements - must included last) -->
+    <link rel="stylesheet" href="../css/themes.css">
+    <!-- END Stylesheets -->
+    <link type="text/css" href="../styles/calendar.css" rel="stylesheet" />
+    
+    <!-- Modernizr (browser feature detection library) -->
+    <script src="../js/vendor/modernizr-3.3.1.min.js"></script>
+  
+	<script language="javaScript" type="text/javascript" src="../scripts/calendar.js"></script>
+	<script src="../js/vendor/jquery-2.2.4.min.js"></script>
+    <script src="../js/vendor/bootstrap.min.js"></script>
+    <script src="../js/plugins.js"></script>
+    <script src="../js/app.js"></script>
+    <!-- Load and execute javascript code used only in this page -->
+    <script src="../js/pages/readyDashboard.js"></script>
 <script language="javascript">
 	if (!String.prototype.trim) 
 	{
@@ -69,8 +78,27 @@
 </head>
 
 <body>
+<div id="page-wrapper" class="page-loading">
+        <div class="preloader">
+            <div class="inner">
+                <!-- Animation spinner for all modern browsers -->
+                <div class="preloader-spinner themed-background hidden-lt-ie10"></div>
 
-	<form name="frm">
+                <!-- Text for IE9 -->
+                <h3 class="text-primary visible-lt-ie10"><strong>Loading..</strong></h3>
+            </div>
+        </div>
+  
+            <!-- Main Container -->
+            <div id="main-container">
+              
+
+                <!-- Page content -->
+                <div id="page-content">
+                    <div class="block">
+                       
+                        <!-- END General Elements Title -->
+	<form name="frm" class="form-horizontal form-bordered">
 
 		<%
 			boolean isInactive = false;
@@ -100,6 +128,7 @@
 				mlBatchNos = RDMServicesUtils.getBatchNos(sCntrlType, sDefParamType);
 			}
 			for (int i = 0; i < mlBatchNos.size(); i++) {
+			
 				mBatchNo = mlBatchNos.get(i);
 				roomId = mBatchNo.get(RDMServicesConstants.ROOM_ID);
 				if (RDMServicesUtils.isGeneralController(roomId)) {
@@ -118,37 +147,28 @@
 							</tbody>
 						</table>
 					</div>
-				</div>
-			</div>
-		</div>
+
 		<%
 			}
 		%>
-		<div class="panel-group" id="accordion" role="tablist"
-			aria-multiselectable="true">
-			<div class="panel panel-default">
-				<div class="panel-heading" role="tab" id="headingOne">
-					<h4 class="panel-title">
-						<a role="button" data-toggle="collapse" data-parent="#accordion"
-							href="#collapseOne<%=i%>" aria-expanded="true"
-							aria-controls="collapseOne0"> <i class="fa fa-plus plus"></i>
-							<%=resourceBundle.getProperty("DataManager.DisplayText." + sHeader)%>
-						</a>
-					</h4>
+		<div>
+					<div class="task_rw_bg">
+						<label style="font-size:16px;font-weight:bold;text-align:center;color: white;">
+							<b><%=resourceBundle.getProperty("DataManager.DisplayText." + sHeader)%></b>
+						</label>
+					</div>
 				</div>
-				<div id="collapseOne<%=i%>" class="panel-collapse collapse"
-					role="tabpanel" aria-labelledby="headingOne">
-					<div class="panel-body">
+				<div>
 						<table id="example-datatable"
 							class="table table-striped table-bordered table-vcenter  ">
 							<thead>
 								<tr>
-									<th class="label" width="20%"><%=resourceBundle.getProperty("DataManager.DisplayText.Room_Name")%></th>
-									<th class="label" width="20%"><%=resourceBundle.getProperty("DataManager.DisplayText.Product")%></th>
-									<th class="label" width="15%"><%=resourceBundle.getProperty("DataManager.DisplayText.Batch_No")%></th>
-									<th class="label" width="17%"><%=resourceBundle.getProperty("DataManager.DisplayText.From_Date")%></th>
-									<th class="label" width="17%"><%=resourceBundle.getProperty("DataManager.DisplayText.To_Date")%></th>
-									<th class="label" width="15%"><%=resourceBundle.getProperty("DataManager.DisplayText.Actions")%></th>
+									<th width="20%"><%=resourceBundle.getProperty("DataManager.DisplayText.Room_Name")%></th>
+									<th width="20%"><%=resourceBundle.getProperty("DataManager.DisplayText.Product")%></th>
+									<th width="15%"><%=resourceBundle.getProperty("DataManager.DisplayText.Batch_No")%></th>
+									<th width="17%"><%=resourceBundle.getProperty("DataManager.DisplayText.From_Date")%></th>
+									<th width="17%"><%=resourceBundle.getProperty("DataManager.DisplayText.To_Date")%></th>
+									<th width="15%"><%=resourceBundle.getProperty("DataManager.DisplayText.Actions")%></th>
 
 								</tr>
 							</thead>
@@ -207,14 +227,17 @@
 							</tbody>
 						</table>
 					</div>
-				</div>
-			</div>
-		</div>
+				
+
 		<% } 
 			}
 		%>
 
 	</form>
+	</div>
+	</div>
+	</div>
+	
 
 </body>
 </html>

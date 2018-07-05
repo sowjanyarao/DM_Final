@@ -14,19 +14,8 @@
 
 <!DOCTYPE html>
 <html class="no-js" lang="en">
-<head>
-<script language="javascript">
-		function logout() {
-			document.frm.submit();
-		}
 
-		function resetContext(userId) {
-			top.window.document.location.href = "../LoginServlet?U=" + userId+ "&resetContext=yes";
-		}
-	</script>
-</head>
 <body>
-
 <header class="navbar navbar-inverse navbar-fixed-top">
 	<!-- Left Header Navigation -->
 	<ul class="nav navbar-nav-custom">
@@ -45,44 +34,29 @@
 		</li>
 		<!-- END Header Link -->
 	</ul>
-		<!-- END Left Header Navigation -->
-		<!-- Right Header Navigation -->
 	<ul class="nav navbar-nav-custom pull-right">
-		<!-- Alternative Sidebar Toggle Button -->
 		<li><a href="javascript:void(0)"
 			onclick="App.sidebar('toggle-sidebar-alt');this.blur();"> <i
 				class="gi gi-settings"></i>
 		</a></li>
 		<!-- END Alternative Sidebar Toggle Button -->
 
-			<!-- User Dropdown -->
-			<li class="dropdown"><a href="javascript:void(0)"
-				class="dropdown-toggle" data-toggle="dropdown"> <img
-					src="../img/placeholders/avatars/avatar9.jpg" alt="avatar">
-			</a>
-			
-				<ul class="dropdown-menu dropdown-menu-right">
-					<li class="dropdown-header"><strong><%= u.getLastName() %>,&nbsp;<%= u.getFirstName() %></strong></li>
+		<!-- User Dropdown -->
+		<li class="dropdown"><a href="javascript:void(0)"
+			class="dropdown-toggle" data-toggle="dropdown"> <img
+				src="../img/placeholders/avatars/avatar9.jpg" alt="avatar">
+		</a>
+			<ul class="dropdown-menu dropdown-menu-right">
+				<li class="dropdown-header"><strong>ADMINISTRATOR</strong></li>
 
-					<li><a href="javascript:logout()"> <i
-							class="fa fa-power-off fa-fw pull-right"></i><%=resourceBundle.getProperty("DataManager.DisplayText.Logout")%>
-					</a></li>
-				</ul></li>
-			<!-- END User Dropdown -->
-		</ul>
-		<!-- END Right Header Navigation -->
-		
-	</header>
-	<!-- END Header -->
-
-
-	
-
-
-
-
-
-
-
+				<li><a href="javascript:logout()"> <i
+						class="fa fa-power-off fa-fw pull-right"></i> Log out
+				</a></li>
+			</ul></li>
+		<!-- END User Dropdown -->
+	</ul>
+	<!-- END Right Header Navigation -->
+</header>
+<!-- END Header -->
 </body>
 </html>

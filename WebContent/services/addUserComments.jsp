@@ -32,13 +32,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head>
-    <title></title>
 <meta name="description" content="Datamanager"/>
+     <meta name="description" content="Datamanager"/>
     <meta name="author" content="Inventaa"/>
     <meta name="robots" content="noindex, nofollow"/>
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0"/>
 
-    <!-- Icons -->
+   <!-- Icons -->
     <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
     <link rel="shortcut icon" href="../img/fav-icon.jpg"/>
     <!-- END Icons -->
@@ -58,12 +58,9 @@
     <!-- The themes stylesheet of this template (for using specific theme color in individual elements - must included last) -->
     <link rel="stylesheet" href="../css/themes.css"/>
     <!-- END Stylesheets -->
-    <link type="text/css" href="../styles/calendar.css" rel="stylesheet" />
-    
     <!-- Modernizr (browser feature detection library) -->
-    <script src="../js/vendor/modernizr-3.3.1.min.js"/>
+    <script src="../js/vendor/modernizr-3.3.1.min.js"></script>
   
-	<script language="javaScript" type="text/javascript" src="../scripts/calendar.js"></script>
 	<script src="../js/vendor/jquery-2.2.4.min.js"></script>
     <script src="../js/vendor/bootstrap.min.js"></script>
     <script src="../js/plugins.js"></script>
@@ -114,14 +111,20 @@
 </head>
 
 <body>
-    <form name="frm" method="post" action="processAttachments.jsp" enctype="multipart/form-data">
-        <input type="hidden" id="mode" name="mode" value="add">
-		<input type="hidden" id="from" name="from" value="<%= sFrom %>">		
-        <input type="hidden" id="message" name="message" value="">
-		<input type="hidden" id="cmtId" name="cmtId" value="<%= sCommentId %>">
-		<input type="hidden" id="folder" name="folder" value="<%= sCommentId %>">
-		<input type="hidden" id="replace" name="replace" value="no">
-		<input type="hidden" id="processPage" name="processPage" value="manageCommentsProcess.jsp">
+
+			
+			<!-- Main Container -->
+			<div id="main-container">
+
+				<div id="page-content">
+    <form name="frm" method="post" action="processAttachments.jsp" enctype="multipart/form-data" class="form-horizontal form-bordered">
+        <input type="hidden" id="mode" name="mode" value="add"/>
+		<input type="hidden" id="from" name="from" value="<%= sFrom %>"/>		
+        <input type="hidden" id="message" name="message" value=""/>
+		<input type="hidden" id="cmtId" name="cmtId" value="<%= sCommentId %>"/>
+		<input type="hidden" id="folder" name="folder" value="<%= sCommentId %>"/>
+		<input type="hidden" id="replace" name="replace" value="no"/>
+		<input type="hidden" id="processPage" name="processPage" value="manageCommentsProcess.jsp"/>
        <div class="table table-responsive table-hover">
 		
         <table id="datatable" class="table table-striped table-bordered table-vcenter">
@@ -135,7 +138,7 @@
             <tr>
                 <td  width="30%"><b><%= resourceBundle.getProperty("DataManager.DisplayText.Room") %></b></td>
                 <td  width="70%">
-                    <select id="controller" name="controller">
+                    <select id="controller" name="controller" class="form-control">
                         <option value=""><%= resourceBundle.getProperty("DataManager.DisplayText.Please_choose_one") %></option>
 <%
                     StringList slControllers = RDMSession.getControllers();
@@ -156,21 +159,21 @@
         else
         {
 %>
-            <input type="hidden" id="controller" name="controller" value="<%= sController %>">
+            <input type="hidden" id="controller" name="controller" value="<%= sController %>"/>
 <%
         }
 %>
             <tr>
                 <td  width="30%"><b><%= resourceBundle.getProperty("DataManager.DisplayText.Add_Alert") %></b></td>
                 <td  width="70%">
-                    <input type="checkbox" id="global" name="global" value="N" onClick="javascript:setGlobal()">Yes
+                    <input type="checkbox" id="global" name="global" value="N" onclick="javascript:setGlobal()">Yes
                 </td>
             </tr>
             
             <tr>
                 <td  width="30%"><b><%= resourceBundle.getProperty("DataManager.DisplayText.Text_Short_Desc") %></b></td>
                 <td  width="70%">
-                    <select id="abbr" name="abbr">
+                    <select id="abbr" name="abbr" class="form-control">
                         <option value=""><%= resourceBundle.getProperty("DataManager.DisplayText.Please_choose_one") %></option>
 <%
                     Map<String, String> mTask = null;
@@ -192,7 +195,7 @@
 			<tr>
 				<td  width="30%"><b><%= resourceBundle.getProperty("DataManager.DisplayText.Departments") %></b></td>
 				<td  width="70%">
-					<select id="dept" name="dept" multiple size="5">
+					<select id="dept" name="dept" multiple size="5"  class="form-control">
 <%
 						String sDeptName = null;
 						for(int j=0; j<slDept.size(); j++)
@@ -221,13 +224,13 @@
             <tr>
                 <td  width="30%"><b><%= resourceBundle.getProperty("DataManager.DisplayText.Comments") %></b></td>
                 <td  width="70%">
-                    <textarea id="comments" name="comments" rows="5" cols="35"></textarea>
+                    <textarea id="comments" name="comments" rows="5" cols="35" class="form-control"></textarea>
                 </td>
             </tr>
 			<tr>
 				<td  width="30%"><b><%= resourceBundle.getProperty("DataManager.DisplayText.Attachments") %></b></td>
 				<td  width="70%">
-					<input type="file" id="attachment" name="attachment">
+					<input type="file" id="attachment" name="attachment" class="form-control"/>
 				</td>
 			</tr>
             <tr>
@@ -235,12 +238,14 @@
             </tr>
             <tr>
                 <td colspan="2" align="right">
-                    <input type="button" name="Save" class="btn btn-primary" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Save") %>" onClick="submitForm()">&nbsp;&nbsp;&nbsp;
-                    <input type="button" name="Cancel" class="btn btn-primary" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Cancel") %>" onClick="javascript:top.window.close()">
+                    <input type="button" name="Save" class="btn btn-primary" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Save") %>" onclick="submitForm()"/>&nbsp;&nbsp;&nbsp;
+                    <input type="button" name="Cancel" class="btn btn-primary" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Cancel") %>" onclick="javascript:top.window.close()"/>
                 </td>
             </tr>
         </table>
         </div>
     </form>
+  </div>
+
 </body>
 </html>

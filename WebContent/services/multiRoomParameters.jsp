@@ -163,7 +163,7 @@
 			
 			if(fg)
 			{
-				document.forms[0].submit();
+				document.frm1.submit();
 			}
 			else
 			{
@@ -268,17 +268,10 @@
             </div>
         </div>
         <!-- END Preloader -->
-        <div id="page-container" class="header-fixed-top sidebar-visible-lg-full">
-           
-
+      
             <!-- Main Container -->
             <div id="main-container">
-               	<jsp:include page="header.jsp" />
-				<jsp:include page="header-sidebar.jsp">
-					<jsp:param name="u" value="${u}" />
-				</jsp:include>
-				<jsp:include page="sidebar.jsp" />
-                
+              
                 <div id="page-content">
                     <div class="block">
                         <!-- General Elements Title -->
@@ -569,8 +562,6 @@
                 <!-- END Datatables Block -->
             </div>
 
-            <!-- END Page Content -->
-        </div>
     </div>
 
 

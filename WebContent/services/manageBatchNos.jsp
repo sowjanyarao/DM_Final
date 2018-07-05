@@ -198,17 +198,6 @@
         </div>
         <!-- END Preloader -->
 
-		<div id="page-container"
-			class="header-fixed-top sidebar-visible-lg-full">
-
-			<jsp:include page="header.jsp" />
-			<!-- Alternative Sidebar -->
-			<jsp:include page="header-sidebar.jsp">
-				<jsp:param name="u" value="${u}" />
-			</jsp:include>
-			<!-- Main Sidebar -->
-			<jsp:include page="sidebar.jsp" />
-
 			<!-- Main Container -->
 			<div id="main-container">
 				<!-- Page content -->
@@ -298,15 +287,15 @@
 
 							<div class="col-xs-4 text-right">
 								<input type="button" name="search" id="search"
-									onclick="showBatchNos()"
+									onclick="showBatchNos()" class="btn btn-effect-ripple btn-primary"
 									value="<%=resourceBundle.getProperty("DataManager.DisplayText.Show_Batch_Nos")%>">
 
 								<input type="button" name="refresh" id="refresh"
-									onclick="refreshBatchNos()"
+									onclick="refreshBatchNos()" class="btn btn-effect-ripple btn-primary"
 									value="<%=resourceBundle.getProperty("DataManager.DisplayText.Refresh")%>">
 
 								<input type="button" name="expBatchNos" id="expBatchNos"
-									onclick="exportBatchNos()"
+									onclick="exportBatchNos()" class="btn btn-effect-ripple btn-primary"
 									value="<%=resourceBundle.getProperty("DataManager.DisplayText.Export_to_File")%>">
 							</div>
 
@@ -328,8 +317,7 @@
 			<!-- END Main Container -->
 		</div>
 		<!-- END Page Container -->
-	</div>
-    <!-- END Page Wrapper -->
+
 
     <!-- jQuery, Bootstrap, jQuery plugins and Custom JS code -->
     <script src="../js/vendor/jquery-2.2.4.min.js"></script>

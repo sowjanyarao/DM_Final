@@ -211,7 +211,7 @@
 
 			if(fg)
 			{
-				document.forms[0].submit();
+				document.frm1.submit();
 			}
 			else
 			{
@@ -364,7 +364,7 @@
 	}
 
 	function unselectDiv(e) {
-		document.getElementById(e).style.backgroundColor = '#b3b7bb';
+		document.getElementById(e).style.backgroundColor = '#ffffff';
 	}
 </script>
 <%
@@ -405,14 +405,6 @@
 				</h3>
 			</div>
 		</div>
-		<!-- END Preloader -->
-		<div id="page-container"
-			class="header-fixed-top sidebar-visible-lg-full">
-			<jsp:include page="header.jsp" />
-			<jsp:include page="header-sidebar.jsp">
-				<jsp:param name="u" value="${u}" />
-			</jsp:include>
-			<jsp:include page="sidebar.jsp" />
 
 			<!-- Main Container -->
 			<div id="main-container">
@@ -899,9 +891,7 @@ if(iSelRange > -1)
 				</div>
 
 				<!-- END Datatables Block -->
-			</div>
-
-			<!-- END Page Content -->
+			
 		</div>
 	</div>
 	<form name="frm2">

@@ -81,13 +81,8 @@ if("".equals(sController))
                 <h3 class="text-primary visible-lt-ie10"><strong>Loading..</strong></h3>
             </div>
         </div>
-        <div id="page-container" class="header-fixed-top sidebar-visible-lg-full">
-           
-			<jsp:include page="header.jsp" />
-			<jsp:include page="header-sidebar.jsp">
-			  <jsp:param name="u" value="${u}" />
-			</jsp:include>
-			<jsp:include page="sidebar.jsp" />
+      
+			
             <!-- Main Container -->
             <div id="main-container">
                 <!-- Page content -->
@@ -172,8 +167,6 @@ if("".equals(sController))
             <!-- END Main Container -->
         </div>
         <!-- END Page Container -->
-    </div>
-    <!-- END Page Wrapper -->
 
     <!-- jQuery, Bootstrap, jQuery plugins and Custom JS code -->
     <script src="../js/vendor/jquery-2.2.4.min.js"></script>

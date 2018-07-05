@@ -58,14 +58,7 @@
 	slOnOffValues.addAll(slCompErrParams);
 
 	String sParams = "";
-	StringList slGraphs=null;
-	try {
-		slGraphs = u.getSavedGraphs();
-	} catch (Throwable e) {
-		e.printStackTrace();
-	}
-	
-	//StringList slGraphs = u.getSavedGraphs();
+	StringList slGraphs = u.getSavedGraphs();
 
 	Random randomGenerator = new Random();
 	int randomInt = randomGenerator.nextInt(1000);
@@ -597,13 +590,7 @@
 
 					if(slGraphs.contains(sCntrlType+" Dashboard"))
 					{
-						Map<String, String> mGrpParams = null;
-						try {
-							mGrpParams = u.getGraphParams(sCntrlType+" Dashboard");
-						} catch (Throwable e) {
-							e.printStackTrace();
-						}
-						
+						Map<String, String> mGrpParams = u.getGraphParams(sCntrlType+" Dashboard");
 						sParams = mGrpParams.get("PARAMS").replaceAll(",", "\\|");
 %>
 						<input type="button" id="Graph" name="Graph" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Show_Graph").replaceAll("\\s", "\n") %>" onClick="javascript:showGraph()">&nbsp;

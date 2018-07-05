@@ -57,7 +57,7 @@
 		function saveChanges()
 		{
 			document.getElementById("mode").value = "save";
-			document.forms[0].submit();
+			document.frm1.submit();
 		}
 		
 		function copyValues()
