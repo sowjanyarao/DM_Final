@@ -349,7 +349,7 @@
 <script language="javascript">
 	
 		function reloadHeader(url) {
-			document.location.href = "dashboard.jsp?showContent="+ url;
+			document.location.href = "navigator.jsp?showContent="+ url;
 			//parent.frames['header'].location.href = "dashboard.jsp?showContent="+url;
 		}  
 
