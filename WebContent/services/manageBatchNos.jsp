@@ -285,7 +285,7 @@
 								</div>
 							</div>
 
-							<div class="col-xs-4 text-right">
+							<div class="col-lg-12 text-right">
 								<input type="button" name="search" id="search"
 									onclick="showBatchNos()" class="btn btn-effect-ripple btn-primary"
 									value="<%=resourceBundle.getProperty("DataManager.DisplayText.Show_Batch_Nos")%>">

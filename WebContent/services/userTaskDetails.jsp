@@ -63,17 +63,21 @@ Map<String, Map<String, MapList>> mUserLogs = RDMServicesUtils.getTimesheets(mIn
 	<script language="javaScript" type="text/javascript" src="../scripts/select2.full.js"></script>
 	<script language="javaScript" type="text/javascript" src="../scripts/bootstrap.min.js"></script>
 	
-	<style type="text/css">		
+	<style type="text/css">	
+	
 		td.txtLabel
 		{
-			border: solid 1px #ffffff;
+			/* border: solid 1px #ffffff; */
 			text-align: left;
-			background-color: #888888;
-			color: #ffffff;
+			/* background-color: #888888; */
+			color: #3e3e3e;
 			font-size:12px;
 			font-family:Arial,sans-serif;
 			font-weight: bold;
+			line-height: 2em;
 		}
+		td.input{color:#3e3e3e !important;}
+		tr{border-bottom:1px solid #ec3237;}
 	</style>
 
 	<script type="text/javascript">
@@ -197,7 +201,7 @@ Map<String, Map<String, MapList>> mUserLogs = RDMServicesUtils.getTimesheets(mIn
 	</script>
 </head>
 	
-<body <%= (bCanAddEdit && RDMServicesConstants.TASK_STATUS_NOT_STARTED.equals(sStatus) ? "onLoad=\"javascript:setDateFields()\"" : "") %>>
+<body <%= (bCanAddEdit && RDMServicesConstants.TASK_STATUS_NOT_STARTED.equals(sStatus) ? "onLoad=\"javascript:setDateFields()\"" : "") %> style="background-color:#ffffff !important;">
 	<form name="frm" method="post" action="processAttachments.jsp" enctype="multipart/form-data">
 		<input type="hidden" id="mode" name="mode" value="edit">
 		<input type="hidden" id="taskAutoName" name="taskAutoName" value="<%= sTaskId %>">

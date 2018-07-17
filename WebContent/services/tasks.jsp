@@ -161,7 +161,7 @@
                 <!-- Page content -->
                 <div id="page-content">
                     <div class="row">
-                        <div class="col-sm-4 col-md-2">
+                        <div class="col-sm-4 col-md-4">
                             <!-- Input States Block -->
                             <div class="block">
                                 <!-- Input States Title -->
@@ -193,7 +193,7 @@
                             </div>
 
                         </div>
-                        <div class="col-sm-4 col-md-2">
+                        <div class="col-sm-4 col-md-4">
                             <!-- Input States Block -->
                             <div class="block">
                                 <!-- Input States Title -->
@@ -273,7 +273,7 @@
                                 <!-- END Input States Content -->
                             </div>
                         </div>
-                        <div class="col-sm-4 col-md-2">
+                        <div class="col-sm-4 col-md-4">
                             <!-- Input States Block -->
                             <div class="block">
                                 <!-- Input States Title -->
@@ -306,7 +306,9 @@
 									</div>
                             </div>
                         </div>
-                        <div class="col-sm-4 col-md-2">
+                        </div>
+                        <div class="row">
+                        <div class="col-sm-4 col-md-4">
                             <!-- Input States Block -->
                             <div class="block">
                                 <!-- Input States Title -->
@@ -342,7 +344,7 @@
 									</div>
 								</div>
                         </div>
-                        <div class="col-sm-4 col-md-2">
+                        <div class="col-sm-4 col-md-4">
                             <!-- Input States Block -->
                             <div class="block">
                                 <!-- Input States Title -->
@@ -404,7 +406,7 @@
 									</div>
 								</div>
                         </div>
-                        <div class="col-sm-4 col-md-2">
+                        <div class="col-sm-4 col-md-4">
                             <!-- Input States Block -->
                             <div class="block">
                                 <!-- Input States Title -->

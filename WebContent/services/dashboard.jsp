@@ -291,9 +291,9 @@ if(showContent == null || "".equals(showContent))
 			<div id="main-container">
 
 				<!-- Page content -->
-				<div id="page-content">
+				<div style="border:0px" id="page-content">
 					
-					<iframe name="displayContent" src="" width="100%" height="<%= winHeight * 0.9 %>px"></iframe>
+					<iframe style="border:0px" border="0px" name="displayContent" src="" width="100%" height="<%= winHeight * 0.9 %>px" ></iframe>
 				</div>
 				<!-- END Page Content -->
 			</div>

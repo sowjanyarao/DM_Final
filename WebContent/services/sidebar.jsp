@@ -56,7 +56,9 @@
 					</li>
 
 					<li><a href="javascript:reloadHeader('short-links.jsp')"><i
-							class="fa fa-link sidebar-nav-icon"></i><%= resourceBundle.getProperty("DataManager.DisplayText.Short_Links") %></a></li>
+							class="fa fa-link sidebar-nav-icon"></i><span
+							class="sidebar-nav-mini-hide"><%= resourceBundle.getProperty("DataManager.DisplayText.Short_Links") %></span></a></li>
+							
 
 					<%
 							}
