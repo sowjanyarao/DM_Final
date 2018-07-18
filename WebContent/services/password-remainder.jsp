@@ -41,7 +41,7 @@
     <script src="../js/vendor/modernizr-3.3.1.min.js"></script>
 </head>
 
-<body>
+<body style="background-color: #ec3237 !important;">
 	<!-- Login Container -->
 	<div id="login-container">
 		<!-- Reminder Header -->
