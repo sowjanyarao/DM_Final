@@ -94,7 +94,14 @@
 
 	int iSz = slControllers.size();
 	String sParams = "";
-	StringList slGraphs = u.getSavedGraphs();
+	StringList slGraphs = new StringList();
+	try{
+		slGraphs = u.getSavedGraphs();
+	}
+	catch(Throwable e){
+		
+	}
+	
 
 	Random randomGenerator = new Random();
 	int randomInt = randomGenerator.nextInt(1000);
@@ -519,7 +526,11 @@ if(iSelRange > -1)
 							}
 							if(slGraphs.contains(sCntrlType+" Dashboard"))
 							{
-								Map<String, String> mGrpParams = u.getGraphParams(sCntrlType+" Dashboard");
+								Map<String, String> mGrpParams = new HashMap<String, String>();
+								try{
+								mGrpParams = u.getGraphParams(sCntrlType+" Dashboard");
+								}
+								catch(Throwable e){}
 								sParams = mGrpParams.get("PARAMS").replaceAll(",", "\\|");
 %> <a href="javascript:showGraph('<%=sController%>')"><%= resourceBundle.getProperty("DataManager.DisplayText.Show_Graph") %></a>
 												<%
