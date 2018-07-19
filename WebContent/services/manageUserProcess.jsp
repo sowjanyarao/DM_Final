@@ -190,8 +190,8 @@
 			else if(mode == "chgPwd")
 			{
 				alert("<%= resourceBundle.getProperty("DataManager.DisplayText.Password_Modified") %>");
-				top.opener.top.document.location.href =  "../LogoutServlet";
-				top.window.close();
+				top.document.location.href =  "../LogoutServlet";
+				alert(top.document.location.href);
 			}
 			else if(mode == "setHomePage")
 			{

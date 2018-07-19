@@ -117,6 +117,10 @@
 			<div id="main-container">
 
 				<div id="page-content">
+				<div class="block">
+                       <div class="block-title">
+							<h2><%= resourceBundle.getProperty("DataManager.DisplayText.Add_Comments") %></h2>
+						</div>
     <form name="frm" method="post" action="processAttachments.jsp" enctype="multipart/form-data" class="form-horizontal form-bordered">
         <input type="hidden" id="mode" name="mode" value="add"/>
 		<input type="hidden" id="from" name="from" value="<%= sFrom %>"/>		
@@ -125,21 +129,20 @@
 		<input type="hidden" id="folder" name="folder" value="<%= sCommentId %>"/>
 		<input type="hidden" id="replace" name="replace" value="no"/>
 		<input type="hidden" id="processPage" name="processPage" value="manageCommentsProcess.jsp"/>
-       <div class="table table-responsive table-hover">
 		
-        <table id="datatable" class="table table-striped table-bordered table-vcenter">
-            <tr>
-                <td colspan="2" align="center"><b><%= resourceBundle.getProperty("DataManager.DisplayText.Add_Comments") %></b></td>
-            </tr>
+	     
 <%
         if("".equals(sController))
         {
 %>
-            <tr>
-                <td  width="30%"><b><%= resourceBundle.getProperty("DataManager.DisplayText.Room") %></b></td>
-                <td  width="70%">
-                    <select id="controller" name="controller" class="form-control">
-                        <option value=""><%= resourceBundle.getProperty("DataManager.DisplayText.Please_choose_one") %></option>
+
+<div class="form-group">
+                                <label class="col-md-3 control-label" for="example-select"><%= resourceBundle.getProperty("DataManager.DisplayText.Room") %></label>
+                                <div class="col-md-6">
+                                    <select id="controller" name="controller" class="form-control" size="1">
+                                                    <option value=""><%= resourceBundle.getProperty("DataManager.DisplayText.Please_choose_one") %></option>
+                               
+ 
 <%
                     StringList slControllers = RDMSession.getControllers();
 					slControllers.addAll(RDMSession.getInactiveControllers());
@@ -152,8 +155,9 @@
                     }
 %>
                     </select>
-                </td>
-            </tr>
+                                 
+                                </div>
+                            </div>
 <%
         }
         else
@@ -163,18 +167,24 @@
 <%
         }
 %>
-            <tr>
-                <td  width="30%"><b><%= resourceBundle.getProperty("DataManager.DisplayText.Add_Alert") %></b></td>
-                <td  width="70%">
-                    <input type="checkbox" id="global" name="global" value="N" onclick="javascript:setGlobal()">Yes
-                </td>
-            </tr>
-            
-            <tr>
-                <td  width="30%"><b><%= resourceBundle.getProperty("DataManager.DisplayText.Text_Short_Desc") %></b></td>
-                <td  width="70%">
-                    <select id="abbr" name="abbr" class="form-control">
-                        <option value=""><%= resourceBundle.getProperty("DataManager.DisplayText.Please_choose_one") %></option>
+
+
+<div class="form-group">
+                                <label class="col-md-3 control-label"><%= resourceBundle.getProperty("DataManager.DisplayText.Add_Alert") %></label>
+                                <div class="col-md-9">
+                                    <label class="checkbox-inline" for="example-inline-checkbox1">
+                                                    <input type="checkbox" id="global" name="global" value="N" onclick="javascript:setGlobal()">Yes
+                                                </label>
+                                </div>
+                            </div>
+                            
+        
+        <div class="form-group">
+                                <label class="col-md-3 control-label" for="example-select"><%= resourceBundle.getProperty("DataManager.DisplayText.Text_Short_Desc") %></label>
+                                <div class="col-md-6">
+                                    <select id="abbr" name="abbr" class="form-control" size="1">
+                                                    <option value=""><%= resourceBundle.getProperty("DataManager.DisplayText.Please_choose_one") %></option>
+         
 <%
                     Map<String, String> mTask = null;
 					String sTaskId = "";
@@ -189,13 +199,16 @@
 <%
                     }
 %>
-                    </select>
-                </td>
-            </tr>
-			<tr>
-				<td  width="30%"><b><%= resourceBundle.getProperty("DataManager.DisplayText.Departments") %></b></td>
-				<td  width="70%">
-					<select id="dept" name="dept" multiple size="5"  class="form-control">
+                                               </select>
+                                </div>
+                            </div>
+      
+      
+    <div class="form-group">
+                                <label class="col-md-3 control-label" for="dept"><%= resourceBundle.getProperty("DataManager.DisplayText.Departments") %></label>
+                                <div class="col-md-6">
+                                    <select id="dept" name="dept" class="form-control" size="5" multiple="">
+                                                   
 <%
 						String sDeptName = null;
 						for(int j=0; j<slDept.size(); j++)
@@ -218,33 +231,38 @@
 <%
 						}
 %>
-					</select>
-				</td>
-			</tr>
-            <tr>
-                <td  width="30%"><b><%= resourceBundle.getProperty("DataManager.DisplayText.Comments") %></b></td>
-                <td  width="70%">
-                    <textarea id="comments" name="comments" rows="5" cols="35" class="form-control"></textarea>
-                </td>
-            </tr>
-			<tr>
-				<td  width="30%"><b><%= resourceBundle.getProperty("DataManager.DisplayText.Attachments") %></b></td>
-				<td  width="70%">
-					<input type="file" id="attachment" name="attachment" class="form-control"/>
-				</td>
-			</tr>
-            <tr>
-                <td colspan="2"></td>
-            </tr>
-            <tr>
-                <td colspan="2" align="right">
-                    <input type="button" name="Save" class="btn btn-primary" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Save") %>" onclick="submitForm()"/>&nbsp;&nbsp;&nbsp;
-                    <input type="button" name="Cancel" class="btn btn-primary" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Cancel") %>" onclick="javascript:top.window.close()"/>
-                </td>
-            </tr>
-        </table>
-        </div>
+                                                </select>
+                                </div>
+                            </div>   
+      
+      <div class="form-group">
+                                <label class="col-md-3 control-label" for="comments"><%= resourceBundle.getProperty("DataManager.DisplayText.Comments") %></label>
+                                <div class="col-md-9">
+                                    <textarea id="comments" name="comments" rows="7" class="form-control" placeholder="Description.."></textarea>
+                                </div>
+                            </div>
+  
+ <div class="form-group">
+                                <label class="col-md-3 control-label" for="example-file-input"><%= resourceBundle.getProperty("DataManager.DisplayText.Attachments") %>
+                                </label>
+                                <div class="col-md-9">
+                                    <input type="file" id="attachment" name="attachment">
+                                </div>
+                            </div>     
+      
+<div class="form-group form-actions">
+                                <div class="col-md-9 col-md-offset-3">
+                                <input type="button" name="Save" class="btn btn-effect-ripple btn-primary" style="overflow: hidden; position: relative;" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Save") %>" onclick="submitForm()"/>
+                    <input type="button" name="Cancel" class="btn btn-effect-ripple btn-danger" style="overflow: hidden; position: relative;" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Cancel") %>" onclick="javascript:top.window.close()"/>
+                    
+                                </div>
+                            </div>
+                            
+
+       
+        
     </form>
+  </div>
   </div>
 
 </body>

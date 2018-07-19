@@ -139,21 +139,21 @@ boolean bFlag = false;
 					if(bChangeStatus)
 					{
 %>
-						<input type="button" id="start" name="start" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Task_Start") %>" onClick="startTasks()">
-						<input type="button" id="complete" name="complete" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Task_Complete") %>" onClick="completeTasks()">
+						<input type="button" class="btn btn-effect-ripple btn-primary" id="start" name="start" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Task_Start") %>" onClick="startTasks()">
+						<input type="button" class="btn btn-effect-ripple btn-primary" id="complete" name="complete" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Task_Complete") %>" onClick="completeTasks()">
 <%
 					}
 					else if(bDeleteTask)
 					{
 %>
-						<input type="button" id="delete" name="delete" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Task_Delete") %>" onClick="deleteTasks()">
+						<input type="button" class="btn btn-effect-ripple btn-primary" id="delete" name="delete" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Task_Delete") %>" onClick="deleteTasks()">
 <%
 					}
 %>
 				</td>
 				<td colspan="6" align="right">
-					<input type="button" id="ExportTasks" name="ExportTasks" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Export_Tasks") %>" onClick="exportTasks()">
-					<input type="button" id="refresh" name="refresh" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Refresh") %>" onClick="javascript:reloadWin()">
+					<input type="button" class="btn btn-effect-ripple btn-primary" id="ExportTasks" name="ExportTasks" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Export_Tasks") %>" onClick="exportTasks()">
+					<input type="button" class="btn btn-effect-ripple btn-primary" id="refresh" name="refresh" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Refresh") %>" onClick="javascript:reloadWin()">
 				</td>
 			</tr>
 			<tr>

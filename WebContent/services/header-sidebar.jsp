@@ -25,12 +25,14 @@
 	
 		function chngPwd()
 		{
-			if(!checkPassword())
+		
+			 if(!checkPassword())
 			{
 				return false;
-			}
+			} 
 			
-			document.frm.submit();
+			document.frm1.action="manageUserProcess.jsp";
+			document.frm1.submit();
 		}
 		
 		function checkPassword()
@@ -47,6 +49,7 @@
 			
 			var CPassword = document.getElementById("CPassword");
 			CPassword.value = CPassword.value.trim();
+			
 			
 			if(password.value != CPassword.value)
 			{
@@ -101,8 +104,7 @@
 			<!-- Profile -->
 			<div class="sidebar-section">
 				<h2 class="text-light">Profile</h2>
-				<form name="frm" method="post" action="manageUserProcess.jsp"
-					class="form-control-borderless">
+				
 					<div class="form-group">
 						<label for="side-profile-name">Name</label> <input type="text"
 							id="side-profile-name" name="side-profile-name"
@@ -127,11 +129,10 @@
 
 					</div>
 					<div class="form-group remove-margin">
-						<button type="submit" name="changePassword"
-							class="btn btn-effect-ripple btn-primary" onclick="chngPwd()"><%= resourceBundle.getProperty("DataManager.DisplayText.Change_Password") %></button>
+						<input type="button" class="btn btn-effect-ripple btn-primary" name="changePassword" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Change_Password") %>" onClick="chngPwd()"/>
+						
 					</div>
 					<input type="hidden" id="mode" name="mode" value="chgPwd">
-				</form>
 			</div>
 		</div>
 		<!-- END Sidebar Content -->

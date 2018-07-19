@@ -71,10 +71,10 @@
     </style>
 	
 </head>
-
+<body>
 	
-	  <div id="page-wrapper" class="page-loading"  style="border: 2px solid blue;">
-        <div class="preloader">
+	  <div id="page-wrapper" class="page-loading" >
+        <div class="preloader">	
             <div class="inner">
                 <!-- Animation spinner for all modern browsers -->
                 <div class="preloader-spinner themed-background hidden-lt-ie10"></div>
@@ -95,4 +95,5 @@
 			<iframe name="content" src="blank.jsp" width="100%" height="<%= winHeight * 1.0 %>px" frameBorder="0"></iframe>
 		</div>
 	</div>
+	</body>
 </html>

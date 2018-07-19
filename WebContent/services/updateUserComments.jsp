@@ -101,14 +101,16 @@
                 <h3 class="text-primary visible-lt-ie10"><strong>Loading..</strong></h3>
             </div>
         </div>
-       
+       <div id="page-container">
             <!-- Main Container -->
             <div id="main-container">
 
                 <!-- Page content -->
                 <div id="page-content">
                     <div class="block">
-                       
+                       <div class="block-title">
+							<h2><%= resourceBundle.getProperty("DataManager.DisplayText.Update_Comments") %></h2>
+						</div>
 	<form name="frm" method="post" action="processAttachments.jsp" enctype="multipart/form-data" enctype="multipart/form-data" class="form-horizontal form-bordered">
 		<input type="hidden" id="cmtId" name="cmtId" value="<%= sCommentId %>">
 		<input type="hidden" id="mode" name="mode" value="update">
@@ -117,45 +119,63 @@
 		<input type="hidden" id="replace" name="replace" value="">
 		<input type="hidden" id="processPage" name="processPage" value="manageCommentsProcess.jsp">
 		
-		<table id="example-datatable" class="table table-striped table-bordered table-vcenter">
-			<tr>
-				<td colspan="2" align="center"><b><%= resourceBundle.getProperty("DataManager.DisplayText.Update_Comments") %></b></td>
-			</tr>
-			<tr><td>
-			 	<label width="30%" class="col-md-3 control-label" for="comments"><%=  resourceBundle.getProperty("DataManager.DisplayText.Review_Comments") %></label>
-			 	</td>
-				<td class="input" width="70%">
-					<textarea id="comments" name="comments" rows="5" cols="35"></textarea>
-				</td>
-			</tr>
+		<div class="form-group">
+			<label class="col-md-3 control-label"
+				for="comments"><%=resourceBundle.getProperty("DataManager.DisplayText.Review_Comments")%></label>
+			<div class="col-md-9">
+				<textarea id="comments" name="comments" rows="7"
+					class="form-control" placeholder="Description.."></textarea>
+			</div>
+		</div>
+			<div class="form-group">
+				<label class="col-md-3 control-label" for="attachment"><%=resourceBundle.getProperty("DataManager.DisplayText.Attachments")%>
+				</label>
+				<div class="col-md-9">
+					<input type="file" id="attachment" name="attachment">
+				</div>
+				<div class="form-group">
+					<div class="col-md-9">
+						<label class="radio-inline" for="example-inline-radio1">
+							<input type="radio" id="fileaction" name="fileaction"
+								value="yes" checked> <%=resourceBundle.getProperty("DataManager.DisplayText.Replace")%>
+						</label> 
+						<label class="radio-inline" for="example-inline-radio2">
+							<input type="radio" id="fileaction" name="fileaction"
+								value="no"> <%=resourceBundle.getProperty("DataManager.DisplayText.Append")%>
+						</label>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group form-actions">
+				<div class="col-md-9 col-md-offset-3">
+					<button type="submit" class="btn btn-effect-ripple btn-primary"
+						style="overflow: hidden; position: relative;" name="Save"
+							value="<%=resourceBundle.getProperty("DataManager.DisplayText.Save")%>"
+								onClick="submitForm()">Save</button>
+						<button type="reset" class="btn btn-effect-ripple btn-danger"
+							style="overflow: hidden; position: relative;" name="Cancel"
+								value="<%=resourceBundle.getProperty("DataManager.DisplayText.Cancel")%>"
+									onClick="javascript:top.window.close()">Cancel</button>
+				</div>
+			</div>
 			
-			<tr>
-				<td>
-			 	<label width="30%" class="col-md-3 control-label" for="attachment"><b><%= resourceBundle.getProperty("DataManager.DisplayText.Attachments") %></b></label>
-			 	</td>
-				<td class="input" width="70%">
-					<input type="file" id="attachment" name="attachment" class="btn btn-effect-ripple btn-primary"><br>
-					<input type="radio" id="fileaction" name="fileaction" value="yes" checked><%= resourceBundle.getProperty("DataManager.DisplayText.Replace") %>
-					<input type="radio" id="fileaction" name="fileaction" value="no"><%= resourceBundle.getProperty("DataManager.DisplayText.Append") %>
-				</td>
-			</tr>
-			
-			<tr>
-				<td colspan="2">
-					&nbsp;
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2" align="right">
-					<input type="button" name="Save" class="btn btn-effect-ripple btn-primary" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Save") %>" onClick="submitForm()">&nbsp;&nbsp;&nbsp;
-					<input type="button" name="Cancel" class="btn btn-effect-ripple btn-primary" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Cancel") %>" onClick="javascript:top.window.close()">
-				</td>
-			</tr>
-		</table>
+
 	</form>
 	</div>
 	</div>
 	</div>
 	</div>
+	</div>
+	
+	<!-- Load and execute javascript code used only in this page -->
+	<script src="../js/pages/readyDashboard.js"></script>
+	<script>
+        $(function() {
+            ReadyDashboard.init();
+        });
+
+    </script>
+    
 </body>
 </html>

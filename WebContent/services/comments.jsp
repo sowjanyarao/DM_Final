@@ -86,6 +86,7 @@
 		
 		function showComments()
 		{
+			alert("******Entered into showComments");
 			var date1;
 			var fg = false;
 			var today = new Date();
@@ -131,7 +132,7 @@
 					}
 				}
 			}
-			
+			alert("******Entered into showComments2222");
 			document.frm.target = "results";
 			document.frm.submit();
 		}
@@ -390,10 +391,12 @@
                         <!-- General Elements Content -->
 						     <div class="block full"> 
                         
-                        	<div class="table-responsive">
-								<iframe name="results" src="userCommentsResult.jsp" align="middle" frameBorder="0" width="100%" height="<%= winHeight * 0.7 %>px"/>
+                        	
+								<iframe name="results" src="userCommentsResult.jsp" align="middle" frameBorder="0" width="100%" height="<%= winHeight * 0.7 %>px">
+								</iframe>
 							</div>
-						</div>
+						
+                        
                         <!-- END General Elements Content -->
                     </div>
                                        

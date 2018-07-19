@@ -111,7 +111,9 @@
 				}
 				else if(sFrom == "commentsView")
 				{
-					opener.parent.frames['filter'].showComments();
+					//opener.parent.frames['filter'].showComments();
+					alert("opener.parent - "+opener.parent.location.href);
+					parent.showComments();
 				}
 				window.close();
 			}
@@ -126,6 +128,7 @@
 				else if(sFrom == "commentsView")
 				{
 					parent.frames['filter'].showComments();
+					
 				}
 			}
 		}

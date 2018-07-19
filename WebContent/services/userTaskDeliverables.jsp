@@ -260,20 +260,20 @@ Collections.sort(lKeys, String.CASE_INSENSITIVE_ORDER);
 			if(bCanAddEdit && (iSz > 0))
 			{
 %>
-				<input type="button" name="add" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Create_Deliverable") %>" onClick="manageDeliverable('')">&nbsp;
+				<input type="button" class="btn btn-effect-ripple btn-primary" name="add" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Create_Deliverable") %>" onClick="manageDeliverable('')">&nbsp;
 <%
 			}
 			
 			if(!RDMServicesConstants.TASK_STATUS_CANCELLED.equals(sStatus) && (iCnt > 0))
 			{
 %>
-				<input type="button" name="move" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Move_Deliverable") %>" onClick="moveDeliverables()">&nbsp;
+				<input type="button" class="btn btn-effect-ripple btn-primary" name="move" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Move_Deliverable") %>" onClick="moveDeliverables()">&nbsp;
 <%
 			}
 %>
 			</td>
 			<td align="right">	
-				<input type="button" name="Close" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Close") %>" onClick="javascript:top.window.close()">
+				<input type="button" class="btn btn-effect-ripple btn-primary" name="Close" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Close") %>" onClick="javascript:top.window.close()">
 			</td>
 		</tr>
 		<tr>

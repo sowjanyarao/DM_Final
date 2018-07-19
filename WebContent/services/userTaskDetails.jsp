@@ -222,7 +222,7 @@ Map<String, Map<String, MapList>> mUserLogs = RDMServicesUtils.getTimesheets(mIn
 <%
 				}
 %>
-					<input type="button" name="wbs" value="<%= resourceBundle.getProperty("DataManager.DisplayText.View_WBS") %>" onClick="javascript:showTaskWBS()">
+					<input type="button" class="btn btn-effect-ripple btn-primary" name="wbs" value="<%= resourceBundle.getProperty("DataManager.DisplayText.View_WBS") %>" onClick="javascript:showTaskWBS()">
 				</td>
 			</tr>
 		</table>
@@ -574,11 +574,11 @@ Map<String, Map<String, MapList>> mUserLogs = RDMServicesUtils.getTimesheets(mIn
 				if(bCanAddEdit)
 				{
 %>
-					<input type="button" name="Save" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Save") %>" onClick="submitForm()">&nbsp;&nbsp;&nbsp;
+					<input type="button" class="btn btn-effect-ripple btn-primary" name="Save" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Save") %>" onClick="submitForm()">&nbsp;&nbsp;&nbsp;
 <%
 				}
 %>
-					<input type="button" name="Close" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Close") %>" onClick="javascript:top.window.close()">
+					<input type="button" class="btn btn-effect-ripple btn-primary" name="Close" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Close") %>" onClick="javascript:top.window.close()">
 				</td>
 			</tr>
 		</table>

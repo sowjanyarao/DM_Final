@@ -248,7 +248,7 @@
 			{
 %>
 				<td colspan="3" align="right">
-					<input type="button" name="close" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Close") %>" onClick="javascript:top.window.close()">
+					<input type="button" class="btn btn-effect-ripple btn-primary" name="close" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Close") %>" onClick="javascript:top.window.close()">
 				</td>
 <%
 			}

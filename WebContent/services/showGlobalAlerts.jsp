@@ -12,6 +12,7 @@
 <%@include file="commonUtils.jsp" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head>
 	<title></title>
@@ -59,6 +60,16 @@
         });
 
     </script>
+    
+    <!-- Load and execute javascript code used only in this page -->
+    <script src="../js/pages/uiTables.js"></script>
+    <script>
+        $(function() {
+            UiTables.init();
+        });
+
+    </script>
+    
 	<script language="javascript">
 	function updateComments(id, bNo, bGlobal)
 	{
@@ -67,7 +78,8 @@
 	
 	function closeComments(id)
 	{
-		parent.frames['hiddenFrame'].document.location.href = "manageCommentsProcess.jsp?cmtId="+id+"&mode=close&from=homeView";
+		//parent.frames['hiddenFrame'].document.location.href = "manageCommentsProcess.jsp?cmtId="+id+"&mode=close&from=homeView";
+		document.location.href = "manageCommentsProcess.jsp?cmtId="+id+"&mode=close&from=homeView";
 	}
 	
 	function openController(sCntrl)
@@ -103,7 +115,9 @@
 							<h2>Dashboard</h2>
 						</div>
 						<div class="table-responsive">
-							<table id="example-datatable"
+
+
+						<table id="example-datatable"
 								class="table table-striped table-bordered table-vcenter">
 								<thead>
 									<tr>
@@ -236,5 +250,17 @@
 			<!-- END Main Container -->
 	
 	</form>
+	
+	
+	    <!-- Load and execute javascript code used only in this page -->
+    <script src="../js/pages/uiTables.js"></script>
+    <script>
+        $(function() {
+            UiTables.init();
+        });
+
+    </script>
+	
+	
 </body>
 </html>

@@ -295,7 +295,7 @@
                             </div>
                             <div class="form-group form-actions">
                                 <div class="col-md-9 col-md-offset-3">
-                                    <input type="button" class="btn-primary" name="ViewAlarms" value="Show Alarms" onClick="showAlarms()"/>
+                                    <input type="button" class="btn btn-effect-ripple btn-primary" name="ViewAlarms" value="Show Alarms" onClick="showAlarms()"/>
                                 </div>
                             </div>
 						<input type="hidden" id="mode" name="mode" value="searchAlarms">

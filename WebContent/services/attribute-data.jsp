@@ -1,3 +1,18 @@
+<%@page contentType="text/html;charset=UTF-8"%>
+<% request.setCharacterEncoding("UTF-8"); %>
+
+<%@page import="java.io.*" %>
+<%@page import="java.util.*" %>
+<%@page import="com.client.*" %>
+<%@page import="com.client.util.*" %>
+<%@page import="org.apache.commons.fileupload.FileItem" %>
+<%@page import="org.apache.commons.fileupload.FileItemFactory" %>
+<%@page import="org.apache.commons.fileupload.disk.DiskFileItemFactory" %>
+<%@page import="org.apache.commons.fileupload.servlet.ServletFileUpload" %>
+
+<jsp:useBean id="RDMSession" scope="session" class="com.client.ServicesSession" />
+<%@include file="commonUtils.jsp" %>
+
 <!DOCTYPE html>
 <!--[if IE 9]>         <html class="no-js lt-ie10" lang="en"> <![endif]-->
 <!--[if gt IE 9]><!-->
