@@ -50,6 +50,7 @@
 <script language="javascript">
 	function loadContent(url) {
 		document.location.href = url;
+		
 	}
 
 	function popupContent(url, h, w) {
@@ -381,7 +382,7 @@
 													name="shortLink" id="shortLink"
 													value="<%=RDMServicesConstants.VIEWS_GRAPH_ATTRDATA%>"
 													<%=sHomePage.equals(RDMServicesConstants.VIEWS_GRAPH_ATTRDATA) ? "checked" : ""%>>
-													<a href="javascript:loadContent('attrDataGraphView.jsp')">
+													<a href="javascript:loadContent('attribute-data.jsp')">
 													<%=resourceBundle.getProperty("DataManager.DisplayText.Attribute_Data")%></a>
 													<%=sHomePage.equals(RDMServicesConstants.VIEWS_GRAPH_ATTRDATA)? "(" + resourceBundle.getProperty("DataManager.DisplayText.Default_View") + ")" : ""%>
 												</label>
@@ -399,7 +400,7 @@
 													value="<%=RDMServicesConstants.VIEWS_GRAPH_PRODUCTIVITY%>"
 													<%=sHomePage.equals(RDMServicesConstants.VIEWS_GRAPH_PRODUCTIVITY) ? "checked" : ""%>>
 													<a
-													href="javascript:loadContent(productivityGraphView.jsp')"><%=resourceBundle.getProperty("DataManager.DisplayText.Productivity")%></a>
+													href="javascript:loadContent('productivity.jsp')"><%=resourceBundle.getProperty("DataManager.DisplayText.Productivity")%></a>
 													<%=sHomePage.equals(RDMServicesConstants.VIEWS_GRAPH_PRODUCTIVITY)
 								? "(" + resourceBundle.getProperty("DataManager.DisplayText.Default_View") + ")" : ""%>
 												</label>
@@ -418,7 +419,7 @@
 													name="shortLink" id="shortLink"
 													value="<%=RDMServicesConstants.VIEWS_GRAPH_BATCHLOAD%>"
 													<%=sHomePage.equals(RDMServicesConstants.VIEWS_GRAPH_BATCHLOAD) ? "checked" : ""%>>
-													<a href="javascript:loadContent('batchPhaseLoadsView.jsp')"><%=resourceBundle.getProperty("DataManager.DisplayText.Batch_Phase_Loads")%></a>
+													<a href="javascript:loadContent('batchload-duration.jsp')"><%=resourceBundle.getProperty("DataManager.DisplayText.Batch_Phase_Loads")%></a>
 													<%=sHomePage.equals(RDMServicesConstants.VIEWS_GRAPH_BATCHLOAD)
 								? "(" + resourceBundle.getProperty("DataManager.DisplayText.Default_View") + ")" : ""%>
 												</label>
@@ -439,7 +440,7 @@
 											name="shortLink" id="shortLink"
 											value="<%=RDMServicesConstants.VIEWS_ALARMS%>"
 											<%=sHomePage.equals(RDMServicesConstants.VIEWS_ALARMS) ? "checked" : ""%>>
-											<a href="javascript:loadContent('alarmView.jsp')"><%=resourceBundle.getProperty("DataManager.DisplayText.Alarms")%></a>
+											<a href="javascript:loadContent('alarms.jsp')"><%=resourceBundle.getProperty("DataManager.DisplayText.Alarms")%></a>
 											<%=sHomePage.equals(RDMServicesConstants.VIEWS_ALARMS)
 							? "(" + resourceBundle.getProperty("DataManager.DisplayText.Default_View") + ")" : ""%>
 										</label>
@@ -457,7 +458,7 @@
 											name="shortLink" id="shortLink"
 											value="<%=RDMServicesConstants.VIEWS_LOGS%>"
 											<%=sHomePage.equals(RDMServicesConstants.VIEWS_LOGS) ? "checked" : ""%>>
-											<a href="javascript:loadContent('logView.jsp')"><%=resourceBundle.getProperty("DataManager.DisplayText.Logs")%></a>
+											<a href="javascript:loadContent('logs.jsp')"><%=resourceBundle.getProperty("DataManager.DisplayText.Logs")%></a>
 											<%=sHomePage.equals(RDMServicesConstants.VIEWS_LOGS)
 							? "(" + resourceBundle.getProperty("DataManager.DisplayText.Default_View") + ")" : ""%>
 										</label>
@@ -475,7 +476,7 @@
 											name="shortLink" id="shortLink"
 											value="<%=RDMServicesConstants.VIEWS_COMMENTS%>"
 											<%=sHomePage.equals(RDMServicesConstants.VIEWS_COMMENTS) ? "checked" : ""%>>
-											<a href="javascript:loadContent('userCommentsView.jsp')"><%=resourceBundle.getProperty("DataManager.DisplayText.Comments")%></a>
+											<a href="javascript:loadContent('comments.jsp')"><%=resourceBundle.getProperty("DataManager.DisplayText.Comments")%></a>
 											<%=sHomePage.equals(RDMServicesConstants.VIEWS_COMMENTS)
 							? "(" + resourceBundle.getProperty("DataManager.DisplayText.Default_View") + ")" : ""%>
 										</label>
@@ -494,7 +495,7 @@
 											name="shortLink" id="shortLink"
 											value="<%=RDMServicesConstants.VIEWS_TASKS%>"
 											<%=sHomePage.equals(RDMServicesConstants.VIEWS_TASKS) ? "checked" : ""%>>
-											<a href="javascript:loadContent('userTasksView.jsp')"> <%=resourceBundle.getProperty("DataManager.DisplayText.Tasks")%></a>
+											<a href="javascript:loadContent('tasks.jsp')"> <%=resourceBundle.getProperty("DataManager.DisplayText.Tasks")%></a>
 											<%=sHomePage.equals(RDMServicesConstants.VIEWS_TASKS)
 							? "(" + resourceBundle.getProperty("DataManager.DisplayText.Default_View") + ")" : ""%>
 										</label>
@@ -511,7 +512,7 @@
 											name="shortLink" id="shortLink"
 											value="<%=RDMServicesConstants.VIEWS_YIELDS%>"
 											<%=sHomePage.equals(RDMServicesConstants.VIEWS_YIELDS) ? "checked" : ""%>>
-											<a href="javascript:loadContent('viewYields.jsp')"><%=resourceBundle.getProperty("DataManager.DisplayText.Yields")%></a>
+											<a href="javascript:loadContent('yields.jsp')"><%=resourceBundle.getProperty("DataManager.DisplayText.Yields")%></a>
 											<%=sHomePage.equals(RDMServicesConstants.VIEWS_YIELDS)
 							? "(" + resourceBundle.getProperty("DataManager.DisplayText.Default_View") + ")" : ""%>
 										</label>
@@ -545,7 +546,7 @@
 											name="shortLink" id="shortLink"
 											value="<%=RDMServicesConstants.VIEWS_TIMESHEETS%>"
 											<%=sHomePage.equals(RDMServicesConstants.VIEWS_TIMESHEETS) ? "checked" : ""%>>
-											<a href="javascript:loadContent('manageTimesheetsView.jsp')">
+											<a href="javascript:loadContent('timesheets.jsp')">
 												<%=resourceBundle.getProperty("DataManager.DisplayText.Manage_Timesheets")%></a>
 											<%=sHomePage.equals(RDMServicesConstants.VIEWS_TIMESHEETS)
 							? "(" + resourceBundle.getProperty("DataManager.DisplayText.Default_View") + ")" : ""%>
