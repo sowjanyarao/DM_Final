@@ -444,6 +444,7 @@
 
 		function showGraph()
 		{
+			alert("frm3");
 			var idx = "<%= randomInt %>";
 			document.frm3.target = "POPUPW_"+idx;
 			POPUPW = window.open('about:blank','POPUPW_'+idx,'menubar=no,toolbar=no,location=no,resizable=yes,scrollbars=yes,status=no,height=<%= winHeight * 0.85 %>px,width=<%= winWidth * 0.90 %>px');
@@ -648,12 +649,12 @@
 						<input type="button" id="Graph" name="Graph" class="btn btn-effect-ripple btn-primary" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Show_Graph").replaceAll("\\s", "\n") %>" onClick="javascript:showGraph()">&nbsp;
 <%
 					}
-					else
+				/*	else
 					{
 %>
 						<input type="button" id="Graph" name="Graph" class="btn btn-effect-ripple btn-primary" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Show_Graph").replaceAll("\\s", "\n") %>">&nbsp;
 <%
-					}
+					}*/
 
 					if(!RDMServicesConstants.ROLE_HELPER.equals(u.getRole()))
 					{
@@ -1342,7 +1343,6 @@
 		<input type="hidden" id="yield" name="yield" value="">
 		<input type="hidden" id="access" name="access" value="">
 	</form>
-	</div>
 	</div>
 	</div>
 

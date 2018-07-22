@@ -15,8 +15,52 @@
 <head>
 	<title></title>
 
-	<link type="text/css" href="../styles/superTables.css" rel="stylesheet" />
-    <script type="text/javascript" src="../scripts/superTables.js"></script>
+	<title>Inventaa</title>
+
+    <meta name="description" content="Datamanager">
+    <meta name="author" content="Inventaa">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0">
+    <!-- Icons -->
+    <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
+    <link rel="shortcut icon" href="../img/fav-icon.jpg">
+    <!-- END Icons -->
+    <!-- Stylesheets -->
+    <!-- Bootstrap is included in its original form, unaltered -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+
+    <!-- Related styles of various icon packs and plugins -->
+    <link rel="stylesheet" href="../css/plugins.css">
+
+    <!-- The main stylesheet of this template. All Bootstrap overwrites are defined in here -->
+    <link rel="stylesheet" href="../css/main.css">
+
+    <!-- Include a specific file here from ../css/themes/ folder to alter the default theme of the template -->
+
+    <!-- The themes stylesheet of this template (for using specific theme color in individual elements - must included last) -->
+    <link rel="stylesheet" href="../css/themes.css">
+    <!-- END Stylesheets -->
+
+    <!-- Modernizr (browser feature detection library) -->
+    <script src="../js/vendor/modernizr-3.3.1.min.js"></script>
+    
+     <!-- jQuery, Bootstrap, jQuery plugins and Custom JS code -->
+    <script src="../js/vendor/jquery-2.2.4.min.js"></script>
+    <script src="../js/vendor/bootstrap.min.js"></script>
+    <script src="../js/plugins.js"></script>
+    <script src="../js/app.js"></script>
+
+    <!-- Load and execute javascript code used only in this page -->
+    <script src="../js/pages/uiTables.js"></script>
+    <script>
+        $(function() {
+            UiTables.init();
+        });
+
+    </script>
+    <script>
+        $('.collapse').collapse()
+    </script>
 	<style>
 	#scrollDiv 
 	{	
@@ -97,6 +141,7 @@
 </head>
 
 <%
+System.out.println("**************************generalparameters");
 	boolean bShowSaveReset = false;
 	String[] saParamVal = null;
 	String sParam = null;
@@ -137,7 +182,7 @@
 	<table border="0" cellpadding="0" cellspacing="0" width="95%">
 		<tr>
 			<td style="font-family:Arial; font-size:0.8em; font-weight:bold; border:#ffffff; text-align:left">
-				<%= resourceBundle.getProperty("DataManager.DisplayText.Select_Room") %>:&nbsp;<select id="controller" name="controller" onChange="javascript:changeController(this)">
+				<%= resourceBundle.getProperty("DataManager.DisplayText.Select_Room") %>:&nbsp;<select id="controller" name="controller" onChange="javascript:changeController(this)" class="form-control">
 <%
 				if(RDMServicesConstants.ROLE_ADMIN.equals(u.getRole()))
 				{
@@ -203,7 +248,7 @@
 		</tr>
 	</table>
 
-	<form name="frm" method="post" action="setParametersProcess.jsp" target="hiddenFrame">
+	<form name="frm" method="post" action="setParametersProcess.jsp" target="hiddenFrame" class="form-horizontal form-bordered">
 		<input type="hidden" id="controller" name="controller" value="<%= sController %>">
 		<div id="scrollDiv">
 			<table id="freezeHeaders" border="1" cellpadding="2" cellspacing="0">
@@ -269,7 +314,7 @@
 						{
 %>
 							<td>
-								<select id="<%= sParam %>" name="<%= sParam %>" onChange="javascript:setOnOff('<%= sParam %>', this);">
+								<select id="<%= sParam %>" name="<%= sParam %>" onChange="javascript:setOnOff('<%= sParam %>', this);" class="form-control">
 									<option value="On" <%= ("On".equals(sValue) ? "selected" : "") %>><%= resourceBundle.getProperty("DataManager.DisplayText.On") %></option>
 									<option value="Off" <%= ("Off".equals(sValue) ? "selected" : "") %>><%= resourceBundle.getProperty("DataManager.DisplayText.Off") %></option>
 								</select>
@@ -280,7 +325,7 @@
 						{
 %>
 							<td>
-								<select id="<%= sParam %>" name="<%= sParam %>" onChange="javascript:setOnOff('<%= sParam %>', this);">
+								<select id="<%= sParam %>" name="<%= sParam %>" onChange="javascript:setOnOff('<%= sParam %>', this);" class="form-control">
 									<option value="1" <%= (("1".equals(sValue) || "1.0".equals(sValue)) ? "selected" : "") %>><%= resourceBundle.getProperty("DataManager.DisplayText.On") %></option>
 									<option value="0" <%= (("0".equals(sValue) || "0.0".equals(sValue)) ? "selected" : "") %>><%= resourceBundle.getProperty("DataManager.DisplayText.Off") %></option>
 								</select>
@@ -348,7 +393,9 @@
 			</table>
 		</div>
 	</form>
-	
+	</div>
+	</div>
+	</div>
 	<script type="text/javascript">		
 		var myST = new superTable("freezeHeaders", {
 			cssSkin : "sGrey",

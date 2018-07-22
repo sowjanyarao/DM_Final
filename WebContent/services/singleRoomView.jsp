@@ -101,7 +101,7 @@ if("".equals(sController))
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="example-select"><%= resourceBundle.getProperty("DataManager.DisplayText.Select_Room") %>:&nbsp;</label>
                                 <div class="col-md-6">
-                                  					<select id="SelController" name="SelController" onChange="javascript:selectController(this)">
+                                  					<select id="SelController" name="SelController" onChange="javascript:selectController(this)" class="form-control">
 						<option value=""><%= resourceBundle.getProperty("DataManager.DisplayText.Please_choose_one") %></option>
 <%
 						if(RDMServicesConstants.ROLE_ADMIN.equals(u.getRole()) || RDMServicesConstants.ROLE_MANAGER.equals(u.getRole()))
