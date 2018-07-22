@@ -95,6 +95,8 @@
 		var sMode = "<%= sMode %>";
 		var sFrom = "<%= sFrom %>";
 		var sErr = "<%= sErr %>";
+		alert(sMode);
+		alert(sFrom);
 		if(sErr != "")
 		{
 			alert("Error: "+sErr);
@@ -102,18 +104,18 @@
 		}
 		else
 		{
+			alert(sMode);
+			alert(sFrom);
 			if(sMode == "add" || sMode == "update")
 			{
 				if(sFrom == "homeView")
 				{
-					//opener.parent.frames['results'].document.location.href = opener.parent.frames['results'].document.location.href;
 					opener.location.href = opener.location.href;
 				}
 				else if(sFrom == "commentsView")
 				{
-					//opener.parent.frames['filter'].showComments();
-					alert("opener.parent - "+opener.parent.location.href);
-					parent.showComments();
+					
+					opener.location.href = opener.location.href;
 				}
 				window.close();
 			}

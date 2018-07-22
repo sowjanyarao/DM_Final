@@ -116,6 +116,7 @@
 %>
 			document.frm.action = "<%= sProcessPage %>";
 			document.frm.submit();
+			window.close();
 <%
 		}
 %>

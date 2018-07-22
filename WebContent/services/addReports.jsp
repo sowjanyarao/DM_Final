@@ -140,7 +140,7 @@
 </head>
 
 <body>
-	<form name="frm" method="post" action="manageReportsProcess.jsp" enctype="multipart/form-data">
+	<form name="frm" method="post" action="manageReportsProcess.jsp" >
 		<table align="center" border="0" cellpadding="1" cellspacing="1" width="100%">
 			<tr>
 				<td colspan="3">

@@ -22,6 +22,7 @@ String mode = request.getParameter("mode");
 String groupBy = request.getParameter("groupBy");
 boolean bGrpByDate = "date".equals(groupBy);
 
+
 StringBuilder sbRooms = new StringBuilder();
 if(saRooms != null)
 {
