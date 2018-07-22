@@ -198,7 +198,7 @@
 	</script>
 </head>
 
-<body>
+<body style="background-color: #ffffff !important;">
     <div id="page-wrapper" class="page-loading">
         <!-- Preloader -->
         <!-- Preloader functionality (initialized in js/app.js) - pageLoading() -->

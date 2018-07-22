@@ -52,23 +52,7 @@
     <script src="../js/vendor/bootstrap.min.js"></script>
     <script src="../js/plugins.js"></script>
     <script src="../js/app.js"></script>
-    <!-- Load and execute javascript code used only in this page -->
-    <script src="../js/pages/readyDashboard.js"></script>
-     <script>
-        $(function() {
-            ReadyDashboard.init();
-        });
-
-    </script>
     
-    <!-- Load and execute javascript code used only in this page -->
-    <script src="../js/pages/uiTables.js"></script>
-    <script>
-        $(function() {
-            UiTables.init();
-        });
-
-    </script>
     
 	<script language="javascript">
 	function updateComments(id, bNo, bGlobal)

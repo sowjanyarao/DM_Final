@@ -444,7 +444,6 @@
 
 		function showGraph()
 		{
-			alert("frm3");
 			var idx = "<%= randomInt %>";
 			document.frm3.target = "POPUPW_"+idx;
 			POPUPW = window.open('about:blank','POPUPW_'+idx,'menubar=no,toolbar=no,location=no,resizable=yes,scrollbars=yes,status=no,height=<%= winHeight * 0.85 %>px,width=<%= winWidth * 0.90 %>px');
@@ -627,7 +626,7 @@
 				}
 %>
 				<td style="font-family:Arial; font-size:0.8em; border:#ffffff; text-align:right">
-					<input type="button" id="Alarms" name="Alarms" class="btn btn-effect-ripple btn-primary" value="<%= resourceBundle.getProperty("DataManager.DisplayText.View_Alarms").replaceAll("\\s", "\n") %>" onClick="javascript:showAlarms()">&nbsp;
+					<input type="button" id="Alarms" name="Alarms" class="btn btn-effect-ripple btn-primary" value="<%= resourceBundle.getProperty("DataManager.DisplayText.View_Alarms").replaceAll("\\s", "\n") %>" onclick="javascript:showAlarms()">&nbsp;
 <%
 					paramSettings = mViewParams.get("ViewImage");
 					if((paramSettings != null) && RDMServicesConstants.ACCESS_READ.equals(u.getUserAccess(paramSettings)))

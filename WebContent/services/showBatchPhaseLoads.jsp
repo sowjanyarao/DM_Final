@@ -118,7 +118,7 @@ for(int i=0; i<alPhases.size(); i++)
 		</script>
 	</head>
 
-	<body>
+	<body style="background-color: #ffffff !important;">
 		<div class="table table-responsive table-hover">
 		
         <table id="datatable" class="table table-striped table-bordered table-vcenter">
