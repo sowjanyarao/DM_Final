@@ -180,7 +180,7 @@
                         <!-- END General Elements Title -->
 
                         <!-- General Elements Content -->
-                        <form name="frm1" action="logResults.jsp" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered" onsubmit="return false;">
+                        <form name="frm1" action="logResults.jsp" method="post" class="form-horizontal form-bordered" >
 
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="lstController"><%= resourceBundle.getProperty("DataManager.DisplayText.Room") %></label>
