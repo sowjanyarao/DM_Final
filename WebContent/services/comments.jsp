@@ -86,7 +86,6 @@
 		
 		function showComments()
 		{
-			alert("******Entered into showComments");
 			var date1;
 			var fg = false;
 			var today = new Date();
@@ -132,7 +131,6 @@
 					}
 				}
 			}
-			alert("******Entered into showComments2222");
 			document.frm.target = "results";
 			document.frm.submit();
 		}
@@ -191,7 +189,8 @@
 	
 	MapList mlTasks = RDMServicesUtils.getCommentTasks(slUserDept);
 %>
-<body onLoad="setToDate()">
+<body onLoad="setToDate();showComments();">
+  <form name="frm" method="post" target="results"  class="form-horizontal form-bordered" action="userCommentsResult.jsp">
     <div id="page-wrapper" class="page-loading">
         <div class="preloader">
             <div class="inner">
@@ -215,7 +214,7 @@
                             <h2><%= resourceBundle.getProperty("DataManager.DisplayText.Search_Comments") %></h2>
                         </div>
                         <!-- General Elements Content -->
-                        <form name="frm" method="post" target="results" enctype="multipart/form-data" class="form-horizontal form-bordered" action="userCommentsResult.jsp">
+                      
 
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="lstController"><%= resourceBundle.getProperty("DataManager.DisplayText.Room") %></label>
@@ -386,7 +385,7 @@
                                 </div>
                             </div>
 							<input type="hidden" id="mode" name="mode" value="searchComments">
-                        </form>
+                       
                         <!-- END General Elements Content -->
                         <!-- General Elements Content -->
 						     <div class="block full"> 
@@ -406,7 +405,7 @@
             <!-- END Main Container -->
         </div>
         <!-- END Page Container -->
-    
+     </form>
 </body>
 
 </html>

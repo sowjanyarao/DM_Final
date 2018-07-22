@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>DataManager</display-name>
+  
+	<servlet>
+		<servlet-name>LoginServlet</servlet-name>
+		<servlet-class>com.client.LoginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LoginServlet</servlet-name>
+		<url-pattern>/LoginServlet</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>LogoutServlet</servlet-name>
+		<servlet-class>com.client.LogoutServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>LogoutServlet</servlet-name>
+		<url-pattern>/LogoutServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ExportAttrDataGraph</servlet-name>
+		<servlet-class>com.client.export.ExportAttrDataGraph</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ExportAttrDataGraph</servlet-name>
+		<url-pattern>/ExportAttrDataGraph</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ExportProductivityGraph</servlet-name>
+		<servlet-class>com.client.export.ExportProductivityGraph</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ExportProductivityGraph</servlet-name>
+		<url-pattern>/ExportProductivityGraph</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ExportAlarms</servlet-name>
+		<servlet-class>com.client.export.ExportAlarms</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ExportAlarms</servlet-name>
+		<url-pattern>/ExportAlarms</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ExportLogs</servlet-name>
+		<servlet-class>com.client.export.ExportLogs</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ExportLogs</servlet-name>
+		<url-pattern>/ExportLogs</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ExportYields</servlet-name>
+		<servlet-class>com.client.export.ExportYields</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ExportYields</servlet-name>
+		<url-pattern>/ExportYields</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ExportComments</servlet-name>
+		<servlet-class>com.client.export.ExportComments</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ExportComments</servlet-name>
+		<url-pattern>/ExportComments</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ExportUserTasks</servlet-name>
+		<servlet-class>com.client.export.ExportUserTasks</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ExportUserTasks</servlet-name>
+		<url-pattern>/ExportUserTasks</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ExportTimesheets</servlet-name>
+		<servlet-class>com.client.export.ExportTimesheets</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ExportTimesheets</servlet-name>
+		<url-pattern>/ExportTimesheets</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ExportReport</servlet-name>
+		<servlet-class>com.client.export.ExportReport</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ExportReport</servlet-name>
+		<url-pattern>/ExportReport</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ExportBatchNos</servlet-name>
+		<servlet-class>com.client.export.ExportBatchNos</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ExportBatchNos</servlet-name>
+		<url-pattern>/ExportBatchNos</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ExportAdminSettings</servlet-name>
+		<servlet-class>com.client.export.ExportAdminSettings</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ExportAdminSettings</servlet-name>
+		<url-pattern>/ExportAdminSettings</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Password</servlet-name>
+		<servlet-class>com.client.util.PasswordManagement</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Password</servlet-name>
+		<url-pattern>/Password</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ViewAttachments</servlet-name>
+		<servlet-class>com.client.export.ViewAttachments</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ViewAttachments</servlet-name>
+		<url-pattern>/ViewAttachments</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ExportBatchPhaseLoad</servlet-name>
+		<servlet-class>com.client.export.ExportBatchPhaseLoad</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ExportBatchPhaseLoad</servlet-name>
+		<url-pattern>/ExportBatchPhaseLoad</url-pattern>
+	</servlet-mapping>
+
+	<!-- Default page to serve -->
+	<welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>login.jsp</welcome-file>
+  </welcome-file-list>
+  
+	<!-- <security-constraint> <web-resource-collection> <web-resource-name>DataManager</web-resource-name> 
+		<url-pattern>/*</url-pattern> </web-resource-collection> <user-data-constraint> 
+		<transport-guarantee>CONFIDENTIAL</transport-guarantee> </user-data-constraint> 
+		</security-constraint> -->
+</web-app>
