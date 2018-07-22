@@ -11,7 +11,9 @@
 <%@page contentType="text/html;charset=UTF-8"%>
 <% request.setCharacterEncoding("UTF-8"); %>
 <%@include file="commonUtils.jsp"%>
-
+<%
+System.out.println("********************"+request.getParameter("u"));
+%>
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
@@ -104,17 +106,19 @@
 			<!-- Profile -->
 			<div class="sidebar-section">
 				<h2 class="text-light">Profile</h2>
+				<%com.client.util.User contextUser = (com.client.util.User)session.getAttribute("contextUser");%>
 				
 					<div class="form-group">
 						<label for="side-profile-name">Name</label> <input type="text"
 							id="side-profile-name" name="side-profile-name"
-							class="form-control" value="user">
+							class="form-control" value='<%= u.getLastName() %>,&nbsp;<%= u.getFirstName() %>' readonly="readonly"/>
 					</div>
 					<div class="form-group">
 						<label for="side-profile-email">Email</label> <input type="email"
 							id="side-profile-email" name="side-profile-email"
-							class="form-control" value="user@example.com">
+							class="form-control" value="<%= u.getEmail() %>" readonly="readonly">
 					</div>
+					 
 					<div class="form-group">
 						<label for="side-profile-password"><%= resourceBundle.getProperty("DataManager.DisplayText.New_Password") %></label>
 						<input type="password" id="password" name="password"
