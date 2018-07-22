@@ -23,7 +23,7 @@
 
 	Map<String, ParamSettings> mViewParams = RDMServicesUtils.getSingleRoomViewParamaters(sCntrlType);
 	ArrayList<String> alParams = RDMServicesUtils.getDisplayOrder(sCntrlType);
-
+	
 	Map<String, String[]> mParams = client.getControllerData(true);
 	String sManual = (mParams.containsKey("manual.sl") ? mParams.get("manual.sl")[0] : "");
 	String sCoolingSteam = (mParams.containsKey("cooling.steam") ? mParams.get("cooling.steam")[0] : "");
@@ -58,7 +58,13 @@
 	slOnOffValues.addAll(slCompErrParams);
 
 	String sParams = "";
-	StringList slGraphs = u.getSavedGraphs();
+	StringList slGraphs = new StringList();
+	try{
+		slGraphs = u.getSavedGraphs();
+	}
+	catch(Throwable e){
+		
+	}
 
 	Random randomGenerator = new Random();
 	int randomInt = randomGenerator.nextInt(1000);
@@ -87,13 +93,42 @@
 	decimalFormat.setMinimumFractionDigits(1);
 %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" >
+<!DOCTYPE html>
+<html class="no-js" lang="en">
 <head>
-	<title></title>
+    <meta charset="utf-8">
 
-	<link type="text/css" href="../styles/superTables.css" rel="stylesheet" />
-    <script type="text/javascript" src="../scripts/superTables.js"></script>
+    <title>Inventaa</title>
+
+    <meta name="description" content="Datamanager">
+    <meta name="author" content="Inventaa">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0">
+
+    <!-- Icons -->
+    <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
+    <link rel="shortcut icon" href="../img/fav-icon.jpg">
+    <!-- END Icons -->
+
+    <!-- Stylesheets -->
+    <!-- Bootstrap is included in its original form, unaltered -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+
+    <!-- Related styles of various icon packs and plugins -->
+    <link rel="stylesheet" href="../css/plugins.css">
+
+    <!-- The main stylesheet of this template. All Bootstrap overwrites are defined in here -->
+    <link rel="stylesheet" href="../css/main.css">
+
+    <!-- Include a specific file here from css/themes/ folder to alter the default theme of the template -->
+
+    <!-- The themes stylesheet of this template (for using specific theme color in individual elements - must included last) -->
+    <link rel="stylesheet" href="../css/themes.css">
+    <!-- END Stylesheets -->
+
+    <!-- Modernizr (browser feature detection library) -->
+    <script src="../js/vendor/modernizr-3.3.1.min.js"></script>
+	
 	<style>
 	#scrollDiv
 	{
@@ -401,7 +436,10 @@
 
 		function unselectDiv(e)
 		{
-			document.getElementById(e).style.backgroundColor = '#b3b7bb';
+			//document.getElementById(e).style.backgroundColor = '#b3b7bb';
+			document.getElementById(e).style.backgroundColor = '#ffffff';
+			
+			
 		}
 
 		function showGraph()
@@ -429,6 +467,12 @@
 </head>
 
 <body onLoad="javascript:initOnOff()">
+
+        
+         <!-- Main Container -->
+            <div id="main-container">
+             <!-- Page content -->
+                <div id="page-content">
 	<form name="frm1" method="post" action="setParametersProcess.jsp" target="hiddenFrame">
 		<input type="hidden" id="conroller" name="controller" value="<%= sController %>">
 		<input type="hidden" id="resetParams" name="resetParams" value="false">
@@ -439,8 +483,12 @@
 		<input type='hidden' id='CurrPhase' name='CurrPhase' value='<%= sCurrPhaseSeq %>'>		
 		<input type='hidden' id='scrollLeft' name='scrollLeft' value=''>
 		<input type='hidden' id='scrollTop' name='scrollTop' value=''>
+		<!-- Datatables Block -->
+                    <!-- Datatables is initialized in js/pages/uiTables.js -->
+                    <div class="block full">
 		<table border="0" cellpadding="0" cellspacing="0" width="95%">
 			<tr>
+			            
 				<td style="font-family:Arial; font-size:0.8em; font-weight:bold; border:#ffffff; text-align:left">
 					<%= resourceBundle.getProperty("DataManager.DisplayText.Room") %>:<br>
 					<select id="controller" name="controller" onChange="javascript:changeController(this)">
@@ -578,57 +626,62 @@
 				}
 %>
 				<td style="font-family:Arial; font-size:0.8em; border:#ffffff; text-align:right">
-					<input type="button" id="Alarms" name="Alarms" value="<%= resourceBundle.getProperty("DataManager.DisplayText.View_Alarms").replaceAll("\\s", "\n") %>" onClick="javascript:showAlarms()">&nbsp;
+					<input type="button" id="Alarms" name="Alarms" class="btn btn-effect-ripple btn-primary" value="<%= resourceBundle.getProperty("DataManager.DisplayText.View_Alarms").replaceAll("\\s", "\n") %>" onClick="javascript:showAlarms()">&nbsp;
 <%
 					paramSettings = mViewParams.get("ViewImage");
 					if((paramSettings != null) && RDMServicesConstants.ACCESS_READ.equals(u.getUserAccess(paramSettings)))
 					{
 %>
-						<input type="button" id="Image" name="Image" value="<%= resourceBundle.getProperty("DataManager.DisplayText.View_Image").replaceAll("\\s", "\n") %>" onClick="javascript:showImage()">&nbsp;
+						<input type="button" id="Image" name="Image" class="btn btn-effect-ripple btn-primary" value="<%= resourceBundle.getProperty("DataManager.DisplayText.View_Image").replaceAll("\\s", "\n") %>" onClick="javascript:showImage()">&nbsp;
 <%
 					}
 
 					if(slGraphs.contains(sCntrlType+" Dashboard"))
 					{
-						Map<String, String> mGrpParams = u.getGraphParams(sCntrlType+" Dashboard");
+						Map<String, String> mGrpParams = new HashMap<String, String>();
+						try{
+						mGrpParams = u.getGraphParams(sCntrlType+" Dashboard");
+						}
+						catch(Throwable e){}
 						sParams = mGrpParams.get("PARAMS").replaceAll(",", "\\|");
 %>
-						<input type="button" id="Graph" name="Graph" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Show_Graph").replaceAll("\\s", "\n") %>" onClick="javascript:showGraph()">&nbsp;
+						<input type="button" id="Graph" name="Graph" class="btn btn-effect-ripple btn-primary" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Show_Graph").replaceAll("\\s", "\n") %>" onClick="javascript:showGraph()">&nbsp;
 <%
 					}
 					else
 					{
 %>
-						<input type="button" id="Graph" name="Graph" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Show_Graph").replaceAll("\\s", "\n") %>">&nbsp;
+						<input type="button" id="Graph" name="Graph" class="btn btn-effect-ripple btn-primary" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Show_Graph").replaceAll("\\s", "\n") %>">&nbsp;
 <%
 					}
 
 					if(!RDMServicesConstants.ROLE_HELPER.equals(u.getRole()))
 					{
 %>
-						<input type="button" id="Comments" name="Comments" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Add_Comments").replaceAll("\\s", "\n") %>" onClick="javascript:addComments()">&nbsp;
-						<input type="button" id="Save" name="Save" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Save_Changes").replaceAll("\\s", "\n") %>" onClick="javascript:saveChanges()">&nbsp;
+						<input type="button" id="Comments" name="Comments" class="btn btn-effect-ripple btn-primary" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Add_Comments").replaceAll("\\s", "\n") %>" onClick="javascript:addComments()">&nbsp;
+						<input type="button" id="Save" name="Save" class="btn btn-effect-ripple btn-primary" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Save_Changes").replaceAll("\\s", "\n") %>" onClick="javascript:saveChanges()">&nbsp;
 <%
 					}
 %>
-					<input type="button" id="Refresh" name="Refresh" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Reload_Values").replaceAll("\\s", "\n") %>" onClick="javascript:resetChanges()">&nbsp;
-					<input type="button" id="Print" name="Print" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Print") %>" onClick="javascript:printView()">
+					<input type="button" id="Refresh" name="Refresh" class="btn btn-effect-ripple btn-primary" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Reload_Values").replaceAll("\\s", "\n") %>" onClick="javascript:resetChanges()">&nbsp;
+					<input type="button" id="Print" name="Print" class="btn btn-effect-ripple btn-primary" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Print") %>" onClick="javascript:printView()">
 				</td>
 				<td>
 <%
 					if(!RDMServicesConstants.ROLE_HELPER.equals(u.getRole()))
 					{
 %>
-						<div id="loading" style="display:none"><image src="../images/loading_icon.gif"></div>
+						<div id="loading" style="display:none"><img src="../images/loading_icon.gif"></div>
 <%
 					}
 %>
 				</td>
 			</tr>
 		</table>
-
-		<div id="scrollDiv">
-			<table id="freezeHeaders" border="1" cellpadding="2" cellspacing="0">
+<div class="table-responsive">
+		
+		 <table id="freezeHeaders" class="table table-striped table-bordered table-vcenter">
+			<thead>
 				<tr>
 					<th style="border-right:0px"><%= resourceBundle.getProperty("DataManager.DisplayText.Parameter_Unit") %></th>
 					<th style="border-left:0px">&nbsp;</th>
@@ -733,6 +786,8 @@
 					}
 %>
 				</tr>
+				</thead>
+				<tbody>
 				<tr>
 					<th style="text-align:left;border-right:0px"><%= resourceBundle.getProperty("DataManager.DisplayText.Start_Timestamp") %></th>
 					<th style="border-left:0px">&nbsp;</th>
@@ -744,7 +799,7 @@
 						sStarted = mPhaseStartTime.get(sPhaseSeq);
 						sStarted = (sStarted == null ? "&nbsp;" : sStarted);
 %>
-						<td style="text-align:center"><label><%= sStarted.replaceAll(" ", "<br>") %><label></td>
+						<td style="text-align:center"><label><%= sStarted.replaceAll(" ", "<br>") %></label></td>
 <%
 					}
 %>
@@ -769,7 +824,7 @@
 				String[] saParamVal = null;
 				Map<String, String> mParamMaxMinVal = new HashMap<String, String>();
 
-				for(int i=0; i<alParams.size(); i++)
+				for(int i=0,j=0; i<alParams.size(); i++)
 				{
 					sParam = (String)alParams.get(i);
 					paramSettings = mViewParams.get(sParam);
@@ -796,12 +851,16 @@
 						sHeader = mDisplayHeaders.get(iDispOrd);
 						if(!slHeaders.contains(sHeader))
 						{
+							j=i;
 %>
 							<tr>
-								<th align="center" colspan="<%= alPhases.size() + 3 %>">
-									<%= sHeader %>
-								</th>
-							</tr>
+							 <th align="center" colspan="<%= alPhases.size() + 3 %>" class="clickable" data-toggle="collapse" id="row<%=j%>" data-target=".row<%=j%>">
+                                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="collapsed">
+                        <i class="fa fa-angle-down left"></i>
+                      <%= sHeader %>
+                    </a>
+                                    </th>
+                      	</tr>
 <%
 							alDisplayOrder.remove(0);
 							slHeaders.add(sHeader);
@@ -838,7 +897,7 @@
 						sUnit = paramSettings.getParamUnit();
 					}
 %>
-					<tr>
+					<tr class="collapse in row<%=j%>">
 						<th style="text-align: left;border-right:0px">
 							<div id="<%= sParamGroup %>_PG">
 								<%= sParam %>
@@ -850,10 +909,13 @@
 <%
 								}
 %>
+								
 							</div>
+						
+							
 						</th>
 						<th style="border-left:0px">
-							<img src="../images/info.png" height="18" width="18">
+						<img src="../images/info.png" height="18" width="18">
 						</th>
 <%
 						sCurrentVal = "";
@@ -1234,7 +1296,7 @@
 							else
 							{
 %>
-								<td bgcolor="#FFFFFF">&nbsp;</td>
+								<td>&nbsp;</td>
 <%
 							}
 						}
@@ -1243,7 +1305,9 @@
 <%
 				}
 %>
+				</tbody>
 			</table>
+		</div>
 		</div>
 	</form>
 
@@ -1278,6 +1342,9 @@
 		<input type="hidden" id="yield" name="yield" value="">
 		<input type="hidden" id="access" name="access" value="">
 	</form>
+	</div>
+	</div>
+	</div>
 
 	<script type="text/javascript">
 		var myST = new superTable("freezeHeaders", {

@@ -127,6 +127,13 @@
 %>
 
 <body onLoad="javascript:initOnOff()">
+ <!-- Main Container -->
+            <div id="main-container">
+             <!-- Page content -->
+                <div id="page-content">
+                
+                <div class="form-group">
+                
 	<table border="0" cellpadding="0" cellspacing="0" width="95%">
 		<tr>
 			<td style="font-family:Arial; font-size:0.8em; font-weight:bold; border:#ffffff; text-align:left">
@@ -181,14 +188,14 @@
 				<font style="weight:normal; color:#FF0000"><%= sDate %></font>
 			</td>
 			<td style="font-family:Arial; font-size:0.8em; font-weight:bold; border:#ffffff; text-align:right">
-				<input type="button" id="Refresh" name="Refresh" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Reload_Values") %>" onClick="javascript:resetChanges()">&nbsp;				
-				<input type="button" id="Alarms" name="Alarms" value="<%= resourceBundle.getProperty("DataManager.DisplayText.View_Alarms") %>" onClick="javascript:showAlarms()">&nbsp;
+				<input type="button" id="Refresh" name="Refresh" class="btn btn-effect-ripple btn-primary" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Reload_Values") %>" onclick="javascript:resetChanges()">&nbsp;				
+				<input type="button" id="Alarms" name="Alarms" class="btn btn-effect-ripple btn-primary" value="<%= resourceBundle.getProperty("DataManager.DisplayText.View_Alarms") %>" onclick="javascript:showAlarms()">&nbsp;
 <%
 				if(!RDMServicesConstants.ROLE_HELPER.equals(u.getRole()))
 				{
 %>
-					<input type="button" id="Comments" name="Comments" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Add_Comments") %>" onClick="javascript:addComments()">&nbsp;
-					<input type="button" id="Save" name="Save" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Save_Changes") %>" onClick="javascript:saveChanges()">
+					<input type="button" id="Comments" name="Comments" class="btn btn-effect-ripple btn-primary" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Add_Comments") %>" onClick="javascript:addComments()">&nbsp;
+					<input type="button" id="Save" name="Save" class="btn btn-effect-ripple btn-primary" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Save_Changes") %>" onClick="javascript:saveChanges()">
 <%
 				}
 %>
