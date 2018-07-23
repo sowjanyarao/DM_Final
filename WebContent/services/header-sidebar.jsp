@@ -11,9 +11,7 @@
 <%@page contentType="text/html;charset=UTF-8"%>
 <% request.setCharacterEncoding("UTF-8"); %>
 <%@include file="commonUtils.jsp"%>
-<%
-System.out.println("********************"+request.getParameter("u"));
-%>
+
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
