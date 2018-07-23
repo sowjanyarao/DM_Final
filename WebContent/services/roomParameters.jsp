@@ -625,7 +625,7 @@
 <%
 				}
 %>
-				<td style="font-family:Arial; font-size:0.8em; border:#ffffff; text-align:right">
+				<td style="padding-bottom:15px;">
 					<input type="button" id="Alarms" name="Alarms" class="btn btn-effect-ripple btn-primary" value="<%= resourceBundle.getProperty("DataManager.DisplayText.View_Alarms").replaceAll("\\s", "\n") %>" onclick="javascript:showAlarms()">&nbsp;
 <%
 					paramSettings = mViewParams.get("ViewImage");
