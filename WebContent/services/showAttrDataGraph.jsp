@@ -14,6 +14,7 @@
 String sGraphName = request.getParameter("saveAs");
 String sRoom = request.getParameter("lstController");
 String[] saParams = request.getParameterValues("lstParams");
+
 if(saParams == null)
 {
 	String sParameters = request.getParameter("Parameters");
