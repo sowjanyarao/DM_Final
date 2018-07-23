@@ -341,13 +341,13 @@
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="start_date"><%= resourceBundle.getProperty("DataManager.DisplayText.Start_Date") %></label>
                                 <div class="col-md-5">
-                                    <input type="text" id="start_date" name="start_date" class="form-control input-datepicker" data-date-format="mm/dd/yy" placeholder="mm/dd/yy">
+                                    <input type="text" id="start_date" name="start_date" class="form-control input-datepicker" data-date-format="dd-mm-yyyy" placeholder="dd-mm-yyyy">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="end_date"><%= resourceBundle.getProperty("DataManager.DisplayText.End_Date") %></label>
                                 <div class="col-md-5">
-                                    <input type="text" id="end_date" name="end_date" class="form-control input-datepicker" data-date-format="mm/dd/yy" placeholder="mm/dd/yy">
+                                    <input type="text" id="end_date" name="end_date" class="form-control input-datepicker" data-date-format="dd-mm-yyyy" placeholder="dd-mm-yyyy">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -412,7 +412,7 @@
                                     <div class="form-group">
 
                                   
-                                    <div class="tab-pane" id="block-tabs-home"><input type="text" id="example-datepicker" name="example-datepicker" class="form-control input-datepicker" data-date-format="mm/dd/yy" placeholder="mm/dd/yy"></div>
+                                    <div class="tab-pane" id="block-tabs-home"><input type="text" id="example-datepicker" name="example-datepicker" class="form-control input-datepicker" data-date-format="dd-mm-yyyy" placeholder="dd-mm-yyyy"></div>
                                    
                                    
                                 </div>

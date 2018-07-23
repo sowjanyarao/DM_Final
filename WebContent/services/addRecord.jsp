@@ -195,7 +195,7 @@
 %>
 							<td id="<%= sColumn %>_pos" class="input">
 								<input type="checkbox" id="<%= sColumn %>" name="<%= sColumn %>" value="SystemDateTime" onChange="javascript:toggleDateTime(this, '<%= sColumn %>')">System Date & Time<br>
-								<input type="text" id="<%= sColumn %>_dt" name="<%= sColumn %>_dt" class="form-control input-datepicker" data-date-format="mm/dd/yy" placeholder="mm/dd/yy">
+								<input type="text" id="<%= sColumn %>_dt" name="<%= sColumn %>_dt" class="form-control input-datepicker" data-date-format="dd-mm-yyyy" placeholder="dd-mm-yyyy">
 								&nbsp;HH:&nbsp;
 								<select id="<%= sColumn %>_hr" name="<%= sColumn %>_hr">
 <%					
