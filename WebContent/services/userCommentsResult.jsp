@@ -36,6 +36,7 @@ if(limit != null && !"".equals(limit))
 
 MapList mlComments = null;
 int iSz = 0;
+System.out.println("************************"+mode);
 if(mode != null)
 {
 	BNo = ((BNo == null) ? "" : BNo.trim());

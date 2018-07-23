@@ -121,7 +121,7 @@
                        <div class="block-title">
 							<h2><%= resourceBundle.getProperty("DataManager.DisplayText.Add_Comments") %></h2>
 						</div>
-    <form name="frm" method="post" action="processAttachments.jsp"  class="form-horizontal form-bordered">
+    <form name="frm" method="post" action="processAttachments.jsp"   enctype="multipart/form-data" class="form-horizontal form-bordered">
         <input type="hidden" id="mode" name="mode" value="add"/>
 		<input type="hidden" id="from" name="from" value="<%= sFrom %>"/>		
         <input type="hidden" id="message" name="message" value=""/>

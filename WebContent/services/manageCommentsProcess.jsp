@@ -95,8 +95,6 @@
 		var sMode = "<%= sMode %>";
 		var sFrom = "<%= sFrom %>";
 		var sErr = "<%= sErr %>";
-		alert(sMode);
-		alert(sFrom);
 		if(sErr != "")
 		{
 			alert("Error: "+sErr);
@@ -104,8 +102,6 @@
 		}
 		else
 		{
-			alert(sMode);
-			alert(sFrom);
 			if(sMode == "add" || sMode == "update")
 			{
 				if(sFrom == "homeView")
@@ -115,6 +111,7 @@
 				else if(sFrom == "commentsView")
 				{
 					
+					//opener.location.href = opener.location.href;
 					opener.location.href = opener.location.href;
 				}
 				window.close();
