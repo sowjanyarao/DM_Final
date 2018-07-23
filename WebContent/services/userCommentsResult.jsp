@@ -254,13 +254,15 @@ if(mode != null)
 							<td class="input"><%= mComment.get(RDMServicesConstants.CATEGORY) %>&nbsp;(<%= mComment.get(RDMServicesConstants.LOG_TEXT) %>)</td>	
 							<td class="input"><%= mComment.get(RDMServicesConstants.REVIEW_COMMENTS) %></td>
 							<td class="input"><%= (mComment.get(RDMServicesConstants.DEPARTMENT_NAME)).replaceAll("\\|", "<br>") %></td>
-							<td class="input" style="text-align:center">
+							<td class="text-center" style="text-align:center">
 <%
 							if((bGlobal && !bClosed))
 							{
 %>
-								<a href="javascript:updateComments('<%= sCmtId %>', '<%= sBatchNo %>', '<%= bGlobal %>')"><img border="0" src="../images/edit.jpg" height="20" alt="<%= resourceBundle.getProperty("DataManager.DisplayText.Update") %>"></a>
-								<a href="javascript:closeComments('<%= sCmtId %>')"><img border="0" src="../images/delete.png" alt="<%= resourceBundle.getProperty("DataManager.DisplayText.Close") %>"></a>
+								
+								<a href="javascript:updateComments('<%= sCmtId %>', '<%= sBatchNo %>', '<%= bGlobal %>')" data-toggle="tooltip" title="<%= resourceBundle.getProperty("DataManager.DisplayText.Update") %>" class="btn btn-effect-ripple btn-xs btn-success"><i class="fa fa-pencil"></i></a> 
+								<a href="javascript:closeComments('<%= sCmtId %>')" data-toggle="tooltip" title="<%= resourceBundle.getProperty("DataManager.DisplayText.Close") %>" class="btn btn-effect-ripple btn-xs btn-danger"><i class="fa fa-times"></i></a>
+								
 <%
 							}
 %>
