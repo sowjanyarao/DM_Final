@@ -107,7 +107,13 @@ public class ExportComments extends HttpServlet
 	
 	private File writeToExcel(HttpServletRequest request) throws Exception 
 	{
-		String filepath = RDMServicesUtils.getClassLoaderpath("../../export");		
+		String filepath = "";	
+		try {
+			RDMServicesUtils.getClassLoaderpath("../../export");	
+		}
+		catch(Exception e) {
+			RDMServicesUtils.getClassLoaderpath("");	
+		}	
 		File file = File.createTempFile("ExportCommentsData", ".xls", new File(filepath));
 		file.setReadable(true, false);
 		file.setWritable(true, false);

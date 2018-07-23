@@ -152,7 +152,13 @@ public class ExportUserTasks extends HttpServlet
 	
 	private File writeToExcel(HttpServletRequest request) throws Exception 
 	{
-		String filepath = RDMServicesUtils.getClassLoaderpath("../../export");		
+		String filepath = "";
+		try {
+			filepath = RDMServicesUtils.getClassLoaderpath("../../export");	
+		}
+		catch(Exception e) {
+			filepath = RDMServicesUtils.getClassLoaderpath("");	
+		}
 		File file = File.createTempFile("ExportUserTasksData", ".xls", new File(filepath));
 		file.setReadable(true, false);
 		file.setWritable(true, false);

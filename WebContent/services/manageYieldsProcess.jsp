@@ -53,13 +53,12 @@
 			if(mode == "add")
 			{
 				alert("<%= resourceBundle.getProperty("DataManager.DisplayText.Yield_Added") %>");
-				//opener.parent.frames['filter'].showYields();
-				window.close();
+				parent.frames['filter'].showYields();
 			}
 			else
 			{				
 				alert("<%= resourceBundle.getProperty("DataManager.DisplayText.Yield_Deleted") %>");
-				parent.frames['results'].document.location.href = parent.frames['results'].document.location.href;
+				parent.frames['filter'].showYields();
 			}
 		}
 	</script>
