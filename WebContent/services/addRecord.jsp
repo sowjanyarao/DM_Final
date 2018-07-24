@@ -139,10 +139,10 @@
 	<form name="frm" method="post" action="addReportRecords.jsp" enctype="multipart/form-data">
 		<input type="hidden" id="report" name="report" value="<%= sReport %>">
 		<input type="hidden" id="action" name="action" value="<%= sAction %>">
-		<table align="center" border="0" cellpadding="1" cellspacing="1" width="90%">
+		<table class="table table-responsive table-hover table table-striped table-bordered table-vcenter">
 			<tr>
-				<th class="txtLabel"><%= resourceBundle.getProperty("DataManager.DisplayText.Name") %></th>
-				<th class="txtLabel"><%= resourceBundle.getProperty("DataManager.DisplayText.Value") %></th>
+				<th><%= resourceBundle.getProperty("DataManager.DisplayText.Name") %></th>
+				<th><%= resourceBundle.getProperty("DataManager.DisplayText.Value") %></th>
 			</tr>
 <%
 		for(int i=1; i<slColumns.size(); i++)
@@ -158,7 +158,7 @@
 				continue;
 			}
 %>
-			<tr><td class="txtLabel">&nbsp;<%= sName %></td>
+			<tr><td>&nbsp;<%= sName %></td>
 <%
 			if(sName.equals(RDMServicesConstants.REMARKS))
 			{
@@ -174,7 +174,7 @@
 				{
 %>
 					<td class="input">
-						<font style="font-family:sans serif;font-size:10pt;color:#0000FF"><%= ReportDAO.convertFormulaExpr(sReport, sFormula) %></font>
+						<font><%= ReportDAO.convertFormulaExpr(sReport, sFormula) %></font>
 					</td>
 <%
 				}
@@ -361,7 +361,7 @@
 %>
 			<tr>
 				<td colspan="2" align="center">
-					<input type="button" name="btn" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Submit") %>" onClick="javascript:submitAction()">
+					<input type="button" class="btn btn-primary" name="btn" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Submit") %>" onClick="javascript:submitAction()">
 				</td>
 			</tr>
 		</table>

@@ -83,58 +83,59 @@
 	<form name="frm">
 		<table id="datatable" class="table table-striped table-bordered table-vcenter">
 			<tr>
-				<td class="label" width="30%"><b><%= resourceBundle.getProperty("DataManager.DisplayText.User_ID") %></b></td>
+				<td width="30%"><b><%= resourceBundle.getProperty("DataManager.DisplayText.User_ID") %></b></td>
 				<td class="input" width="30%">
 					<%= sUserId %>
 				</td>
-				<td rowspan="5" class="input" width="40%">
-					<img src="../UserImages/<%= sUserId %>.jpg" height="150" width="150" align="right">
+				<td class="input" width="40%" rowspan="5" style="background-color:#ffffff; border-bottom:0px">
+				
+					<img src="../UserImages/<%= sUserId %>.jpg" height="150" width="150" align="center">
 				</td>
 			</tr>
 			<tr>
-				<td class="label"><b><%= resourceBundle.getProperty("DataManager.DisplayText.First_Name") %></b></td>
+				<td><b><%= resourceBundle.getProperty("DataManager.DisplayText.First_Name") %></b></td>
 				<td class="input">
 					<%= sFirstName %>
 				</td>
 			</tr>
 			<tr>
-				<td class="label"><b><%= resourceBundle.getProperty("DataManager.DisplayText.Last_Name") %></b></td>
+				<td><b><%= resourceBundle.getProperty("DataManager.DisplayText.Last_Name") %></b></td>
 				<td class="input">
 					<%= sLastName %>
 				</td>
 			</tr>
 			<tr>
-				<td class="label"><b><%= resourceBundle.getProperty("DataManager.DisplayText.Contact_No") %></b></td>
+				<td><b><%= resourceBundle.getProperty("DataManager.DisplayText.Contact_No") %></b></td>
 				<td class="input">
 					<%= sContactNo %>
 				</td>
 			</tr>
 			<tr>
-				<td class="label"><b><%= resourceBundle.getProperty("DataManager.DisplayText.Email") %></b></td>
+				<td><b><%= resourceBundle.getProperty("DataManager.DisplayText.Email") %></b></td>
 				<td class="input">
 					<%= sEmail %>
 				</td>
 			</tr>
 			<tr>
-				<td class="label"><b><%= resourceBundle.getProperty("DataManager.DisplayText.User_Role") %></b></td>
+				<td><b><%= resourceBundle.getProperty("DataManager.DisplayText.User_Role") %></b></td>
 				<td class="input">
 					<%= sRole %>
 				</td>
 			</tr>
 			<tr>
-				<td class="label"><b><%= resourceBundle.getProperty("DataManager.DisplayText.Department") %></b></td>
+				<td><b><%= resourceBundle.getProperty("DataManager.DisplayText.Department") %></b></td>
 				<td class="input">
 					<%= sDept.replaceAll("\\|", "<br>") %>
 				</td>
 			</tr>
 			<tr>
-				<td class="label"><b><%= resourceBundle.getProperty("DataManager.DisplayText.Sec_Department") %></b></td>
+				<td><b><%= resourceBundle.getProperty("DataManager.DisplayText.Sec_Department") %></b></td>
 				<td class="input">
 					<%= sSecDept.replaceAll("\\|", "<br>") %>
 				</td>
 			</tr>
 			<tr>
-				<td class="label"><b><%= resourceBundle.getProperty("DataManager.DisplayText.Address") %></b></td>
+				<td><b><%= resourceBundle.getProperty("DataManager.DisplayText.Address") %></b></td>
 				<td class="input">
 					<%= sAddress %>
 				</td>
@@ -147,7 +148,7 @@
 					<td colspan="3">&nbsp;</td>
 				</tr>
 				<tr>
-					<td class="label"><b><%= resourceBundle.getProperty("DataManager.DisplayText.Shift") %></b></td>
+					<td><b><%= resourceBundle.getProperty("DataManager.DisplayText.Shift") %></b></td>
 <%
 					if("".equals(shiftCode.trim()))
 					{
@@ -199,7 +200,7 @@
 %>
 				</tr>
 				<tr>
-					<td class="label"><b><%= resourceBundle.getProperty("DataManager.DisplayText.In_Time") %></b></td>
+					<td><b><%= resourceBundle.getProperty("DataManager.DisplayText.In_Time") %></b></td>
 					<td class="input" colspan="<%= "".equals(sInTime) ? "1" : "2" %>">
 						<%= sInTime %>
 					</td>
@@ -215,7 +216,7 @@
 %>
 				</tr>
 				<tr>
-					<td class="label"><b><%= resourceBundle.getProperty("DataManager.DisplayText.Out_Time") %></b></td>
+					<td><b><%= resourceBundle.getProperty("DataManager.DisplayText.Out_Time") %></b></td>
 					<td class="input" colspan="<%= "".equals(sOutTime) ? "1" : "2" %>">
 						<%= sOutTime %>
 					</td>
@@ -247,7 +248,7 @@
 			else
 			{
 %>
-				<td colspan="3" align="right">
+				<td colspan="3" align="left">
 					<input type="button" class="btn btn-effect-ripple btn-primary" name="close" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Close") %>" onClick="javascript:top.window.close()">
 				</td>
 <%

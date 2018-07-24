@@ -118,20 +118,20 @@ Map<String, String> mUsers = RDMServicesUtils.getUserNames();
 <body>
 	<form name="frm">
 		<div class="table table-responsive table-hover">
-		
-        <table id="datatable" class="table table-striped table-bordered table-vcenter">
-<%
+		<%
 			if(mlLogs != null && mlLogs.size() > 0)
 			{
 %>
-				<tr>
-					<td colspan="9" align="right">
+				<div class="row pad_bot"  style="padding-left:10px">
 						<input type="button" class="btn btn-effect-ripple btn-primary" id="expLogs" name="expLogs"  value="<%= resourceBundle.getProperty("DataManager.DisplayText.Export_to_File") %>" onClick="exportLogs()"/>
-					</td>
-				</tr>
+					
+				</div>
 <%
 			}
-%><thead>
+%>
+		
+        <table id="datatable" class="table table-striped table-bordered table-vcenter">
+		<thead>
 			<tr>
 				<th width="10%"><%= resourceBundle.getProperty("DataManager.DisplayText.Room") %></th>
 				<th width="5%"><%= resourceBundle.getProperty("DataManager.DisplayText.Stage") %></th>
@@ -140,7 +140,8 @@ Map<String, String> mUsers = RDMServicesUtils.getUserNames();
 				<th width="15%"><%= resourceBundle.getProperty("DataManager.DisplayText.Logged_On") %></th>
 				<th width="20%"><%= resourceBundle.getProperty("DataManager.DisplayText.Parameter") %></th>
 				<th width="30%"><%= resourceBundle.getProperty("DataManager.DisplayText.Text") %></th>
-			</tr></thead>
+			</tr>
+		</thead>
 <%
 			if(mode != null)
 			{	

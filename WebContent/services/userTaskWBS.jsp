@@ -130,11 +130,11 @@ boolean bFlag = false;
 </head>
 
 <body>
+<div id="page-content" style="background-color:#FFFFFF">
 	<form name="frm" action="manageUserTaskProcess.jsp" method="post" target="hiddenFrame">
 		<input type="hidden" id="mode" name="mode" value="">
-		<table border="0" cellpadding="0" align="center" cellspacing="0" width="100%">
-			<tr>
-				<td colspan="7" align="left">
+		<div class="container" style="margin-left:0px !important; padding-left:0px !important; padding-bottom:15px">
+		
 <%
 					if(bChangeStatus)
 					{
@@ -150,25 +150,27 @@ boolean bFlag = false;
 <%
 					}
 %>
-				</td>
-				<td colspan="6" align="right">
+				
 					<input type="button" class="btn btn-effect-ripple btn-primary" id="ExportTasks" name="ExportTasks" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Export_Tasks") %>" onClick="exportTasks()">
 					<input type="button" class="btn btn-effect-ripple btn-primary" id="refresh" name="refresh" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Refresh") %>" onClick="javascript:reloadWin()">
-				</td>
-			</tr>
+				
+		
+		</div>
+		<table class="table table-striped table-bordered table-vcenter">
+			
 			<tr>
-				<th class="label" width="3%"><input type="checkbox" id="chk_all" name="chk_all" <%= bFlag ? "disabled" : "" %> onClick="javascript:checkAll()"></th>
-				<th class="label" width="10%"><%= resourceBundle.getProperty("DataManager.DisplayText.Task_Name") %></th>
-				<th class="label" width="8%"><%= resourceBundle.getProperty("DataManager.DisplayText.Task_Id") %></th>
-				<th class="label" width="7%"><%= resourceBundle.getProperty("DataManager.DisplayText.Room_No") %></th>
-				<th class="label" width="7%"><%= resourceBundle.getProperty("DataManager.DisplayText.Status") %></th>
-				<th class="label" width="10%"><%= resourceBundle.getProperty("DataManager.DisplayText.Owner") %></th>
-				<th class="label" width="10%"><%= resourceBundle.getProperty("DataManager.DisplayText.Assignee") %></th>		
-				<th class="label" width="10%"><%= resourceBundle.getProperty("DataManager.DisplayText.Estimated_Start") %></th>
-				<th class="label" width="10%"><%= resourceBundle.getProperty("DataManager.DisplayText.Estimated_End") %></th>
-				<th class="label" width="10%"><%= resourceBundle.getProperty("DataManager.DisplayText.Actual_Start") %></th>
-				<th class="label" width="10%"><%= resourceBundle.getProperty("DataManager.DisplayText.Actual_End") %></th>
-				<th class="label" width="5%"><%= resourceBundle.getProperty("DataManager.DisplayText.Deliverables") %></th>
+				<th width="3%"><input type="checkbox" id="chk_all" name="chk_all" <%= bFlag ? "disabled" : "" %> onClick="javascript:checkAll()"></th>
+				<th width="10%"><%= resourceBundle.getProperty("DataManager.DisplayText.Task_Name") %></th>
+				<th width="8%"><%= resourceBundle.getProperty("DataManager.DisplayText.Task_Id") %></th>
+				<th width="7%"><%= resourceBundle.getProperty("DataManager.DisplayText.Room_No") %></th>
+				<th width="7%"><%= resourceBundle.getProperty("DataManager.DisplayText.Status") %></th>
+				<th width="10%"><%= resourceBundle.getProperty("DataManager.DisplayText.Owner") %></th>
+				<th width="10%"><%= resourceBundle.getProperty("DataManager.DisplayText.Assignee") %></th>		
+				<th width="10%"><%= resourceBundle.getProperty("DataManager.DisplayText.Estimated_Start") %></th>
+				<th width="10%"><%= resourceBundle.getProperty("DataManager.DisplayText.Estimated_End") %></th>
+				<th width="10%"><%= resourceBundle.getProperty("DataManager.DisplayText.Actual_Start") %></th>
+				<th width="10%"><%= resourceBundle.getProperty("DataManager.DisplayText.Actual_End") %></th>
+				<th width="5%"><%= resourceBundle.getProperty("DataManager.DisplayText.Deliverables") %></th>
 			</tr>
 <%
 			int iSz = mlTasks.size();
@@ -251,5 +253,6 @@ boolean bFlag = false;
 %>
 		</table>
 	</form>
+	</div>
 </body>
 </html>

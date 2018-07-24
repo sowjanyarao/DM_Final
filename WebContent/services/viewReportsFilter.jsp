@@ -188,8 +188,8 @@
 	ReportDAO reportDAO = new ReportDAO();
 	MapList mlReports = reportDAO.getReports(u.getUser());
 %>
-<body>
-<form name="frm" method="post" target="content" action="addPreReportRecords.jsp" enctype="multipart/form-data">
+<body style="background-color:#ebeef2 !important;">
+<form name="frm" method="post" target="content" action="addPreReportRecords.jsp">
     <div id="page-wrapper" class="page-loading">
         <div class="preloader">
             <div class="inner">
@@ -282,7 +282,7 @@
 			{
 %>
 								<tr>
-									<td class="label" colspan="2"><b><%= resourceBundle.getProperty("DataManager.DisplayText.Add_Multi_Records") %></b></td>
+									<td  colspan="2"><b><%= resourceBundle.getProperty("DataManager.DisplayText.Add_Multi_Records") %></b></td>
 								</tr>
 								<tr>
 									<td class="input"><%= resourceBundle.getProperty("DataManager.DisplayText.Upload_Records") %></td>
@@ -297,7 +297,7 @@
 			}
 %>
 								<tr>
-									<td align="left" colspan="2"><input type="button"
+									<td align="left" class="pad_bot" colspan="2"><input type="button"
 										name="btn" class="btn btn-primary"
 										value="<%= resourceBundle.getProperty("DataManager.DisplayText.Submit") %>"
 										onClick="javascript:submitAction()"></td>

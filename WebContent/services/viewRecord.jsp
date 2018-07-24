@@ -195,7 +195,7 @@
 		<body>
 			<table align="center" border="0" cellpadding="1" cellspacing="1" width="90%">
 				<tr>
-					<th class="label"><%= resourceBundle.getProperty("DataManager.DisplayText.No_Record_Found") %></th>
+					<th  ><%= resourceBundle.getProperty("DataManager.DisplayText.No_Record_Found") %></th>
 				</tr>
 			</table>
 		</body>
@@ -221,7 +221,7 @@
 		<body>
 			<table align="center" border="0" cellpadding="1" cellspacing="1" width="90%">
 				<tr>
-					<th class="label"><%= resourceBundle.getProperty("DataManager.DisplayText.No_Record_Found") %></th>
+					<th><%= resourceBundle.getProperty("DataManager.DisplayText.No_Record_Found") %></th>
 				</tr>
 			</table>
 		</body>
@@ -240,7 +240,7 @@
                         
                             <table id="example-datatable" class="table table-responsive table-hover table table-striped table-bordered table-vcenter">
 			<tr>
-				<th class="label" width="30%">
+				<th  width="30%">
 					<%= resourceBundle.getProperty("DataManager.DisplayText.Record_Timestamps") %>
 					<select id="time" name="time" onChange="javascript:loadValues()">
 <%
@@ -268,8 +268,8 @@
 				<th width="70%">&nbsp;</th>
 			</tr>
 			<tr>
-				<th class="label" width="30%"><%= resourceBundle.getProperty("DataManager.DisplayText.Name") %></th>
-				<th class="label" width="70%"><%= resourceBundle.getProperty("DataManager.DisplayText.Value") %></th>
+				<th width="30%"><%= resourceBundle.getProperty("DataManager.DisplayText.Name") %></th>
+				<th width="70%"><%= resourceBundle.getProperty("DataManager.DisplayText.Value") %></th>
 			</tr>
 <%
 		for(int i=0; i<slColumns.size(); i++)
@@ -287,7 +287,7 @@
 			}
 %>
 			<tr>
-				<td class="label" width="30%"><%= sName %></td>
+				<td   width="30%"><%= sName %></td>
 				<td class="input" width="70%">
 <%
 				if((sName.contains("Date") && sName.contains("Time")) || sName.equals(RDMServicesConstants.MODIFIEDON))

@@ -186,7 +186,7 @@
                         <!-- END General Elements Title -->
 
                         <!-- General Elements Content -->
-                        <form action="showProductivityGraph.jsp" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered" onsubmit="return false;">
+                        <form name="frm" action="showProductivityGraph.jsp" method="post" class="form-horizontal form-bordered">
                             <div class="form-group">
                                 <label class="col-sm-3 control-label" for="userId"><b><%= resourceBundle.getProperty("DataManager.DisplayText.User_ID") %></b></label>
                                 <div class="col-sm-6">

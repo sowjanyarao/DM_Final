@@ -65,9 +65,7 @@
 		var idx = 0;
 		function showGraph()
 		{
-			alert("graph");
 			var val = validate();
-			
 			if(val)
 			{
 				idx = idx + 1;
@@ -169,7 +167,7 @@
 				alert("<%= resourceBundle.getProperty("DataManager.DisplayText.Start_date_Invalid") %>");
 				return false;
 			}
-			alert("true");
+			
 			return true;
 		}
 		
@@ -276,7 +274,6 @@
 %>
 
 <body onLoad="setDate()">
-<form name="frm" method="post" action="showAttrDataGraph.jsp"  class="form-horizontal form-bordered">
 <input type="hidden" id="cntrlType" name="cntrlType" value="">
     <div id="page-wrapper" class="page-loading">
         <div class="preloader">
@@ -303,7 +300,7 @@
                         <!-- END General Elements Title -->
 
                         <!-- General Elements Content -->
-                        <form  method="post" class="form-horizontal form-bordered" action="showAttrDataGraph.jsp">
+                        <form  name="frm" method="post" class="form-horizontal form-bordered" action="showAttrDataGraph.jsp">
 
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="lstGraphs">Saved Graphs</label>
@@ -388,8 +385,8 @@
                             </div>
                             <div class="form-group form-actions">
                                 <div class="col-md-9 col-md-offset-3">
-                                	<input type="button" class="btn btn-effect-ripple btn-primary" name="ShowGraph" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Show_Graph") %>" onClick="showGraph()">
-                                    <input type="button" class="btn btn-effect-ripple btn-danger" name="DeleteGraph" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Delete_Graph") %>" onClick="deleteGraph()">
+                                	<input type="button" class="btn btn-effect-ripple btn-primary" style="overflow: hidden; position: relative;" name="ShowGraph" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Show_Graph") %>" onClick="showGraph()">
+                                    <input type="button" class="btn btn-effect-ripple btn-danger" style="overflow: hidden; position: relative;" name="DeleteGraph" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Delete_Graph") %>" onClick="deleteGraph()">
                                     
                                 </div>
                             </div>
@@ -484,7 +481,6 @@
         });
 
     </script>
-    </form>
 </body>
 
 </html>
