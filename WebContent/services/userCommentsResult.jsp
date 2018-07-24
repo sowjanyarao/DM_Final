@@ -12,6 +12,7 @@
 <%@include file="commonUtils.jsp" %>
 
 <%
+
 String sRoom = request.getParameter("lstController");
 String sStage = request.getParameter("lstStage");
 String BNo = request.getParameter("BatchNo");
@@ -26,7 +27,7 @@ boolean bClosed = "Y".equals(sClosed);
 String sLogByMe = request.getParameter("logByMe");
 String sLoggedBy = ("Y".equals(sLogByMe) ? u.getUser() : "");
 String mode = request.getParameter("mode");
-
+System.out.println("mode**************************"+mode);
 String limit = request.getParameter("limit");
 int iLimit = 0;
 if(limit != null && !"".equals(limit))
@@ -42,6 +43,7 @@ if(mode != null)
 	BNo = BNo.replaceAll("\\s", ",").replaceAll(",,", ",");
 	
 	Comments comments = new Comments();
+	System.out.println("values**************************"+sRoom+","+sStage+","+BNo+","+sToDate+","+sLoggedBy);
 	mlComments = comments.getUserComments(sRoom, sStage, BNo, sFromDate, sToDate, sLoggedBy, text, dept, bGlobal, bClosed, iLimit);
 	iSz = mlComments.size();
 }

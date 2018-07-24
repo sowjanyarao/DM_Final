@@ -53,7 +53,8 @@
 			if(mode == "add")
 			{
 				alert("<%= resourceBundle.getProperty("DataManager.DisplayText.Yield_Added") %>");
-				parent.frames['filter'].showYields();
+				window.opener.location.reload();
+				window.close();
 			}
 			else
 			{				

@@ -110,9 +110,7 @@
 				}
 				else if(sFrom == "commentsView")
 				{
-					
-					//opener.location.href = opener.location.href;
-					opener.location.href = opener.location.href;
+					window.opener.location.reload();
 				}
 				window.close();
 			}
