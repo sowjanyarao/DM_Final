@@ -1,4 +1,4 @@
 <html>
-<body>
+<body style="background-color:#ebeef2 !important;">
 </body>
 </html>

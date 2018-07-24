@@ -203,13 +203,14 @@
 		<link type="text/css" href="../styles/dygraph.css" rel="stylesheet" />
 	</head>
 	<body>
+	
 		<table width="80%">
 <%
 		if(bErr)
 		{
 %>
 			<tr>
-				<th class="label">Data record(s) upload failed with following errors</th>
+				<th>Data record(s) upload failed with following errors</th>
 			</tr>
 			<tr>
 				<td class="text"><%= sErr %></td>
@@ -220,11 +221,12 @@
 		{
 %>
 			<tr>
-				<th class="label">Data record(s) updated successfully</th>
+				<th>Data record(s) updated successfully</th>
 			</tr>
 <%
 		}
 %>
 		</table>
+		
 	</body>
 </html>

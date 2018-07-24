@@ -192,7 +192,7 @@
                         <!-- General Elements Title -->
                         <div class="block-title">
 
-                            <h2>Reports</h2>
+                            <h2><%= resourceBundle.getProperty("DataManager.DisplayText.Search_Records") %></h2>
                         </div>
                         <!-- END General Elements Title -->
 		
@@ -219,9 +219,7 @@
 			if(i == 0)
 			{
 %>
-				<tr>
-					<th colspan="2" class="txtLabel"><b><%= resourceBundle.getProperty("DataManager.DisplayText.Search_Records") %></b></th>
-				</tr>
+				
 <%
 			}
 %>
@@ -352,7 +350,7 @@
 			</tr>
 
 			<tr>
-				<td colspan="2" align="left">
+				<td class="pad_bot" colspan="2" align="left">
 					<input type="button" class="btn btn-primary" name="btn" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Search") %>" onclick="javascript:submitAction()"/>
 				</td>
 			</tr>

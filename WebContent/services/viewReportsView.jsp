@@ -71,7 +71,7 @@
     </style>
 	
 </head>
-<body>
+<body style="background-color:#ebeef2 !important;">
 	
 	  <div id="page-wrapper" class="page-loading" >
         <div class="preloader">	

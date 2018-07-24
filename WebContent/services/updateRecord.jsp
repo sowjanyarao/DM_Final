@@ -321,8 +321,8 @@
 				</td>
 			</tr>
 			<tr>
-				<th class="txtLabel" width="30%"><%= resourceBundle.getProperty("DataManager.DisplayText.Name") %></th>
-				<th class="txtLabel" width="70%"><%= resourceBundle.getProperty("DataManager.DisplayText.Value") %></th>
+				<th width="30%"><%= resourceBundle.getProperty("DataManager.DisplayText.Name") %></th>
+				<th width="70%"><%= resourceBundle.getProperty("DataManager.DisplayText.Value") %></th>
 			</tr>
 <%
 		boolean isUpdated = "TRUE".equals(mRecord.get(RDMServicesConstants.IS_UPDATED));
@@ -358,7 +358,7 @@
 			}
 %>
 			<tr>
-				<td class="txtLabel" width="30%">&nbsp;<%= sName %></td>
+				<td width="30%">&nbsp;<%= sName %></td>
 <%
 				if((sName.contains("Date") && sName.contains("Time")) || sName.equals(RDMServicesConstants.MODIFIEDON))
 				{
@@ -631,7 +631,7 @@
 
 			<tr>
 				<td colspan="2" align="center">
-					<input type="button" name="btn" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Submit") %>" onClick="javascript:submitAction()">
+					<input type="button" class="btn btn-primary" name="btn" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Submit") %>" onClick="javascript:submitAction()">
 				</td>
 			</tr>
 		</table>

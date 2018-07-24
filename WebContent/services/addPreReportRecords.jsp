@@ -121,7 +121,7 @@
 %>
 		<table width="80%">
 			<tr>
-				<th class="label"><%= resourceBundle.getProperty("DataManager.DisplayText.Add_Record_Failed") %></th>
+				<th><%= resourceBundle.getProperty("DataManager.DisplayText.Add_Record_Failed") %></th>
 			</tr>
 			<tr>
 				<td class="text"><font color="red"><%= sErr %></font></td>

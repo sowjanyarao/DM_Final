@@ -36,7 +36,6 @@ if(limit != null && !"".equals(limit))
 
 MapList mlComments = null;
 int iSz = 0;
-System.out.println("************************"+mode);
 if(mode != null)
 {
 	BNo = ((BNo == null) ? "" : BNo.trim());
@@ -148,28 +147,29 @@ if(mode != null)
 	<form name="frm">
 	<div class="table table-responsive table-hover">
 		
-        <table id="datatable" class="table table-striped table-bordered table-vcenter">
-			<tr>
-				<td colspan="5" align="left">
+				<div class="row pad_bot" style="padding-left:10px">
 					<input type="button" class="btn btn-primary" id="Comments" name="Comments" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Add_Comments") %>" onClick="javascript:addComments()">
-				</td>
+				
 <%
 				if(iSz > 0)
 				{
 %>
-					<td colspan="6" align="right">
+					
 						<input type="button" class="btn btn-primary" id="expComments" name="expComments" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Export_to_File") %>" onClick="exportComments()">
-					</td>
+					
 <%
 				}
 				else
 				{
 %>
-					<td colspan="6">&nbsp;</td>
+					&nbsp;
 <%
 				}
 %>
-			</tr>
+			</div>
+			
+        <table id="datatable" class="table table-striped table-bordered table-vcenter">
+
 			<thead>
 			<tr>
 				<th  width="3%">ATT</th>

@@ -10,12 +10,14 @@
 <%@include file="commonUtils.jsp" %>
 
 <%
+
 String sUserId = request.getParameter("userId");
 String sDept = request.getParameter("dept");
 String FName = request.getParameter("FName");
 String LName = request.getParameter("LName");
 String start_date = request.getParameter("start_date");
 String end_date = request.getParameter("end_date");
+
 String loggedIn = request.getParameter("loggedIn");
 String loggedOut = request.getParameter("loggedOut");
 String sMode = request.getParameter("mode");
@@ -44,6 +46,7 @@ if(sMode != null)
 	mInfo.put("isHRM", (slUserDept.contains("HRM") ? "Yes" : "No"));
 	
 	mUserLogs = RDMServicesUtils.getTimesheets(mInfo);
+	
 	alDates = RDMServicesUtils.getDatesBetween(start_date, end_date, "dd-MMM-yyyy");
 	
 	mUsrTskCnt = new UserTasks().getUserTaskCnt();
@@ -113,6 +116,7 @@ boolean isAdmin = RDMServicesConstants.ROLE_ADMIN.equals(u.getRole());
 <%
 if(sMode != null)
 {
+	
 	if(mUserLogs.size() > 0)
 	{
 %>
@@ -123,7 +127,7 @@ if(sMode != null)
 			{
 %>
 				<td align="left">
-					<input type="button" id="expTimesheets" name="expTimesheets" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Export_to_File") %>" onClick="exportTimesheets()">
+					<input class="btn btn-effect-ripple btn-primary" type="button" id="expTimesheets" name="expTimesheets" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Export_to_File") %>" onClick="exportTimesheets()">
 				</td>
 <%
 			}

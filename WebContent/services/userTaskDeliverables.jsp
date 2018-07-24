@@ -218,7 +218,7 @@ Collections.sort(lKeys, String.CASE_INSENSITIVE_ORDER);
 </head>
 
 <body>
-	<table border="0" cellpadding="2" align="center" cellspacing="2" width="90%">
+	<table class="table table-striped table-bordered table-vcenter">
 		<tr>
 <%
 		int iSz = slTaskAttrs.size();
@@ -277,19 +277,19 @@ Collections.sort(lKeys, String.CASE_INSENSITIVE_ORDER);
 			</td>
 		</tr>
 		<tr>
-			<th class="label" width="10%"><%= resourceBundle.getProperty("DataManager.DisplayText.Task_Name") %></th>
+			<th width="10%"><%= resourceBundle.getProperty("DataManager.DisplayText.Task_Name") %></th>
 			<td class="input" width="15%"><%= sTaskId %></td>
 
-			<th class="label" width="10%"><%= resourceBundle.getProperty("DataManager.DisplayText.Task_Id") %></th>
+			<th width="10%"><%= resourceBundle.getProperty("DataManager.DisplayText.Task_Id") %></th>
 			<td class="input" width="15%"><%= sTaskAdmId %>&nbsp;<%= "".equals(sTaskAdmName) ? "" : "("+sTaskAdmName+")" %></td>
 
-			<th class="label" width="10%"><%= resourceBundle.getProperty("DataManager.DisplayText.Room_No") %></th>
+			<th width="10%"><%= resourceBundle.getProperty("DataManager.DisplayText.Room_No") %></th>
 			<td class="input" width="15%"><%= sRoom %></td>
 			
-			<th class="label" width="10%"><%= resourceBundle.getProperty("DataManager.DisplayText.Owner") %></th>
+			<th width="10%"><%= resourceBundle.getProperty("DataManager.DisplayText.Owner") %></th>
 			<td class="input" width="15%"><%= mUserNames.get(sOwner) %>&nbsp;(<%= sOwner %>)</td>
 
-			<th class="label" width="10%"><%= resourceBundle.getProperty("DataManager.DisplayText.Assignee") %></th>
+			<th width="10%"><%= resourceBundle.getProperty("DataManager.DisplayText.Assignee") %></th>
 			<td class="input" width="15%"><%= ("".equals(sAssignee) ? "" : mUserNames.get(sAssignee) + "&nbsp;(" + sAssignee +")") %></td>
 		<tr>
 	</table>
@@ -298,12 +298,12 @@ Collections.sort(lKeys, String.CASE_INSENSITIVE_ORDER);
 	<input type="hidden" id="UserTaskId" name="UserTaskId" value="<%= sTaskId %>">
 	<table border="0" cellpadding="0" align="center" cellspacing="0" width="90%">
 		<tr>
-			<th class="label" width="5%"><input type="checkbox" id="chk_all" name="chk_all" onClick="javascript:checkAll()"></th>
-			<th class="label" width="10%"><%= resourceBundle.getProperty("DataManager.DisplayText.Deliverable_Id") %></th>
-			<th class="label" width="10%"><%= resourceBundle.getProperty("DataManager.DisplayText.Created_On") %></th>
-			<th class="label" width="10%"><%= resourceBundle.getProperty("DataManager.DisplayText.Download") %></th>
-			<th class="label" width="10%"><%= resourceBundle.getProperty("DataManager.DisplayText.Download_By") %></th>
-			<th class="label" width="10%"><%= resourceBundle.getProperty("DataManager.DisplayText.Download_On") %></th>
+			<th width="5%"><input type="checkbox" id="chk_all" name="chk_all" onClick="javascript:checkAll()"></th>
+			<th width="20%"><%= resourceBundle.getProperty("DataManager.DisplayText.Deliverable_Id") %></th>
+			<th width="20%"><%= resourceBundle.getProperty("DataManager.DisplayText.Created_On") %></th>
+			<th width="20%"><%= resourceBundle.getProperty("DataManager.DisplayText.Download") %></th>
+			<th width="20%"><%= resourceBundle.getProperty("DataManager.DisplayText.Download_By") %></th>
+			<th width="20%"><%= resourceBundle.getProperty("DataManager.DisplayText.Download_On") %></th>
 <%
 		String sAttrName = null;
 		String sAttrValue = null;
@@ -389,7 +389,7 @@ Collections.sort(lKeys, String.CASE_INSENSITIVE_ORDER);
 		{
 %>
 			<tr>
-				<td class="input" style="text-align:center" colspan="<%= ((bCanAddEdit || bCanDelete) ? (iSz + 7) : (iSz + 6)) %>">
+				<td class="input" style="padding-top:30px;text-align:center" colspan="<%= ((bCanAddEdit || bCanDelete) ? (iSz + 7) : (iSz + 6)) %>">
 					<%= resourceBundle.getProperty("DataManager.DisplayText.No_Task_Deliverables") %>
 				</td>
 			</tr>
