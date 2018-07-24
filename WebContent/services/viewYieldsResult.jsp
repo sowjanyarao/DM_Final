@@ -103,8 +103,7 @@ Date today = sdf.parse(sdf.format(new Date()));
 	
 	function deleteYield(roomId, onDate)
 	{
-		document.frm.action="manageYieldsProcess.jsp?controller="+roomId+"&date="+onDate+"&mode=delete";
-		document.frm.submit();
+		document.location.href  = "manageYieldsProcess.jsp?controller="+roomId+"&date="+onDate+"&mode=delete";
 	}
 	
 	function editYield(roomId, onDate)

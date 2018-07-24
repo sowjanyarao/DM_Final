@@ -20,7 +20,6 @@
 	String sUser = u.getUser();
 	String sErr = "";
 	sActYield = ((sActYield == null || "".equals(sActYield)) ? "0.0" : sActYield);
-
 	try
 	{
 		Yields yields = new Yields();
@@ -59,7 +58,7 @@
 			else
 			{				
 				alert("<%= resourceBundle.getProperty("DataManager.DisplayText.Yield_Deleted") %>");
-				parent.frames['filter'].showYields();
+				parent.showYields();
 			}
 		}
 	</script>
