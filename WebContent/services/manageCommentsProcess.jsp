@@ -95,7 +95,6 @@
 		var sMode = "<%= sMode %>";
 		var sFrom = "<%= sFrom %>";
 		var sErr = "<%= sErr %>";
-		alert(sFrom);
 		if(sErr != "")
 		{
 			alert("Error: "+sErr);
