@@ -99,7 +99,7 @@ if(mode != null)
 	
 	function closeComments(id)
 	{
-		parent.frames['hiddenFrame'].document.location.href = "manageCommentsProcess.jsp?cmtId="+id+"&mode=close&from=commentsView";
+		document.location.href = "manageCommentsProcess.jsp?cmtId="+id+"&mode=close&from=commentsView";
 	}
 		
 	function addComments()

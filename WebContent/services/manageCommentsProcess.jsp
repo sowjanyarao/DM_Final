@@ -95,6 +95,7 @@
 		var sMode = "<%= sMode %>";
 		var sFrom = "<%= sFrom %>";
 		var sErr = "<%= sErr %>";
+		alert(sFrom);
 		if(sErr != "")
 		{
 			alert("Error: "+sErr);
@@ -118,14 +119,12 @@
 			{
 				if(sFrom == "homeView")
 				{
-					//parent.frames['results'].document.location.href = parent.frames['results'].document.location.href;
 					document.location.href = document.referrer;
 					
 				}
 				else if(sFrom == "commentsView")
 				{
-					parent.frames['filter'].showComments();
-					
+					parent.showComments();
 				}
 			}
 		}
