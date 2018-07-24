@@ -109,10 +109,10 @@ public class ExportComments extends HttpServlet
 	{
 		String filepath = "";	
 		try {
-			RDMServicesUtils.getClassLoaderpath("../../export");	
+			filepath=RDMServicesUtils.getClassLoaderpath("../../export");	
 		}
 		catch(Exception e) {
-			RDMServicesUtils.getClassLoaderpath("");	
+			filepath=RDMServicesUtils.getClassLoaderpath("");	
 		}	
 		File file = File.createTempFile("ExportCommentsData", ".xls", new File(filepath));
 		file.setReadable(true, false);
