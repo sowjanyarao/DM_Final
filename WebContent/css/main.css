@@ -3956,3 +3956,9 @@ label.fw { font-weight: normal; }
 .task_rw_bg { background-color: #ec3237; }
 .task_rw_head {font-weight:bold; color:#ffffff;}
 .task_in_name {color:#ffffff;}
+
+
+.pad_bot {   padding-bottom: 15px; }
+
+
+.pad_top {  padding-top: 15px; }
