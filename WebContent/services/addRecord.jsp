@@ -13,16 +13,45 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head>
-	<title></title>
-	<link type="text/css" href="../styles/dygraph.css" rel="stylesheet" />
-	<link type="text/css" href="../styles/calendar.css" rel="stylesheet" />
-	<link type="text/css" href="../styles/bootstrap.min.css" rel="stylesheet" />
-	<link type="text/css" href="../styles/select2.min.css" rel="stylesheet" />
-	
-	<script language="javaScript" type="text/javascript" src="../scripts/jquery.min.js"></script>
-	<script language="javaScript" type="text/javascript" src="../scripts/select2.full.js"></script>
-	<script language="javaScript" type="text/javascript" src="../scripts/bootstrap.min.js"></script>
-	
+	<title>Inventaa</title>
+
+    <meta name="description" content="Datamanager">
+    <meta name="author" content="Inventaa">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0">
+
+   <!-- Icons -->
+    <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
+    <link rel="shortcut icon" href="../img/fav-icon.jpg">
+    <!-- END Icons -->
+
+    <!-- Stylesheets -->
+    <!-- Bootstrap is included in its original form, unaltered -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+
+    <!-- Related styles of various icon packs and plugins -->
+    <link rel="stylesheet" href="../css/plugins.css">
+
+    <!-- The main stylesheet of this template. All Bootstrap overwrites are defined in here -->
+    <link rel="stylesheet" href="../css/main.css">
+
+    <!-- Include a specific file here from ../css/themes/ folder to alter the default theme of the template -->
+
+    <!-- The themes stylesheet of this template (for using specific theme color in individual elements - must included last) -->
+    <link rel="stylesheet" href="../css/themes.css">
+    <!-- END Stylesheets -->
+    <link type="text/css" href="../styles/calendar.css" rel="stylesheet" />
+    
+    <!-- Modernizr (browser feature detection library) -->
+    <script src="../js/vendor/modernizr-3.3.1.min.js"></script>
+  
+	<script language="javaScript" type="text/javascript" src="../scripts/calendar.js"></script>
+	<script src="../js/vendor/jquery-2.2.4.min.js"></script>
+    <script src="../js/vendor/bootstrap.min.js"></script>
+    <script src="../js/plugins.js"></script>
+    <script src="../js/app.js"></script>
+    <!-- Load and execute javascript code used only in this page -->
+    <script src="../js/pages/readyDashboard.js"></script>
 	<style type="text/css">		
 		th.txtLabel
 		{
@@ -62,7 +91,7 @@
 		
 		function getWeights(sColumn, scaleIP, port)
 		{
-			frames['hidden'].document.location.href = "readWeighingScale.jsp?scaleIP="+scaleIP+"&port="+port+"&attrName="+sColumn;
+			document.location.href = "readWeighingScale.jsp?scaleIP="+scaleIP+"&port="+port+"&attrName="+sColumn;
 			
 			document.getElementById(sColumn+'_weights').style.display = "none";
 			document.getElementById(sColumn+'_loading').style.display = "block";

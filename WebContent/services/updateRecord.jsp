@@ -65,7 +65,7 @@
 
 		function getWeights(sColumn, scaleIP, port)
 		{
-			frames['hidden'].document.location.href = "readWeighingScale.jsp?scaleIP="+scaleIP+"&port="+port+"&attrName="+sColumn;
+			document.location.href = "readWeighingScale.jsp?scaleIP="+scaleIP+"&port="+port+"&attrName="+sColumn;
 			
 			document.getElementById(sColumn+'_weights').style.display = "none";
 			document.getElementById(sColumn+'_loading').style.display = "block";

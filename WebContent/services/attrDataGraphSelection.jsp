@@ -177,7 +177,7 @@
 			var type = document.getElementById('cntrlType').value;
 			if(name != "")
 			{
-				parent.frames['hidden'].location.href = "loadSavedGraphParams.jsp?name="+name+"&type="+type;
+				document.location.href = "loadSavedGraphParams.jsp?name="+name+"&type="+type;
 			}
 			else
 			{
@@ -213,7 +213,7 @@
 			var type = document.getElementById('cntrlType').value;
 			if(name != "")
 			{
-				parent.frames['hidden'].location.href = "loadGraphParams.jsp?name="+name+"&type="+type;
+				document.location.href = "loadGraphParams.jsp?name="+name+"&type="+type;
 			}
 			else
 			{
@@ -252,7 +252,7 @@
 				return;
 			}
 
-			parent.frames['hidden'].location.href = "deleteSavedGraph.jsp?savedGraph="+name;
+			document.location.href = "deleteSavedGraph.jsp?savedGraph="+name;
 		}
 		
 		function setSelected()

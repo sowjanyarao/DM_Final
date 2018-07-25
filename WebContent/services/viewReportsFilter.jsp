@@ -131,13 +131,13 @@
 					}					
 				}
 			
-				parent.frames['search'].document.location.href = "viewReportSearchCriteria.jsp?report="+reportTemplate[0]+"&template="+reportTemplate[1]+"&action="+selAction;			
+				document.location.href = "viewReportSearchCriteria.jsp?report="+reportTemplate[0]+"&template="+reportTemplate[1]+"&action="+selAction;			
 			}
 		}
 		
 		function resetSearch()
 		{			
-			parent.frames['search'].document.location.href = "blank.jsp";
+			document.location.href = "blank.jsp";
 		}
 		
 		function downloadTemplate(report, template) 

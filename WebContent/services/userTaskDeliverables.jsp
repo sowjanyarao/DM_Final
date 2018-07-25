@@ -135,7 +135,7 @@ Collections.sort(lKeys, String.CASE_INSENSITIVE_ORDER);
 		var conf = confirm("<%= resourceBundle.getProperty("DataManager.DisplayText.Delete_Deliverable") %>");
 		if(conf == true)
 		{
-			parent.frames['hiddenFrame'].document.location.href = "manageTaskDeliverableProcess.jsp?taskId=<%= sTaskId %>&deliverableId="+sDeliverableId+"&mode=delete";
+			parent.document.location.href = "manageTaskDeliverableProcess.jsp?taskId=<%= sTaskId %>&deliverableId="+sDeliverableId+"&mode=delete";
 		}		
 	}
 	
