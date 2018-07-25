@@ -26,9 +26,8 @@
 
 <html>
 <script language="javascript">
-	var lstParams = parent.parent.frames['select'].document.getElementById('lstParams');
-	parent.parent.frames['select'].document.getElementById('cntrlType').value = "<%= sCntrlType %>";
-	alert(lstParams.options);
+	var lstParams = parent.frames['select'].document.getElementById('lstParams');
+	parent.frames['select'].document.getElementById('cntrlType').value = "<%= sCntrlType %>";
 	if(lstParams.options != null)
 	{
 		while(lstParams.options.length > 0)
@@ -51,7 +50,7 @@
 			continue;
 		}
 %>
-		var opt = parent.parent.frames['select'].document.createElement('option');
+		var opt = parent.frames['select'].document.createElement('option');
 		opt.value = "<%= sParam %>";
 		opt.text = "<%= sParam %>";
 		lstParams.options.add(opt);
@@ -59,6 +58,6 @@
 <%
 	}
 %>
-	//parent.frames['legend'].location.href = "graphLegend.jsp?type=<%= sCntrlType %>";
+	parent.frames['legend'].location.href = "graphLegend.jsp?type=<%= sCntrlType %>";
 </script>
 </html>

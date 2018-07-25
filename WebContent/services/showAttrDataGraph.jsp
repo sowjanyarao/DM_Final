@@ -135,7 +135,6 @@ String sWkStartDt = sdf.format(stDate);
 	<head>
 		<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE6; IE=EmulateIE7; IE=EmulateIE8; IE=EmulateIE9">
 		<title></title>
-		<link type="text/css" href="../styles/dygraph.css" rel="stylesheet" />
 		<script type="text/javascript" src="../scripts/excanvas.js"></script>
 		<script type="text/javascript" src="../scripts/dygraph-combined.js"></script>
 		<script type="text/javascript" src="../scripts/dygraph-extra.js"></script>
@@ -200,7 +199,7 @@ String sWkStartDt = sdf.format(stDate);
 				<td valign="top">
 					<table>
 						<tr>
-							<br><td class="label"><%= resourceBundle.getProperty("DataManager.DisplayText.Parameter_Values") %></td>
+							<br><td ><%= resourceBundle.getProperty("DataManager.DisplayText.Parameter_Values") %></td>
 						</tr>
 						<tr>
 							<td>
@@ -208,7 +207,7 @@ String sWkStartDt = sdf.format(stDate);
 							</td>
 						</tr>						
 						<tr>
-							<td class="label"><%= resourceBundle.getProperty("DataManager.DisplayText.Select_Parameters") %></td>
+							<td ><%= resourceBundle.getProperty("DataManager.DisplayText.Select_Parameters") %></td>
 						</tr>
 						<tr>
 							<td valign="top">		

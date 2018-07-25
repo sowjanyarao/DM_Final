@@ -177,7 +177,7 @@
 			var type = document.getElementById('cntrlType').value;
 			if(name != "")
 			{
-				frames['hidden'].location.href = "loadSavedGraphParams.jsp?name="+name+"&type="+type;
+				parent.frames['hidden'].location.href = "loadSavedGraphParams.jsp?name="+name+"&type="+type;
 			}
 			else
 			{
@@ -213,7 +213,7 @@
 			var type = document.getElementById('cntrlType').value;
 			if(name != "")
 			{
-				frames['hidden'].location.href = "loadGraphParams.jsp?name="+name+"&type="+type;
+				parent.frames['hidden'].location.href = "loadGraphParams.jsp?name="+name+"&type="+type;
 			}
 			else
 			{
@@ -252,7 +252,7 @@
 				return;
 			}
 
-			frames['hidden'].location.href = "deleteSavedGraph.jsp?savedGraph="+name;
+			parent.frames['hidden'].location.href = "deleteSavedGraph.jsp?savedGraph="+name;
 		}
 		
 		function setSelected()
@@ -303,7 +303,7 @@
                         <form  name="frm" method="post" class="form-horizontal form-bordered" action="showAttrDataGraph.jsp">
 
                             <div class="form-group">
-                                <label class="col-md-3 control-label" for="lstGraphs">Saved Graphs</label>
+                                <label class="col-md-3 control-label" for="lstGraphs"><%= resourceBundle.getProperty("DataManager.DisplayText.Saved_Graphs") %></label>
                                 <div class="col-md-6">
                                                 <select id='lstGraphs' name='lstGraphs' class="form-control" onChange="loadSavedParams()">
 						<option value="" ><%= resourceBundle.getProperty("DataManager.DisplayText.Please_Select") %></option>
@@ -370,17 +370,18 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-3 control-label" for="example-file-input">Attachments<br>( upload files greater than 200kb)</label>
+                                <label class="col-md-3 control-label" for="example-file-input"><%= resourceBundle.getProperty("DataManager.DisplayText.Save_Graph_As") %></label>
 
                                 <div class="form-group">
                                     <div class="col-md-9">
                                         <label class="radio-inline" for="example-inline-radio1">
-                                                    <input type="radio" id="example-inline-radio1" name="example-inline-radios" value="option1"> Replace
+                                                    <input type="radio" id="access" name="access" value="Public"><%= resourceBundle.getProperty("DataManager.DisplayText.Public") %>
                                                 </label>
                                         <label class="radio-inline" for="example-inline-radio2">
-                                                    <input type="radio" id="example-inline-radio2" name="example-inline-radios" value="option2"> Append
+                                                    <input type="radio" id="access" name="access" value="Private" checked><%= resourceBundle.getProperty("DataManager.DisplayText.Private") %>
                                                 </label>
                                     </div>
+                                   <input type="text" size="25" id="saveAs" name="saveAs" value="">
                                 </div>
                             </div>
                             <div class="form-group form-actions">
@@ -393,11 +394,13 @@
                         </form>
                         <!-- END General Elements Content -->
                     </div>
+                    <% /* ---- removed additional cusotm graph buttons
                     <div class="block full">
                         <!-- Block Tabs Title -->
                        
                         <!-- END Block Tabs Title -->
 
+						
                         <!-- Tabs Content -->
                         <div class="row">
                         <div class="col-xs-6">
@@ -421,6 +424,8 @@
                             </div>
 
                         </div>
+                        
+                        
                         <div class="col-xs-6">
                             <!-- Input States Block -->
                             <div class="block">
@@ -447,18 +452,10 @@
                                 <!-- END Input States Content -->
                             </div>
                         </div>
-                        
-                        
-                       
                     </div>
-                    
                     </div>
-                    <div class="block full"> 
-                        
-                        <div class="table-responsive">
-                          <iframe name="hidden" src="blank.jsp" align="middle" frameBorder="0" width="100%" height="<%= winHeight * 0.5 %>px"/>
-                        </div>
-                    </div>
+                    */ %>
+<!-- Removed blank jsp iframe -->
                 </div>
 
                 <!-- END Page Content -->

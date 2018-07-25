@@ -20,6 +20,7 @@
 	String sUser = u.getUser();
 	String sErr = "";
 	sActYield = ((sActYield == null || "".equals(sActYield)) ? "0.0" : sActYield);
+
 	try
 	{
 		Yields yields = new Yields();

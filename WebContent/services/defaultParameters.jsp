@@ -237,9 +237,9 @@
 
 <body onLoad="javascript:initOnOff()">
 	<table border="0" cellpadding="0" cellspacing="0" width="95%">
-		<tr>
+		<tr class="mar_bot">
 			<td style="font-family:Arial; font-size:0.8em; font-weight:bold; border:#ffffff; text-align:left">
-			 <label class="col-md-3 control-label" for="controller"><%= resourceBundle.getProperty("DataManager.DisplayText.Select_Room") %>>:&nbsp;</label>
+			 <label class="col-md-3 control-label" for="controller"><%= resourceBundle.getProperty("DataManager.DisplayText.Select_Room") %>:&nbsp;</label>
 				<select id="controller" name="controller" onChange="javascript:changeController(this)">
 <%
 				if(RDMServicesConstants.ROLE_ADMIN.equals(u.getRole()) || RDMServicesConstants.ROLE_MANAGER.equals(u.getRole()))
@@ -284,7 +284,7 @@
 %>
 				</select>
 				&nbsp;&nbsp;
-				<label class="col-md-3 control-label" for="defParamType"><%= resourceBundle.getProperty("DataManager.DisplayText.Product") %>>:&nbsp;</label>
+				<label class="col-md-3 control-label" for="defParamType"><%= resourceBundle.getProperty("DataManager.DisplayText.Product") %>:&nbsp;</label>
 				<select id="defParamType" name="defParamType" onChange="javascript:changeDefaultValues(this)">
 					<option value="<%= sDefaultProduct %>" <%= (sDefParamType.equals(sDefaultProduct) ? "selected" : "") %>><%= resourceBundle.getProperty("DataManager.DisplayText.Default_Product") %></option>
 <%

@@ -273,7 +273,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-3 control-label" for="example-text-input">Batch No.</label>
+                                <label class="col-md-3 control-label" for="example-text-input"><%= resourceBundle.getProperty("DataManager.DisplayText.Limit_Results") %></label>
                                 <div class="col-md-6">
                                 	<input type="text" id="limit" name="limit" size="5" value="500" class="form-control" placeholder="Text">
                                 </div>

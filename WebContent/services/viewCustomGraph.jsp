@@ -54,60 +54,60 @@
 	}
 	</script>
 	
-</HEAD>  
+</HEAD>
 <BODY>
 	<table border="0" width="80%">
 		<FORM id="g1" name="g1" ENCTYPE="multipart/form-data" ACTION="uploadCustomGraphData.jsp" METHOD="POST" target="hidden">
-            <tr>
-				<th colspan="2" class="label" style="text-align: center; height:25px">
-					<%= resourceBundle.getProperty("DataManager.DisplayText.Upload_custom_graph") %>
-				</th>
-			</tr>
-			<tr>
-				<td class="label" width="30%"><%= resourceBundle.getProperty("DataManager.DisplayText.Choose_file") %></td>
-				<td width="70%"><INPUT TYPE="file" NAME="F1"></td>
-			</tr>
-			<tr>
-				<td colspan="2" align="right"><INPUT TYPE="submit" VALUE="<%= resourceBundle.getProperty("DataManager.DisplayText.Load_Graph") %>"></td>
-			</tr>
-		</FORM>
-		<tr>
-			<td COLSPAN="2">&nbsp;</td>
-		</tr>
-		<tr>
-			<td COLSPAN="2">&nbsp;</td>
-		</tr>
-		<FORM id="g2" name="g2" METHOD="POST" target="hidden">
-		    <tr>
-				<th colspan="2" class="label" style="text-align: center; height:25px">
-					<%= resourceBundle.getProperty("DataManager.DisplayText.Choose_custom_graph") %>
-				</th>
-			</tr>
+			<div class="col-xs-6">
+				<!-- Input States Block -->
+				<div class="block">
+					<!-- Input States Title -->
+					<div class="block-title">
+						<h2><%=resourceBundle.getProperty("DataManager.DisplayText.Upload_custom_graph")%></h2>
+					</div>
+					<!-- END Input States Title -->
+					<!-- Input States Content -->
 
-<%
+					<div class="form-group">
+						<label class="col-md-3 control-label" for="F1"><%=resourceBundle.getProperty("DataManager.DisplayText.Choose_file")%></label>
+						<input type="file" name="F1">
+					</div>
+					<!-- END Input States Content -->
+					<INPUT TYPE="submit" VALUE="<%=resourceBundle.getProperty("DataManager.DisplayText.Load_Graph")%>">
+				</div>
+			</div>
+
+		</FORM>
+
+		<FORM id="g2" name="g2" METHOD="POST" target="hidden">
+		
+					<div class="col-xs-6">
+				<!-- Input States Block -->
+				<div class="block">
+					<!-- Input States Title -->
+					<div class="block-title">
+					<h2><%= resourceBundle.getProperty("DataManager.DisplayText.Choose_custom_graph") %></h2>
+					</div>
+					<!-- END Input States Title -->
+
+			
+
+			<%
 			AttrDataGraph graph = new AttrDataGraph();
 			StringList slGraphs = graph.getCustomGraphs();
 			for(int i=0; i<slGraphs.size(); i++)
 			{
 %>
-				<tr>
-					<td colspan="2">
-						<input type="radio" name="GraphFile" id="GraphFile" value="<%= slGraphs.get(i) %>">
-						<%= slGraphs.get(i) %>
-					</td>
-				<tr>
-<%
+			<div>
+			<input type="radio" name="GraphFile" id="GraphFile" value="<%= slGraphs.get(i) %>"> <%= slGraphs.get(i) %>
+			</div>
+				<%
 			}
 %>
-			<tr>
-				<td align="left">
-					<input type="button" name="ShowGraph" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Load_Graph") %>" onClick="loadGraph()">
-				</td>
-				<td align="right">
-					<input type="button" name="DeleteGraph" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Delete_Graph") %>" onClick="deleteGraph()">
-				</td>
-			</tr>
+			<input type="button" name="ShowGraph" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Load_Graph") %>" onClick="loadGraph()"></td>
+			<input type="button" name="DeleteGraph" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Delete_Graph") %>" onClick="deleteGraph()"></td>
+			
 		</FORM>
-	<table>
+		<table>
 </BODY>
 </HTML>

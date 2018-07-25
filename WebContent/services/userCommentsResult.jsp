@@ -27,6 +27,7 @@ boolean bClosed = "Y".equals(sClosed);
 String sLogByMe = request.getParameter("logByMe");
 String sLoggedBy = ("Y".equals(sLogByMe) ? u.getUser() : "");
 String mode = request.getParameter("mode");
+
 String limit = request.getParameter("limit");
 int iLimit = 0;
 if(limit != null && !"".equals(limit))

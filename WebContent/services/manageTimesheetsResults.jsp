@@ -120,7 +120,7 @@ if(sMode != null)
 	if(mUserLogs.size() > 0)
 	{
 %>
-		<table>
+		<table class="mar_bot">
 			<tr>
 <%
 			if(isAdmin)
@@ -136,8 +136,8 @@ if(sMode != null)
 			</tr>
 		</table>
 
-		<div id="scrollDiv">
-			<table id="freezeHeaders" border="1" cellpadding="2" cellspacing="0">
+		<div>
+			<table id="freezeHeaders" class="table table-striped table-bordered table-vcenter">
 				<tr>
 					<th><%= resourceBundle.getProperty("DataManager.DisplayText.User_Name") %></th>
 					<th><%= resourceBundle.getProperty("DataManager.DisplayText.Tasks") %></th>

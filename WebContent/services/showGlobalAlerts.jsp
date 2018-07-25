@@ -70,11 +70,11 @@
 	{
 		if(sCntrl == "General")
 		{
-			parent.document.location.href = "generalParamsView.jsp?controller="+sCntrl;
+			document.location.href = "generalParamsView.jsp?controller="+sCntrl;
 		}
 		else
 		{
-			parent.document.location.href = "singleRoomView.jsp?controller="+sCntrl;
+			document.location.href = "singleRoomView.jsp?controller="+sCntrl;
 		}
 	}
 	

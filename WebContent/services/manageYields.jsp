@@ -170,11 +170,12 @@
 			</tr>
 			
 			<tr>
+			
+			
 				<td  width="25%" id="a"><b><%= resourceBundle.getProperty("DataManager.DisplayText.Date") %></b></td>
 				<td  width="75%">
-					<input type="text" size="10" id="date" name="date" readonly>
-					<a href="#" onClick="setYears(2000, 2025);showCalender('a', 'date');"><img src="../images/calender.png"></a>
-					<a href="#" onClick="javascript:document.getElementById('date').value=''"><img src="../images/clear.png"></a>
+					   <input type="text" id="date" name="date" size="10" class="form-control input-datepicker" data-date-format="dd-mm-yyyy" placeholder="dd-mm-yyyy"/>
+
 				</td>
 			</tr>
 <%
@@ -243,18 +244,15 @@
 					<textarea id="comments" name="comments" rows="5" cols="25"></textarea>
 				</td>
 			</tr>
-			<tr>
-				<td colspan="2">
-					&nbsp;
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2" align="right">
-					<input type="button" class="btn btn-primary" name="Save" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Save") %>" onClick="submitForm()">&nbsp;&nbsp;&nbsp;
-					<input type="button" class="btn btn-primary" name="Cancel" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Cancel") %>" onClick="javascript:top.window.close()">
-				</td>
-			</tr>
+			
 		</table>
+		
+			
+				<div class="pad_top">
+					<input type="button" class="btn btn-effect-ripple btn-primary" name="Save" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Save") %>" onClick="submitForm()">&nbsp;&nbsp;&nbsp;
+					<input type="button" class="btn btn-effect-ripple btn-primary" name="Cancel" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Cancel") %>" onClick="javascript:top.window.close()">
+				</div>
+			
 	</form>
 	
 	<table id="calenderTable">

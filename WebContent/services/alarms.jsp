@@ -187,7 +187,7 @@
                         <!-- END General Elements Title -->
 
                         <!-- General Elements Content -->
-                        <form method="post" name="frm1" enctype="multipart/form-data" class="form-horizontal form-bordered" target="results" action="alarmResults.jsp">
+                        <form method="post" name="frm1" class="form-horizontal form-bordered" target="results" action="alarmResults.jsp">
 
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="lstController"><%= resourceBundle.getProperty("DataManager.DisplayText.Room") %></label>

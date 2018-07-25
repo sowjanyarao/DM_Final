@@ -90,8 +90,11 @@ for(int i=0; i<alPhases.size(); i++)
     <!-- END Stylesheets -->
     <link type="text/css" href="../styles/calendar.css" rel="stylesheet" />
     
+		<script type="text/javascript" src="../scripts/excanvas.js"></script>
+		<script type="text/javascript" src="../scripts/dygraph-combined.js"></script>
+    
     <!-- Modernizr (browser feature detection library) -->
-    <script src="../js/vendor/modernizr-3.3.1.min.js"/>
+    <script src="../js/vendor/modernizr-3.3.1.min.js"></script>
   
 	<script language="javaScript" type="text/javascript" src="../scripts/calendar.js"></script>
 	<script src="../js/vendor/jquery-2.2.4.min.js"></script>
@@ -134,7 +137,7 @@ for(int i=0; i<alPhases.size(); i++)
 							</td>
 						</tr>
 						<tr>
-							<br><td class="label"><%= resourceBundle.getProperty("DataManager.DisplayText.Parameter_Values") %></td>
+							<br><td><%= resourceBundle.getProperty("DataManager.DisplayText.Parameter_Values") %></td>
 						</tr>
 						<tr>
 							<td>
@@ -142,7 +145,7 @@ for(int i=0; i<alPhases.size(); i++)
 							</td>
 						</tr>						
 						<tr>
-							<td class="label"><%= resourceBundle.getProperty("DataManager.DisplayText.Select_Batch") %></td>
+							<td><%= resourceBundle.getProperty("DataManager.DisplayText.Select_Batch") %></td>
 						</tr>
 						<tr>
 							<td valign="top">

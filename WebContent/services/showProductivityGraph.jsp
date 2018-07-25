@@ -46,9 +46,6 @@ for(int i=0; i<slUsers.size(); i++)
 	<head>
 		<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE6; IE=EmulateIE7; IE=EmulateIE8; IE=EmulateIE9">
 		<title></title>
-		<link type="text/css" href="../styles/dygraph.css" rel="stylesheet" />
-		<script type="text/javascript" src="../scripts/excanvas.js"></script>
-		<script type="text/javascript" src="../scripts/dygraph-combined.js"></script>
 		<script type="text/javascript" src="../scripts/excanvas.js"></script>
 		<script type="text/javascript" src="../scripts/dygraph-combined.js"></script>
 		<meta name="description" content="Datamanager"/>

@@ -141,7 +141,7 @@
 </head>
 
 <%
-System.out.println("**************************generalparameters");
+
 	boolean bShowSaveReset = false;
 	String[] saParamVal = null;
 	String sParam = null;
@@ -175,14 +175,16 @@ System.out.println("**************************generalparameters");
  <!-- Main Container -->
             <div id="main-container">
              <!-- Page content -->
-                <div id="page-content">
+                <div id="page-content" style="background-color:#FFFFFF">
                 
                 <div class="form-group">
+                <div class="container pad_bot">
                 
 	<table border="0" cellpadding="0" cellspacing="0" width="95%">
 		<tr>
 			<td style="font-family:Arial; font-size:0.8em; font-weight:bold; border:#ffffff; text-align:left">
-				<%= resourceBundle.getProperty("DataManager.DisplayText.Select_Room") %>:&nbsp;<select id="controller" name="controller" onChange="javascript:changeController(this)" class="form-control">
+				<%= resourceBundle.getProperty("DataManager.DisplayText.Select_Room") %>:&nbsp;
+				<select id="controller" name="controller" onChange="javascript:changeController(this)" >
 <%
 				if(RDMServicesConstants.ROLE_ADMIN.equals(u.getRole()))
 				{
@@ -247,11 +249,12 @@ System.out.println("**************************generalparameters");
 			</td>
 		</tr>
 	</table>
+	</div>
 
 	<form name="frm" method="post" action="setParametersProcess.jsp" target="hiddenFrame" class="form-horizontal form-bordered">
 		<input type="hidden" id="controller" name="controller" value="<%= sController %>">
-		<div id="scrollDiv">
-			<table id="freezeHeaders" border="1" cellpadding="2" cellspacing="0">
+		<div class="container">
+			<table id="freezeHeaders" class="table table-striped table-bordered table-vcenter  ">
 				<tr>
 					<th style="text-align: center; height:25px">
 						<%= resourceBundle.getProperty("DataManager.DisplayText.Parameter_Unit") %>

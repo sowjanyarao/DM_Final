@@ -229,7 +229,7 @@
                         <!-- END General Elements Title -->
 
                         <!-- General Elements Content -->
-                        <form action="page_forms_components.html" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered" onsubmit="return false;" action="showBatchPhaseLoads.jsp">
+                        <form name="frm" method="post" action="showBatchPhaseLoads.jsp" class="form-horizontal form-bordered" >
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="Month"><b><%= resourceBundle.getProperty("DataManager.DisplayText.Select_Month") %></b></label>
                                 <div class="col-md-5">

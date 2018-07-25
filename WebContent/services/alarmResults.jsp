@@ -140,38 +140,34 @@ Map<String, String> mUsers = RDMServicesUtils.getUserNames();
 <body>
 	<div class="table table-responsive table-hover">
 		
-        <table id="datatable" class="table table-striped table-bordered table-vcenter">
+        <div class="pad_bot">
 <%
 		if(mlAlarms != null && mlAlarms.size() > 0)
 		{
 			if(RDMServicesConstants.ROLE_ADMIN.equals(u.getRole()))
 			{
 %>	
-				<tr>
-					<td colspan="5" align="left">
-						<input type="button" id="clearAlarms" name="clearAlarms" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Close_All_Alarms") %>" onClick="closeAll()">
-					</td>
-					<td>
-						&nbsp;
-					</td>
-					<td colspan="5" align="right">
-						<input type="button" id="expAlarms" name="expAlarms" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Export_to_File") %>" onClick="exportAlarms()">
-					</td>
-				</tr>
+				
+						<input type="button" id="clearAlarms" name="clearAlarms" class="btn btn-effect-ripple btn-primary" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Close_All_Alarms") %>" onClick="closeAll()">
+					
+						
+					
+						<input type="button" id="expAlarms" name="expAlarms" class="btn btn-effect-ripple btn-primary" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Export_to_File") %>" onClick="exportAlarms()">
+					
 <%
 			}
 			else
 			{
 %>
-				<tr>
-					<td colspan="11" align="right">
-						<input type="button" id="expAlarms" name="expAlarms" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Export_to_File") %>" onClick="exportAlarms()">
-					</td>
-				</tr>
+				
+						<input type="button" id="expAlarms" name="expAlarms" class="btn btn-effect-ripple btn-primary" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Export_to_File") %>" onClick="exportAlarms()">
+				
 <%
 			}
 		}
 %>			
+		</div>
+		<table id="datatable" class="table table-striped table-bordered table-vcenter">
 		<tr>
 			<th  width="5%"><%= resourceBundle.getProperty("DataManager.DisplayText.Room_No") %></th>
 			<th  width="5%"><%= resourceBundle.getProperty("DataManager.DisplayText.Stage") %></th>

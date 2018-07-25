@@ -152,24 +152,24 @@ Date today = sdf.parse(sdf.format(new Date()));
 <body>
 	<form name="frm">
 	<div class="table table-responsive table-hover">
-		
-        <table id="datatable" class="table table-striped table-bordered table-vcenter">
-		
-			<tr>
-				<td colspan="5" align="left">
-					<input type="button" class="btn btn-effect-ripple btn-primary" style="overflow: hidden; position: relative;" id="Yields" name="Yields" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Add_Est_Yield") %>" onClick="javascript:addYield()">
-				</td>
+	<div class="row pad_bot"  style="padding-left:10px">
+		<input type="button" class="btn btn-effect-ripple btn-primary" style="overflow: hidden; position: relative;" id="Yields" name="Yields" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Add_Est_Yield") %>" onClick="javascript:addYield()">
 <%
 			if(iSz > 0)
 			{
 %>
-				<td colspan="4" align="right">
+				
 					<input type="button" class="btn btn-effect-ripple btn-primary" style="overflow: hidden; position: relative;" id="expYields" name="expYields" value="<%= resourceBundle.getProperty("DataManager.DisplayText.Export_to_File") %>" onClick="exportYields()">
-				</td>
+				
 <%
 			}
 %>
-			</tr>
+			
+	</div>
+		
+        <table id="datatable" class="table table-striped table-bordered table-vcenter">
+		
+
 			<tr>
 				<th width="30%" colspan="3"><div id="estYield"></div></th>
 				<th  width="35%" colspan="3"><div id="actYield"></div></th>
@@ -324,14 +324,23 @@ Date today = sdf.parse(sdf.format(new Date()));
 							if(today.compareTo(sdf.parse(onDate)) < 1)
 							{
 %>							
-								<a href="javascript:editYield('<%= sRoomId %>', '<%= onDate %>')"><img border="0" width="20" height="20" src="../images/edit.jpg" alt	="<%= resourceBundle.getProperty("DataManager.DisplayText.Edit") %>"></a>
+								<a href="javascript:editYield('<%= sRoomId %>', '<%= onDate %>')"
+												data-toggle="tooltip" title="<%= resourceBundle.getProperty("DataManager.DisplayText.Edit") %>"
+												class="btn btn-effect-ripple btn-xs btn-success"><i class="fa fa-pencil"></i></a> 
+									
+										
+								
 <%
 							}
 
 							if(isAdmin)
 							{
 %>
-								&nbsp;<a href="javascript:deleteYield('<%= sRoomId %>', '<%= onDate %>')"><img border="0" src="../images/delete.png" alt="<%= resourceBundle.getProperty("DataManager.DisplayText.Delete") %>"></a>
+								&nbsp;
+								<a href="javascript:deleteYield('<%= sRoomId %>', '<%= onDate %>')"
+												data-toggle="tooltip" title="<%= resourceBundle.getProperty("DataManager.DisplayText.Delete") %>"
+												class="btn btn-effect-ripple btn-xs btn-danger"><i class="fa fa-times"></i></a>
+								
 <%
 							}
 %>

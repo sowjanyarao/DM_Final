@@ -280,7 +280,7 @@ if(showContent == null || "".equals(showContent))
 		</div>
 
 		<div id="page-container"
-			class="header-fixed-top sidebar-visible-lg-full">
+			class="header-fixed-top sidebar-visible-lg-mini">
 			<jsp:include page="header.jsp" />
 			<jsp:include page="header-sidebar.jsp">
 			  <jsp:param name="u" value="${u}" />
