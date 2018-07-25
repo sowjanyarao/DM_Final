@@ -95,7 +95,7 @@
 	</script>
 </head>
 
-<body onLoad="javascript:setToDate()">
+<body onLoad="javascript:setToDate();searchUsers();">
     <div id="page-wrapper" class="page-loading">
         <div class="preloader">
             <div class="inner">

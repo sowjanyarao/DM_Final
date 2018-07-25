@@ -81,12 +81,12 @@ boolean isAdmin = RDMServicesConstants.ROLE_ADMIN.equals(u.getRole());
 	<script language="javascript">
 		function showDetails(userId)
 		{
-			var retval = window.open('employeeInOut.jsp?userId='+userId, '', 'left=250,top=250,resizable=no,scrollbars=no,status=no,toolbar=no,height=300,width=420');
+			var retval = window.open('employeeInOut.jsp?userId='+userId, '', 'left=250,top=250,resizable=no,scrollbars=no,status=no,toolbar=no,height=420,width=500');
 		}
 		
 		function logInOut(userId, oid, inTime, outTime, shift)
 		{
-			var retval = window.open('updateTimesheets.jsp?userId='+userId+'&OID='+oid+'&inTime='+inTime+'&outTime='+outTime+'&shift='+shift, '', 'left=250,top=250,resizable=yes,scrollbars=no,status=no,toolbar=no,height=300,width=400');
+			var retval = window.open('updateTimesheets.jsp?userId='+userId+'&OID='+oid+'&inTime='+inTime+'&outTime='+outTime+'&shift='+shift, '', 'left=250,top=250,resizable=yes,scrollbars=no,status=no,toolbar=no,height=400,width=500');
 		}
 		
 		function showOpenTasks(sUserId)

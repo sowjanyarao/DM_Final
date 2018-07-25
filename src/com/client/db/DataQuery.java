@@ -8396,7 +8396,6 @@ public class DataQuery extends RDMServicesConstants
 			sbQuery.append(")");
 			
 			sbQuery.append(" ORDER BY USER_ID,LOG_IN ASC");
-			
 			conn = connectionPool.getConnection();
 			stmt = conn.createStatement();
 			
