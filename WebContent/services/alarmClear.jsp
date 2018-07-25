@@ -22,7 +22,6 @@
 	String sRefresh = request.getParameter("refresh");
 	String sUser = u.getUser();
 	String sErr = "";
-	
 	try
 	{
 		if("Yes".equals(sMute))

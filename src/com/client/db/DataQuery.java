@@ -3588,7 +3588,6 @@ public class DataQuery extends RDMServicesConstants
 			sbQuery.append(CLEARED_ON + " IS NULL");
 			sbQuery.append(" and ");
 			sbQuery.append(ACCEPTED_ON + " IS NULL");
-				
 			conn = connectionPool.getConnection();
 			pstmt = conn.prepareStatement(sbQuery.toString());
 
