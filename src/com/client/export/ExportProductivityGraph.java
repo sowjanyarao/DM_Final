@@ -41,7 +41,12 @@ public class ExportProductivityGraph extends HttpServlet
 			ProductivityGraph graph = new ProductivityGraph();
 			String filename = graph.exportProductivityGraph(sUserId, sFName, sLName, sDept, sStartDt, sEndDt);
 			
-			String filepath = RDMServicesUtils.getClassLoaderpath("../../export");
+			String filepath = "";
+			try{
+				filepath = RDMServicesUtils.getClassLoaderpath("../../export");		
+			}catch(Exception e) {
+				filepath = RDMServicesUtils.getClassLoaderpath("");		
+			}
 			
 			File file = new File(filepath , filename);
 			fileInputStream = new FileInputStream(file);

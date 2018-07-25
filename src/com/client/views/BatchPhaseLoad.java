@@ -107,7 +107,13 @@ public class BatchPhaseLoad extends RDMServicesConstants
 			sbParamValues.append("\n");
 		}
 		
-		String sPath = RDMServicesUtils.getClassLoaderpath("../../graphs/ControllerData");
+		String sPath = "";
+		
+		try{
+			sPath = RDMServicesUtils.getClassLoaderpath("../../graphs/ControllerData");		
+		}catch(Exception e) {
+			sPath = RDMServicesUtils.getClassLoaderpath("");		
+		}
 		
 		File f = File.createTempFile("ExportPhaseLoadData", ".csv", new File(sPath));
 		f.setReadable(true, false);
@@ -216,7 +222,12 @@ public class BatchPhaseLoad extends RDMServicesConstants
 			sbParamValues.append("\n");
 		}
 		
-		String sPath = RDMServicesUtils.getClassLoaderpath("../../export");
+		String sPath = "";
+		try{
+			sPath = RDMServicesUtils.getClassLoaderpath("../../export");		
+		}catch(Exception e) {
+			sPath = RDMServicesUtils.getClassLoaderpath("");		
+		}
 		File f = File.createTempFile("ExportPhaseLoadData", ".csv", new File(sPath));
 		f.setReadable(true, false);
 		f.setWritable(true, false);

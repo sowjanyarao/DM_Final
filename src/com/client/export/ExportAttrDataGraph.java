@@ -48,7 +48,12 @@ public class ExportAttrDataGraph extends HttpServlet
 			AttrDataGraph graph = new AttrDataGraph();
 			String filename = graph.exportAttrDataGraph(sController, saParams, sStartDt, sEndDt, bYield);
 			
-			String filepath = RDMServicesUtils.getClassLoaderpath("../../export");
+			String filepath = "";
+			try{
+				filepath = RDMServicesUtils.getClassLoaderpath("../../export");		
+			}catch(Exception e) {
+				filepath = RDMServicesUtils.getClassLoaderpath("");		
+			}
 			
 			File file = new File(filepath , filename);
 			fileInputStream = new FileInputStream(file);

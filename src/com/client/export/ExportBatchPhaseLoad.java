@@ -41,7 +41,12 @@ public class ExportBatchPhaseLoad extends HttpServlet
 			BatchPhaseLoad phaseLoad = new BatchPhaseLoad();
 			String filename = phaseLoad.exportBatchPhaseGraph(sMonth, sYear, sCntrlType, sProductType, bYield);
 			
-			String filepath = RDMServicesUtils.getClassLoaderpath("../../export");
+			String filepath = "";
+			try{
+				filepath = RDMServicesUtils.getClassLoaderpath("../../export");		
+			}catch(Exception e) {
+				filepath = RDMServicesUtils.getClassLoaderpath("");		
+			}
 			
 			File file = new File(filepath , filename);
 			fileInputStream = new FileInputStream(file);

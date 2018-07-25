@@ -70,7 +70,7 @@
 			else
 			{
 %>
-				parent.frames['filter'].showAlarms();
+				parent.showAlarms();
 <%
 			}
 %>

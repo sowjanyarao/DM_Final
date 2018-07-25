@@ -162,6 +162,7 @@
 	Map<String, ArrayList<String[]>> mTypePhases = RDMServicesUtils.getControllerTypeStages();	
 %>
 <body onLoad="setToDate()">
+  <form method="post" name="frm1" class="form-horizontal form-bordered" target="results" action="alarmResults.jsp">
     <div id="page-wrapper" class="page-loading">
         <div class="preloader">
             <div class="inner">
@@ -187,7 +188,7 @@
                         <!-- END General Elements Title -->
 
                         <!-- General Elements Content -->
-                        <form method="post" name="frm1" class="form-horizontal form-bordered" target="results" action="alarmResults.jsp">
+                      
 
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="lstController"><%= resourceBundle.getProperty("DataManager.DisplayText.Room") %></label>
@@ -300,7 +301,7 @@
                             </div>
 						<input type="hidden" id="mode" name="mode" value="searchAlarms">
 
-                        </form>
+                       
                         <!-- END General Elements Content -->
                     </div>
 
@@ -320,7 +321,7 @@
         <!-- END Main Container -->
 
         <!-- END Page Container -->
-
+ </form>
 </body>
 
 </html>

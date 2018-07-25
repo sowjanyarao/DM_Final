@@ -105,22 +105,22 @@ Map<String, String> mUsers = RDMServicesUtils.getUserNames();
 		url += "&openAlarms=<%= showOpenAlarms %>";
 		url += "&limit=<%= iLimit %>";
 
-		parent.frames['hidden'].document.location.href =  url;
+		document.location.href =  url;
 	}
 	
 	function muteAlarm(roomId, serialId)
 	{
-		parent.frames['hidden'].document.location.href = "alarmClear.jsp?roomId="+roomId+"&serialId="+serialId+"&mute=Yes";
+		document.location.href = "alarmClear.jsp?roomId="+roomId+"&serialId="+serialId+"&mute=Yes";
 	}
 	
 	function closeAlarm(roomId, serialId)
 	{
-		parent.frames['hidden'].document.location.href = "alarmClear.jsp?roomId="+roomId+"&serialId="+serialId+"&clearAll=No";
+		document.location.href = "alarmClear.jsp?roomId="+roomId+"&serialId="+serialId+"&clearAll=No";
 	}
 	
 	function closeAll()
 	{
-		parent.frames['hidden'].document.location.href = "alarmClear.jsp?roomId=<%= sRoom %>&stage=<%= sStage %>&batch=<%= BNo %>&types=<%= sbTypes.toString() %>&fromDt=<%= sFromDate %>&toDt=<%= sToDate %>&clearAll=Yes";
+		document.location.href = "alarmClear.jsp?roomId=<%= sRoom %>&stage=<%= sStage %>&batch=<%= BNo %>&types=<%= sbTypes.toString() %>&fromDt=<%= sFromDate %>&toDt=<%= sToDate %>&clearAll=Yes";
 	}
 	
 	function openController(sCntrl)

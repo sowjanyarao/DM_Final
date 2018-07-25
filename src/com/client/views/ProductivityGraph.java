@@ -97,11 +97,19 @@ public class ProductivityGraph extends RDMServicesConstants
 		String sPath = "";
 		if(bExport)
 		{
-			sPath = RDMServicesUtils.getClassLoaderpath("../../export");
+			try{
+				sPath = RDMServicesUtils.getClassLoaderpath("../../export");		
+			}catch(Exception e) {
+				sPath = RDMServicesUtils.getClassLoaderpath("");		
+			}
 		}
 		else
 		{
-			sPath = RDMServicesUtils.getClassLoaderpath("../../graphs/ControllerData");
+			try{
+				sPath = RDMServicesUtils.getClassLoaderpath("../../graphs/ControllerData");		
+			}catch(Exception e) {
+				sPath = RDMServicesUtils.getClassLoaderpath("");		
+			}
 		}
 		
 		File f = File.createTempFile("ProductivityGraphData", ".csv", new File(sPath));
